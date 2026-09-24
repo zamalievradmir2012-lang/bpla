@@ -1,10 +1,174 @@
-<roblox xmlns:xmime="http://schemas.microsoft.com/appx/2010/manifest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
-  <Item class="Workspace" referent="RBX15">
-    <Properties><string name="Name">Workspace</string></Properties>
+<roblox version="4">
+  <Item class="Workspace" referent="0">
+    <Properties>
+      <string name="Name">Workspace</string>
+      <Ref name="CurrentCamera">1</Ref>
+      <float name="Gravity">196.2</float>
+    </Properties>
+    <Item class="Camera" referent="1">
+      <Properties>
+        <string name="Name">Camera</string>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>55</Y>
+          <Z>130</Z>
+          <R00>-1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.93092346</R11>
+          <R12>-0.36520386</R12>
+          <R20>0</R20>
+          <R21>-0.36520386</R21>
+          <R22>-0.93092346</R22>
+        </CoordinateFrame>
+        <token name="CameraType">5</token>
+        <float name="FieldOfView">70</float>
+      </Properties>
+    </Item>
+    <Item class="Part" referent="2">
+      <Properties>
+        <string name="Name">Baseplate</string>
+        <bool name="Anchored">true</bool>
+        <Color3uint8 name="Color3uint8">5677148</Color3uint8>
+        <token name="Material">1280</token>
+        <Vector3 name="Position">
+          <X>0</X>
+          <Y>-2</Y>
+          <Z>0</Z>
+        </Vector3>
+        <Vector3 name="size">
+          <X>512</X>
+          <Y>4</Y>
+          <Z>512</Z>
+        </Vector3>
+      </Properties>
+    </Item>
+    <Item class="SpawnLocation" referent="3">
+      <Properties>
+        <string name="Name">SpawnLocation</string>
+        <bool name="Anchored">true</bool>
+        <Color3uint8 name="Color3uint8">15790320</Color3uint8>
+        <int name="Duration">0</int>
+        <bool name="Neutral">true</bool>
+        <Vector3 name="Position">
+          <X>0</X>
+          <Y>0.5</Y>
+          <Z>0</Z>
+        </Vector3>
+        <Vector3 name="size">
+          <X>16</X>
+          <Y>1</Y>
+          <Z>16</Z>
+        </Vector3>
+      </Properties>
+    </Item>
+    <Item class="Part" referent="4">
+      <Properties>
+        <string name="Name">MarkerPole</string>
+        <bool name="Anchored">true</bool>
+        <bool name="CanCollide">false</bool>
+        <Color3uint8 name="Color3uint8">5308300</Color3uint8>
+        <token name="Material">288</token>
+        <Vector3 name="Position">
+          <X>0</X>
+          <Y>40</Y>
+          <Z>-40</Z>
+        </Vector3>
+        <Vector3 name="size">
+          <X>4</X>
+          <Y>80</Y>
+          <Z>4</Z>
+        </Vector3>
+      </Properties>
+    </Item>
+    <Item class="Part" referent="5">
+      <Properties>
+        <string name="Name">NEW_FILE_SIGN</string>
+        <bool name="Anchored">true</bool>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>16</Y>
+          <Z>-55</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <Color3uint8 name="Color3uint8">1054738</Color3uint8>
+        <token name="Material">272</token>
+        <Vector3 name="size">
+          <X>70</X>
+          <Y>18</Y>
+          <Z>1</Z>
+        </Vector3>
+      </Properties>
+      <Item class="SurfaceGui" referent="6">
+        <Properties>
+          <string name="Name">SignGui</string>
+          <token name="Face">5</token>
+        </Properties>
+        <Item class="TextLabel" referent="7">
+          <Properties>
+            <string name="Name">TextLabel</string>
+            <float name="BackgroundTransparency">1</float>
+            <Font name="FontFace">
+              <Family>
+                <url>rbxasset://fonts/families/GothamSSm.json</url>
+              </Family>
+              <Weight>700</Weight>
+              <Style>Normal</Style>
+            </Font>
+            <UDim2 name="Size">
+              <XS>1</XS>
+              <XO>0</XO>
+              <YS>1</YS>
+              <YO>0</YO>
+            </UDim2>
+            <string name="Text">НОВЫЙ ФАЙЛ  •  F5  •  зелёная площадка и мышь</string>
+            <Color3 name="TextColor3">
+              <R>0.54901963</R>
+              <G>1</G>
+              <B>0.6666667</B>
+            </Color3>
+            <bool name="TextScaled">true</bool>
+          </Properties>
+        </Item>
+      </Item>
+    </Item>
   </Item>
-  <Item class="ReplicatedStorage" referent="RBX16">
-    <Properties><string name="Name">ReplicatedStorage</string></Properties>
-    <Item class="Folder" referent="RBX11"><Properties><string name="Name">Shared</string></Properties><Item class="ModuleScript" referent="RBX8"><Properties><string name="Name">Config</string><ProtectedString name="Source">-- ============================================================
+  <Item class="Lighting" referent="8">
+    <Properties>
+      <string name="Name">Lighting</string>
+      <float name="Brightness">2</float>
+      <float name="ClockTime">14</float>
+      <bool name="GlobalShadows">true</bool>
+      <token name="Technology">4</token>
+    </Properties>
+  </Item>
+  <Item class="Players" referent="9">
+    <Properties>
+      <string name="Name">Players</string>
+      <bool name="CharacterAutoLoads">true</bool>
+    </Properties>
+  </Item>
+  <Item class="ReplicatedStorage" referent="10">
+    <Properties>
+      <string name="Name">ReplicatedStorage</string>
+    </Properties>
+    <Item class="Folder" referent="11">
+      <Properties>
+        <string name="Name">Shared</string>
+      </Properties>
+      <Item class="ModuleScript" referent="12">
+        <Properties>
+          <string name="Name">Config</string>
+          <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  «БЕСПИЛОТНИКИ» — общий конфиг (сервер + клиент)
 -- ============================================================
 local Config = {}
@@ -20,9 +184,9 @@ Config.TEAM_CAP    = 10        -- максимум игроков в коман�
 Config.TEAM_OPS = "Операторы БПЛА"
 Config.TEAM_DEF = "Защитники ПВО"
 
-Config.BUNKER_POS = Vector3.new(0, 4, -1250)    -- командный пункт операторов (севернее города)
-Config.LOBBY_POS  = Vector3.new(0, 340, -1550)  -- лобби в небе
-Config.PAD_POS    = Vector3.new(0, 46, -1250)   -- взлётная площадка на крыше бункера
+Config.BUNKER_POS = Vector3.new(0, 16, -2100)   -- бункер далеко к северу от города, выше земли
+Config.LOBBY_POS  = Vector3.new(0, 420, -2400)  -- лобби ещё дальше, в небе
+Config.PAD_POS    = Vector3.new(0, 90, -1650)   -- взлётная полоса в открытом небе, не на крыше
 
 -- Позиции города для радара/миникарты
 Config.CITY_MIN = Vector2.new(-Config.MAP_HALF, -Config.MAP_HALF)
@@ -110,7 +274,7 @@ Config.DRONES = {
 		Speed=200, Turn=45, HP=150, Ammo=6, BRadius=35, BDamage=100, FireTime=20, Fuel=nil,
 		Reward=100, Flags={Stealth=true, Modes=true},
 		Sound={Key="Jet", Pitch=1.0, Volume=0.6, MaxDistance=350},
-		Desc="Малозаметное летающее крыло. Реактивный двигатель, 6 тяжёлых бомб (R=35, 100 HP). R — режим 2 крылатых ракет (R=50, 200 HP, сносят здание целиком). На радаре виден только &lt;100 studs.",
+		Desc="Малозаметное летающее крыло. Реактивный двигатель, 6 тяжёлых бомб (R=35, 100 HP). R — режим 2 крылатых ракет (R=50, 200 HP, сносят здание целиком). На радаре виден только <100 studs.",
 	},
 	{
 		Id="molniya", Name="«Молния»", Price=12000, Control="B", Kind="kamikaze",
@@ -162,7 +326,7 @@ Config.BUILDING_SCORE_NAME = {
 Config.KILL_COINS = 25          -- оператору за убийство защитника
 Config.SURVIVAL_COINS = 10      -- защитнику каждые 60 сек выживания
 Config.SURVIVAL_PERIOD = 60
-Config.CITY_ALIVE_BONUS = 50    -- защитникам, если разрушено &lt; 20% города
+Config.CITY_ALIVE_BONUS = 50    -- защитникам, если разрушено < 20% города
 
 Config.UPGRADES = {
 	hp     = { Name="Усиленная броня",            Desc="+50 HP (максимум 300)",      Price=500 },
@@ -172,11 +336,18 @@ Config.UPGRADES = {
 }
 
 -- Точки возрождения защитников в городе
+-- Тротуар у перекрёстка (дорога ±10, тротуар до ±16). Не в центре дома.
 Config.DEF_SPAWNS = {
-	Vector3.new(-768, 4, -768), Vector3.new(-256, 4, -256), Vector3.new(-768, 4, 0),
-	Vector3.new(0, 4, -512),    Vector3.new(512, 4, -768),  Vector3.new(768, 4, -256),
-	Vector3.new(768, 4, 0),     Vector3.new(0, 4, 768),     Vector3.new(-512, 4, 512),
-	Vector3.new(384, 4, 256),
+	Vector3.new(14, 4, 14),
+	Vector3.new(-782, 4, 14),
+	Vector3.new(782, 4, 14),
+	Vector3.new(14, 4, -782),
+	Vector3.new(14, 4, 782),
+	Vector3.new(526, 4, -782),
+	Vector3.new(-526, 4, 782),
+	Vector3.new(782, 4, -526),
+	Vector3.new(-782, 4, 526),
+	Vector3.new(-270, 4, 270),
 }
 
 -- ------------------------------------------------------------
@@ -213,265 +384,365 @@ Config.REM = {
 }
 
 return Config
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX9"><Properties><string name="Name">DroneFactory</string><ProtectedString name="Source">-- ============================================================
---  DroneFactory — процедурная сборка моделей всех 10 дронов.
---  Модели смотрят носом в -Z (стандартный LookVector).
---  Пропеллеры помечаются атрибутом SpinSpeed (крутит клиент).
--- ============================================================
+]]></ProtectedString>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="13">
+        <Properties>
+          <string name="Name">DroneFactory</string>
+          <ProtectedString name="Source"><![CDATA[-- Детальные процедурные модели БПЛА.
+-- Все части стоят у нуля и сварены с PrimaryPart: PivotTo двигает аппарат целиком.
+-- У PartType.Cylinder ось — локальный X (Size.X = длина).
+
 local DroneFactory = {}
 
-local function box(parent, cf, size, color, material, transparency)
+local METAL = Enum.Material.Metal
+local PLASTIC = Enum.Material.SmoothPlastic
+local NEON = Enum.Material.Neon
+local GLASS = Enum.Material.Glass
+
+local function part(model, size, cf, color, mat, shape, name)
 	local p = Instance.new("Part")
-	p.Anchored = true; p.CanCollide = false
-	p.TopSurface = Enum.SurfaceType.Smooth; p.BottomSurface = Enum.SurfaceType.Smooth
-	p.Size = size; p.CFrame = cf
-	p.Color = color; p.Material = material or Enum.Material.Metal
-	if transparency then p.Transparency = transparency end
-	p.Parent = parent
+	p.Name = name or "Part"
+	p.Size = size
+	p.CFrame = cf or CFrame.new()
+	p.Color = color
+	p.Material = mat or PLASTIC
+	p.Anchored = true
+	p.CanCollide = false
+	p.Massless = true
+	p.CastShadow = true
+	p.TopSurface = Enum.SurfaceType.Smooth
+	p.BottomSurface = Enum.SurfaceType.Smooth
+	if shape then p.Shape = shape end
+	p.Parent = model
 	return p
 end
 
-local function ball(parent, cf, d, color, material)
-	local p = box(parent, cf, Vector3.new(d, d, d), color, material)
-	local m = Instance.new("SpecialMesh")
-	m.MeshType = Enum.MeshType.Sphere
-	m.Parent = p
-	return p
+local function wedge(model, size, cf, color, mat, name)
+	local w = Instance.new("WedgePart")
+	w.Name = name or "Wedge"
+	w.Size = size
+	w.CFrame = cf
+	w.Color = color
+	w.Material = mat or PLASTIC
+	w.Anchored = true
+	w.CanCollide = false
+	w.Massless = true
+	w.Parent = model
+	return w
 end
 
--- Цилиндр вдоль оси Z
-local function tube(parent, cf, diameter, length, color, material)
-	local p = Instance.new("Part")
-	p.Anchored = true; p.CanCollide = false
-	p.Shape = Enum.PartType.Cylinder
-	p.Size = Vector3.new(length, diameter, diameter)
-	p.CFrame = cf * CFrame.Angles(0, math.rad(90), 0) -- ось цилиндра (X) -&gt; Z
-	p.Color = color; p.Material = material or Enum.Material.Metal
-	p.TopSurface = Enum.SurfaceType.Smooth; p.BottomSurface = Enum.SurfaceType.Smooth
-	p.Parent = parent
-	return p
+-- цилиндр: длина вдоль локального X переданного cf
+local function cyl(model, dia, len, cf, color, mat, name)
+	return part(model, Vector3.new(len, dia, dia), cf, color, mat, Enum.PartType.Cylinder, name)
 end
 
--- Пропеллер: крест лопастей + полупрозрачный диск размытия
-local function prop(parent, cf, d, color)
-	local propModel = Instance.new("Model")
-	propModel.Name = "Prop"
-	local hub = box(propModel, cf, Vector3.new(0.3, 0.3, 0.3), color)
-	local blade1 = box(propModel, cf * CFrame.Angles(0, math.rad(45), 0), Vector3.new(d, 0.08, 0.45), color)
-	local blade2 = box(propModel, cf * CFrame.Angles(0, math.rad(135), 0), Vector3.new(d, 0.08, 0.45), color)
-	blade1:SetAttribute("SpinSpeed", 1400)
-	blade2:SetAttribute("SpinSpeed", 1400)
-	local blur = box(propModel, cf, Vector3.new(d, 0.05, d), color, Enum.Material.Glass, 0.85)
-	blur.Name = "BlurDisc"
-	blur:SetAttribute("BlurDisc", true)
-	propModel.Parent = parent
-	return propModel
+local function ball(model, dia, cf, color, mat, name)
+	return part(model, Vector3.new(dia, dia, dia), cf, color, mat, Enum.PartType.Ball, name)
 end
 
--- Финализация: сварить всё с PrimaryPart
-local function finalize(model, primary)
-	model.PrimaryPart = primary
-	for _, p in ipairs(model:GetDescendants()) do
-		if p:IsA("BasePart") and p ~= primary then
+-- +X цилиндра → вверх (диск винта в горизонтали)
+local function faceUp(cf)
+	return cf * CFrame.Angles(0, 0, math.rad(90))
+end
+
+-- +X цилиндра → нос (-Z)
+local function faceNose(cf)
+	return cf * CFrame.Angles(0, math.rad(90), 0)
+end
+
+local function weldAll(model, primary)
+	for _, d in ipairs(model:GetDescendants()) do
+		if d:IsA("BasePart") and d ~= primary then
 			local w = Instance.new("WeldConstraint")
-			w.Part0 = primary; w.Part1 = p
+			w.Part0 = primary
+			w.Part1 = d
 			w.Parent = primary
 		end
 	end
+end
+
+local function finish(model, primary, previewDist)
+	primary.Name = "Hull"
+	primary.Massless = false
+	primary.CustomPhysicalProperties = PhysicalProperties.new(0.22, 0.3, 0.15)
+	model.PrimaryPart = primary
+	weldAll(model, primary)
+	model:SetAttribute("PreviewDist", previewDist or 24)
 	return model
 end
 
--- ------------------------------------------------------------
-local Builders = {}
-
--- 1. «Пчела» — квадрокоптер 3x3
-function Builders.pchela(model, c)
-	local body = box(model, CFrame.new(0, 0, 0), Vector3.new(1.6, 0.7, 1.6), Color3.fromRGB(60, 62, 66), Enum.Material.SmoothPlastic)
-	local cam = ball(model, CFrame.new(0, -0.55, 0.3), 0.7, Color3.fromRGB(20, 20, 20), Enum.Material.Glass)
-	local armLen = 2.6
-	for _, sx in ipairs({-1, 1}) do
-		for _, sz in ipairs({-1, 1}) do
-			local armPos = CFrame.new(sx * armLen / 2, 0.15, sz * armLen / 2) * CFrame.Angles(0, math.rad(45 * sx * sz), 0)
-			box(model, CFrame.new(0, 0.15, 0):Lerp(CFrame.new(sx * armLen / 2, 0.15, sz * armLen / 2), 0.5), Vector3.new(2.0, 0.18, 0.18), Color3.fromRGB(40, 40, 40))
-			prop(model, armPos * CFrame.new(0, 0.35, 0), 1.5, Color3.fromRGB(25, 25, 25))
-		end
-	end
-	local skid1 = box(model, CFrame.new(-0.5, -0.75, 0), Vector3.new(0.12, 0.5, 1.4), Color3.fromRGB(30, 30, 30))
-	local skid2 = box(model, CFrame.new(0.5, -0.75, 0), Vector3.new(0.12, 0.5, 1.4), Color3.fromRGB(30, 30, 30))
-	return finalize(model, body)
-end
-
--- 2. «Упырь» — FPV камикадзе 2x2
-function Builders.upyr(model, c)
-	local body = box(model, CFrame.new(0, 0, 0), Vector3.new(1.2, 0.4, 1.8), Color3.fromRGB(28, 28, 30), Enum.Material.DiamondPlate)
-	for _, sx in ipairs({-1, 1}) do
-		for _, sz in ipairs({-1, 1}) do
-			box(model, CFrame.new(sx * 1.0, 0, sz * 0.7), Vector3.new(0.9, 0.12, 0.12), Color3.fromRGB(28, 28, 30))
-			prop(model, CFrame.new(sx * 1.0, 0.15, sz * 0.7), 1.3, Color3.fromRGB(15, 15, 15))
-		end
-	end
-	local gopro = box(model, CFrame.new(0, 0.28, -0.85), Vector3.new(0.5, 0.5, 0.35), Color3.fromRGB(15, 15, 15), Enum.Material.Glass)
-	local lens = ball(model, CFrame.new(0, 0.28, -1.05), 0.35, Color3.fromRGB(90, 130, 255), Enum.Material.Neon)
-	local warhead = ball(model, CFrame.new(0, -0.35, 0.1), 0.9, Color3.fromRGB(120, 30, 30))
-	return finalize(model, body)
-end
-
--- 3/4. Герань-1 и Герань-2 — дельтадрон с толкающим пропеллером
-local function geran(model, c, size, color, accent)
-	local L, W, H = size.X, size.Y, size.Z
-	local body = tube(model, CFrame.new(0, 0, 0), H, L, color)
-	local nose = ball(model, CFrame.new(0, 0, -L / 2), H * 1.05, color)
-	-- дельтовидное крыло: два клина
-	local wingSpan = W
-	local wingL = box(model, CFrame.new(-wingSpan / 4, 0, L * 0.1) * CFrame.Angles(0, math.rad(14), 0), Vector3.new(wingSpan / 2, 0.18, L * 0.55), color)
-	local wingR = box(model, CFrame.new(wingSpan / 4, 0, L * 0.1) * CFrame.Angles(0, math.rad(-14), 0), Vector3.new(wingSpan / 2, 0.18, L * 0.55), color)
-	-- законцовки вниз (для Герань-2 крупнее)
-	box(model, CFrame.new(-wingSpan / 2, -0.5, L * 0.28), Vector3.new(0.15, 1.2, L * 0.3), color)
-	box(model, CFrame.new(wingSpan / 2, -0.5, L * 0.28), Vector3.new(0.15, 1.2, L * 0.3), color)
-	-- V-образное хвостовое оперение
-	local tailL = box(model, CFrame.new(-0.5, H * 0.5, L * 0.42) * CFrame.Angles(math.rad(40), 0, math.rad(10)), Vector3.new(0.12, 1.6, L * 0.3), color)
-	local tailR = box(model, CFrame.new(0.5, H * 0.5, L * 0.42) * CFrame.Angles(math.rad(40), 0, math.rad(-10)), Vector3.new(0.12, 1.6, L * 0.3), color)
-	-- нижний киль
-	box(model, CFrame.new(0, -H * 0.6, L * 0.38), Vector3.new(0.12, 1.2, L * 0.28), color)
-	-- толкающий пропеллер сзади
-	prop(model, CFrame.new(0, 0, L / 2 + 0.5), H * 2.4, Color3.fromRGB(20, 20, 20))
-	-- камуфляжная полоса + военная маркировка (красная звезда-полоса)
-	local stripe = box(model, CFrame.new(0, 0.02, -L * 0.05) * CFrame.Angles(0, 0, 0), Vector3.new(W * 0.5, 0.06, 1.2), accent or Color3.fromRGB(70, 30, 30))
-	local mark = box(model, CFrame.new(0, 0.05, -L * 0.25), Vector3.new(1.4, 0.06, 0.5), Color3.fromRGB(160, 30, 30))
-	return finalize(model, body)
-end
-
-function Builders.geran1(model, c) return geran(model, c, Vector3.new(10, 1.4, 8), Color3.fromRGB(58, 68, 48)) end
-function Builders.geran2(model, c) return geran(model, c, Vector3.new(14, 1.7, 10), Color3.fromRGB(92, 98, 76)) end
-
--- 5. «Орлан-10» — самолёт с прямым крылом, толкающий винт
-function Builders.orlan(model, c)
-	local color = Color3.fromRGB(158, 163, 168)
-	local body = tube(model, CFrame.new(0, 0, 0), 2.2, 12, color)
-	local nose = ball(model, CFrame.new(0, 0, -6), 2.3, color)
-	local turret = ball(model, CFrame.new(0, -1.2, -4.5), 1.3, Color3.fromRGB(30, 30, 30), Enum.Material.Glass)
-	local wing = box(model, CFrame.new(0, 0.4, 1), Vector3.new(20, 0.25, 2.6), color)
-	box(model, CFrame.new(-9.5, 0.8, 1), Vector3.new(1.2, 0.8, 2.2), color)
-	box(model, CFrame.new(9.5, 0.8, 1), Vector3.new(1.2, 0.8, 2.2), color)
-	local tailL = box(model, CFrame.new(-1, 1.2, 5.5) * CFrame.Angles(math.rad(45), 0, 0), Vector3.new(0.15, 2.4, 1.6), color)
-	local tailR = box(model, CFrame.new(1, 1.2, 5.5) * CFrame.Angles(math.rad(45), 0, 0), Vector3.new(0.15, 2.4, 1.6), color)
-	prop(model, CFrame.new(0, 0, 6.6), 3.4, Color3.fromRGB(25, 25, 25))
-	box(model, CFrame.new(0, -1.6, 0.5), Vector3.new(0.2, 1.2, 5), color) -- лыжа шасси
-	return finalize(model, body)
-end
-
--- 6. «Ланцет-3» — X-крыло, серебристый
-function Builders.lancet(model, c)
-	local color = Color3.fromRGB(198, 200, 205)
-	local body = tube(model, CFrame.new(0, 0, 0), 1.3, 6, color, Enum.Material.SmoothPlastic)
-	local nose = ball(model, CFrame.new(0, 0, -3), 1.4, Color3.fromRGB(25, 30, 35), Enum.Material.Glass)
-	for i, ang in ipairs({45, 135, 225, 315}) do
-		local dir = CFrame.Angles(0, math.rad(ang), 0)
-		local fin = box(model, CFrame.new(0, 0, 0.8) * dir * CFrame.new(2.2, 0, 0) * CFrame.Angles(0, 0, math.rad(-8)), Vector3.new(4.4, 0.14, 1.6), color)
-	end
-	prop(model, CFrame.new(0, 0, 3.3), 2.2, Color3.fromRGB(60, 60, 60))
-	return finalize(model, body)
-end
-
--- 7. «Иноходец» (Орион) — большой MALE-БПЛА
-function Builders.inohodets(model, c)
-	local color = Color3.fromRGB(218, 218, 212)
-	local body = tube(model, CFrame.new(0, 0, 0), 2.6, 18, color)
-	local nose = ball(model, CFrame.new(0, 0, -9), 2.8, color)
-	local turret = ball(model, CFrame.new(0, -1.5, -6.5), 1.6, Color3.fromRGB(30, 30, 30), Enum.Material.Glass)
-	local wing = box(model, CFrame.new(0, 0.5, 1.5), Vector3.new(35, 0.3, 3.4), color)
-	for _, sx in ipairs({-1, 1}) do
-		for _, off in ipairs({4, 10}) do
-			-- пилоны с ракетами
-			box(model, CFrame.new(sx * off, -0.9, 1.5), Vector3.new(0.25, 1.0, 0.25), color)
-			local rocket = tube(model, CFrame.new(sx * off, -1.7, 1.5), 0.6, 3.4, Color3.fromRGB(200, 190, 120))
-		end
-		box(model, CFrame.new(sx * 16, 1.0, 1.5), Vector3.new(1.5, 0.9, 2.6), color)
-	end
-	local tailL = box(model, CFrame.new(-1.2, 1.6, 8) * CFrame.Angles(math.rad(45), 0, 0), Vector3.new(0.18, 3.2, 2.2), color)
-	local tailR = box(model, CFrame.new(1.2, 1.6, 8) * CFrame.Angles(math.rad(45), 0, 0), Vector3.new(0.18, 3.2, 2.2), color)
-	prop(model, CFrame.new(0, 0, 9.6), 4.6, Color3.fromRGB(25, 25, 25))
-	return finalize(model, body)
-end
-
--- 8. «Охотник» — летающее крыло (B-2 стиль)
-function Builders.ohotnik(model, c)
-	local color = Color3.fromRGB(45, 48, 52)
-	local body = box(model, CFrame.new(0, 0, 0), Vector3.new(16, 1.6, 12), color, Enum.Material.SmoothPlastic)
-	local wingL = box(model, CFrame.new(-11, 0, 3) * CFrame.Angles(0, math.rad(28), 0), Vector3.new(17, 1.2, 9), color, Enum.Material.SmoothPlastic)
-	local wingR = box(model, CFrame.new(11, 0, 3) * CFrame.Angles(0, math.rad(-28), 0), Vector3.new(17, 1.2, 9), color, Enum.Material.SmoothPlastic)
-	-- воздухозаборник сверху
-	box(model, CFrame.new(0, 1.1, -1), Vector3.new(5, 0.8, 4), Color3.fromRGB(30, 32, 35))
-	-- сопло сзади
-	local nozzle = tube(model, CFrame.new(0, 0, 6.2), 3, 2, Color3.fromRGB(20, 20, 22))
-	local glow = box(model, CFrame.new(0, 0, 7.2), Vector3.new(2.4, 2.4, 0.3), Color3.fromRGB(255, 120, 50), Enum.Material.Neon)
-	glow.Name = "JetGlow"
-	return finalize(model, body)
-end
-
--- 9. «Молния» — гиперзвуковой дрот
-function Builders.molniya(model, c)
-	local color = Color3.fromRGB(18, 18, 20)
-	local body = tube(model, CFrame.new(0, 0, 0), 2.4, 10, color, Enum.Material.SmoothPlastic)
-	local nose = ball(model, CFrame.new(0, 0, -5), 2.5, color, Enum.Material.SmoothPlastic)
-	local wingL = box(model, CFrame.new(-2.6, 0, 2.5) * CFrame.Angles(0, math.rad(55), 0), Vector3.new(5, 0.16, 2.2), color)
-	local wingR = box(model, CFrame.new(2.6, 0, 2.5) * CFrame.Angles(0, math.rad(-55), 0), Vector3.new(5, 0.16, 2.2), color)
-	-- красные светящиеся полосы
-	local stripeL = box(model, CFrame.new(-1.25, 0, -1), Vector3.new(0.2, 0.3, 7), Color3.fromRGB(255, 40, 40), Enum.Material.Neon)
-	local stripeR = box(model, CFrame.new(1.25, 0, -1), Vector3.new(0.2, 0.3, 7), Color3.fromRGB(255, 40, 40), Enum.Material.Neon)
-	-- светящееся сопло
-	local nozzle = box(model, CFrame.new(0, 0, 5.4), Vector3.new(2.2, 2.2, 0.6), Color3.fromRGB(255, 60, 60), Enum.Material.Neon)
+local function navLight(model, cf, color)
+	local bulb = part(model, Vector3.new(0.18, 0.12, 0.18), cf, color, NEON, nil, "NavLight")
 	local light = Instance.new("PointLight")
-	light.Color = Color3.fromRGB(255, 60, 60); light.Brightness = 4; light.Range = 18
-	light.Parent = nozzle
-	return finalize(model, body)
+	light.Color = color
+	light.Range = 12
+	light.Brightness = 1.6
+	light.Parent = bulb
+	return bulb
 end
 
--- 10. Рой «Саранча» — лидер роя
-function Builders.sarancha(model, c)
-	local body = box(model, CFrame.new(0, 0, 0), Vector3.new(1.4, 0.5, 1.4), Color3.fromRGB(50, 52, 40), Enum.Material.Metal)
-	for _, sx in ipairs({-1, 1}) do
-		for _, sz in ipairs({-1, 1}) do
-			box(model, CFrame.new(sx * 1.1, 0.1, sz * 1.1), Vector3.new(1.2, 0.12, 0.12), Color3.fromRGB(35, 35, 35))
-			prop(model, CFrame.new(sx * 1.1, 0.3, sz * 1.1), 1.5, Color3.fromRGB(25, 25, 25))
-		end
-	end
-	local led = box(model, CFrame.new(0, 0.4, 0), Vector3.new(0.3, 0.15, 0.3), Color3.fromRGB(255, 60, 60), Enum.Material.Neon)
-	led.Name = "BlinkLED"
-	led:SetAttribute("Blink", true)
-	local antenna = box(model, CFrame.new(0, 0.9, 0.5), Vector3.new(0.08, 0.9, 0.08), Color3.fromRGB(20, 20, 20))
-	return finalize(model, body)
+local function motor(model, cf, accent)
+	cyl(model, 0.46, 0.36, faceUp(cf), accent, METAL, "Motor")
+	local disc = cyl(model, 1.85, 0.045, faceUp(cf * CFrame.new(0, 0.22, 0)), Color3.fromRGB(225, 232, 238), PLASTIC, "PropDisc")
+	disc.Transparency = 0.42
+	local blade = part(model, Vector3.new(1.7, 0.04, 0.16), cf * CFrame.new(0, 0.28, 0), Color3.fromRGB(40, 44, 48), PLASTIC, nil, "Prop")
+	blade.Transparency = 0.2
+	local blade2 = part(model, Vector3.new(0.16, 0.04, 1.7), cf * CFrame.new(0, 0.3, 0), Color3.fromRGB(40, 44, 48), PLASTIC, nil, "Prop")
+	blade2.Transparency = 0.2
 end
 
--- Крошечный дрон роя (юнит) — 1x1
-function DroneFactory.buildUnit(parent, position)
-	local model = Instance.new("Model")
-	model.Name = "SwarmUnit"
-	local body = box(model, CFrame.new(position), Vector3.new(0.9, 0.25, 0.9), Color3.fromRGB(45, 45, 38), Enum.Material.Metal)
-	for _, sx in ipairs({-1, 1}) do
-		for _, sz in ipairs({-1, 1}) do
-			prop(model, CFrame.new(position + Vector3.new(sx * 0.7, 0.2, sz * 0.7)), 0.9, Color3.fromRGB(20, 20, 20))
+-- ========== квадрокоптер ==========
+local function quad(name, body, accent, span)
+	local m = Instance.new("Model")
+	m.Name = name
+	local s = span
+	local hull = part(m, Vector3.new(s * 0.38, 0.26, s * 0.5), CFrame.new(), body, PLASTIC, nil, "Hull")
+	-- полоса на спине
+	part(m, Vector3.new(s * 0.06, 0.04, s * 0.46), CFrame.new(0, 0.15, 0), accent, NEON, nil, "Stripe")
+	-- нос
+	wedge(m, Vector3.new(s * 0.26, 0.2, s * 0.22), CFrame.new(0, -0.02, -s * 0.34) * CFrame.Angles(0, math.rad(180), 0), body, PLASTIC, "Nose")
+	-- подвес камеры
+	ball(m, 0.38, CFrame.new(0, -0.28, -s * 0.08), Color3.fromRGB(24, 26, 28), PLASTIC, "Gimbal")
+	cyl(m, 0.16, 0.08, faceNose(CFrame.new(0, -0.28, -s * 0.28)), Color3.fromRGB(80, 170, 255), GLASS, "Lens")
+	-- антенны
+	part(m, Vector3.new(0.05, 0.62, 0.05), CFrame.new(-s * 0.1, 0.4, s * 0.14), accent, NEON, nil, "Antenna")
+	part(m, Vector3.new(0.05, 0.48, 0.05), CFrame.new(s * 0.1, 0.36, s * 0.14), accent, NEON, nil, "Antenna")
+	local reach = s * 0.78
+	for _, sgn in ipairs({ -1, 1 }) do
+		for _, sgz in ipairs({ -1, 1 }) do
+			local ang = math.atan2(sgz, sgn)
+			local armCF = CFrame.new(sgn * reach * 0.46, 0.04, sgz * reach * 0.46) * CFrame.Angles(0, -ang, 0)
+			part(m, Vector3.new(reach * 0.9, 0.08, 0.14), armCF, Color3.fromRGB(32, 34, 36), METAL, nil, "Arm")
+			motor(m, CFrame.new(sgn * reach * 0.86, 0.12, sgz * reach * 0.86), accent)
 		end
 	end
-	local led = box(model, CFrame.new(position + Vector3.new(0, 0.25, 0)), Vector3.new(0.22, 0.1, 0.22), Color3.fromRGB(255, 60, 60), Enum.Material.Neon)
-	led:SetAttribute("Blink", true)
-	finalize(model, body)
-	model.Parent = parent
+	-- лыжи
+	for _, sgn in ipairs({ -1, 1 }) do
+		part(m, Vector3.new(0.08, 0.06, s * 0.62), CFrame.new(sgn * s * 0.16, -0.42, 0.02), accent, METAL, nil, "Skid")
+		part(m, Vector3.new(0.06, 0.28, 0.06), CFrame.new(sgn * s * 0.16, -0.26, -s * 0.18), body, METAL, nil, "Strut")
+		part(m, Vector3.new(0.06, 0.28, 0.06), CFrame.new(sgn * s * 0.16, -0.26, s * 0.2), body, METAL, nil, "Strut")
+	end
+	navLight(m, CFrame.new(0, 0.16, s * 0.22), accent)
+	return finish(m, hull, math.max(16, s * 6.5))
+end
+
+-- ========== самолёт ==========
+local function airplane(name, body, accent, span, fuseLen, twinBoom)
+	local m = Instance.new("Model")
+	m.Name = name
+	local hull = part(m, Vector3.new(span * 0.12, 0.38, fuseLen * 0.48), CFrame.new(0, 0, -fuseLen * 0.02), body, PLASTIC, nil, "Hull")
+	wedge(m, Vector3.new(span * 0.1, 0.28, fuseLen * 0.26), CFrame.new(0, -0.02, -fuseLen * 0.36) * CFrame.Angles(0, math.rad(180), 0), body, PLASTIC, "Nose")
+	local canopy = part(m, Vector3.new(span * 0.08, 0.18, fuseLen * 0.16), CFrame.new(0, 0.26, -fuseLen * 0.08), Color3.fromRGB(150, 205, 225), GLASS, nil, "Canopy")
+	canopy.Transparency = 0.3
+	-- крыло большого удлинения
+	part(m, Vector3.new(span, 0.07, fuseLen * 0.16), CFrame.new(0, 0.06, 0), body, PLASTIC, nil, "Wing")
+	part(m, Vector3.new(span * 0.92, 0.03, 0.08), CFrame.new(0, 0.1, -fuseLen * 0.08), accent, PLASTIC, nil, "WingStripe")
+	part(m, Vector3.new(0.08, 0.42, fuseLen * 0.12), CFrame.new(-span * 0.5, 0.24, 0), accent, PLASTIC, nil, "Winglet")
+	part(m, Vector3.new(0.08, 0.42, fuseLen * 0.12), CFrame.new(span * 0.5, 0.24, 0), accent, PLASTIC, nil, "Winglet")
+	-- тянущий винт
+	ball(m, 0.26, CFrame.new(0, 0, -fuseLen * 0.5), accent, METAL, "PropHub")
+	part(m, Vector3.new(0.1, span * 0.2, 0.035), CFrame.new(0, 0, -fuseLen * 0.52), Color3.fromRGB(28, 30, 32), PLASTIC, nil, "PropBlade")
+	part(m, Vector3.new(span * 0.2, 0.1, 0.035), CFrame.new(0, 0, -fuseLen * 0.54), Color3.fromRGB(28, 30, 32), PLASTIC, nil, "PropBlade")
+	if twinBoom then
+		for _, sgn in ipairs({ -1, 1 }) do
+			part(m, Vector3.new(0.14, 0.14, fuseLen * 0.62), CFrame.new(sgn * span * 0.2, 0.02, fuseLen * 0.28), body, PLASTIC, nil, "Boom")
+			part(m, Vector3.new(0.07, 0.62, 0.28), CFrame.new(sgn * span * 0.2, 0.36, fuseLen * 0.54), accent, PLASTIC, nil, "Fin")
+		end
+		part(m, Vector3.new(span * 0.46, 0.06, 0.2), CFrame.new(0, 0.5, fuseLen * 0.54), body, PLASTIC, nil, "Stab")
+	else
+		part(m, Vector3.new(0.14, 0.14, fuseLen * 0.42), CFrame.new(0, 0.04, fuseLen * 0.32), body, PLASTIC, nil, "Boom")
+		part(m, Vector3.new(0.07, 0.72, 0.3), CFrame.new(0, 0.42, fuseLen * 0.48), accent, PLASTIC, nil, "Fin")
+		part(m, Vector3.new(span * 0.36, 0.06, 0.18), CFrame.new(0, 0.62, fuseLen * 0.46), body, PLASTIC, nil, "Stab")
+	end
+	ball(m, 0.34, CFrame.new(0, -0.3, -fuseLen * 0.02), Color3.fromRGB(22, 24, 26), PLASTIC, "Turret")
+	cyl(m, 0.14, 0.1, faceNose(CFrame.new(0, -0.3, -fuseLen * 0.2)), Color3.fromRGB(90, 170, 255), GLASS, "Lens")
+	navLight(m, CFrame.new(0, 0.22, fuseLen * 0.16), accent)
+	return finish(m, hull, math.max(22, span * 3.2))
+end
+
+-- ========== дельта (Герань) ==========
+local function geran(name, body, accent, scale)
+	scale = scale or 1
+	local m = Instance.new("Model")
+	m.Name = name
+	local function S(v)
+		return v * scale
+	end
+	local hull = part(m, Vector3.new(S(1.5), S(0.32), S(2.2)), CFrame.new(0, 0, S(-0.3)), body, PLASTIC, nil, "Hull")
+	wedge(m, Vector3.new(S(3.2), S(0.14), S(2.5)), CFrame.new(S(-1.5), S(0.02), S(0.25)) * CFrame.Angles(0, math.rad(76), 0), body, PLASTIC, "WingL")
+	wedge(m, Vector3.new(S(3.2), S(0.14), S(2.5)), CFrame.new(S(1.5), S(0.02), S(0.25)) * CFrame.Angles(0, math.rad(-76), 0), body, PLASTIC, "WingR")
+	-- кромка крыла
+	part(m, Vector3.new(S(4.6), S(0.04), S(0.12)), CFrame.new(0, S(0.08), S(-0.55)), accent, PLASTIC, nil, "Leading")
+	wedge(m, Vector3.new(S(0.1), S(0.7), S(0.85)), CFrame.new(0, S(0.42), S(1.05)), accent, PLASTIC, "Fin")
+	cyl(m, S(0.5), S(0.65), faceNose(CFrame.new(0, 0, S(1.45))), Color3.fromRGB(36, 38, 40), METAL, "Engine")
+	cyl(m, S(0.28), S(0.2), faceNose(CFrame.new(0, 0, S(1.85))), accent, METAL, "Nozzle")
+	ball(m, S(0.62), CFrame.new(0, S(-0.04), S(-1.4)), Color3.fromRGB(48, 50, 46), METAL, "Warhead")
+	part(m, Vector3.new(S(0.14), S(0.14), S(0.28)), CFrame.new(0, 0, S(-1.78)), accent, NEON, nil, "Fuze")
+	navLight(m, CFrame.new(0, S(0.2), S(0.4)), accent)
+	return finish(m, hull, 18 * scale)
+end
+
+-- ========== Ланцет: X-крыло ==========
+local function lancet(name, body, accent)
+	local m = Instance.new("Model")
+	m.Name = name
+	local hull = part(m, Vector3.new(0.38, 0.38, 3.1), CFrame.new(), body, PLASTIC, nil, "Hull")
+	wedge(m, Vector3.new(0.3, 0.3, 0.75), CFrame.new(0, 0, -1.85) * CFrame.Angles(0, math.rad(180), 0), accent, PLASTIC, "Nose")
+	cyl(m, 0.16, 0.12, faceNose(CFrame.new(0, 0, -2.2)), Color3.fromRGB(40, 40, 36), GLASS, "Seeker")
+	for _, ang in ipairs({ 42, -42, 138, -138 }) do
+		local cf = CFrame.new(0, 0, 0.1) * CFrame.Angles(0, 0, math.rad(ang)) * CFrame.new(0.95, 0, 0)
+		part(m, Vector3.new(1.55, 0.05, 0.5), cf, body, PLASTIC, nil, "XWing")
+	end
+	for _, ang in ipairs({ 45, -45, 135, -135 }) do
+		local cf = CFrame.new(0, 0, 1.2) * CFrame.Angles(0, 0, math.rad(ang)) * CFrame.new(0.42, 0, 0)
+		part(m, Vector3.new(0.7, 0.045, 0.38), cf, accent, PLASTIC, nil, "Tail")
+	end
+	cyl(m, 0.26, 0.36, faceNose(CFrame.new(0, 0, 1.7)), Color3.fromRGB(28, 30, 32), METAL, "Pusher")
+	navLight(m, CFrame.new(0, 0.22, 0.2), accent)
+	return finish(m, hull, 18)
+end
+
+-- ========== Охотник: летающее крыло ==========
+local function ohotnik()
+	local m = Instance.new("Model")
+	m.Name = "Охотник"
+	local body = Color3.fromRGB(38, 40, 44)
+	local accent = Color3.fromRGB(170, 174, 180)
+	local hull = part(m, Vector3.new(2.2, 0.42, 4.2), CFrame.new(0, 0, -0.4), body, PLASTIC, nil, "Hull")
+	wedge(m, Vector3.new(6.4, 0.2, 3.6), CFrame.new(-3.2, 0.02, 0.2) * CFrame.Angles(0, math.rad(68), 0), body, PLASTIC, "WingL")
+	wedge(m, Vector3.new(6.4, 0.2, 3.6), CFrame.new(3.2, 0.02, 0.2) * CFrame.Angles(0, math.rad(-68), 0), body, PLASTIC, "WingR")
+	-- зубцы задней кромки
+	for _, x in ipairs({ -4.2, -2.4, 2.4, 4.2 }) do
+		wedge(m, Vector3.new(1.1, 0.1, 0.7), CFrame.new(x, 0.02, 1.55), Color3.fromRGB(28, 30, 32), PLASTIC, "Saw")
+	end
+	local slit = part(m, Vector3.new(0.7, 0.12, 0.9), CFrame.new(0, 0.28, -1.1), Color3.fromRGB(20, 28, 36), GLASS, nil, "Cockpit")
+	slit.Transparency = 0.35
+	-- два сопла
+	for _, sgn in ipairs({ -1, 1 }) do
+		cyl(m, 0.55, 0.8, faceNose(CFrame.new(sgn * 0.7, 0, 1.9)), Color3.fromRGB(24, 26, 28), METAL, "Intake")
+		local glow = cyl(m, 0.28, 0.12, faceNose(CFrame.new(sgn * 0.7, 0, 2.3)), Color3.fromRGB(255, 140, 60), NEON, "Exhaust")
+		local light = Instance.new("PointLight")
+		light.Color = Color3.fromRGB(255, 140, 60)
+		light.Range = 10
+		light.Brightness = 1.2
+		light.Parent = glow
+	end
+	navLight(m, CFrame.new(0, 0.24, -1.6), accent)
+	return finish(m, hull, 32)
+end
+
+-- ========== Молния: длинная игла ==========
+local function molniya()
+	local m = Instance.new("Model")
+	m.Name = "Молния"
+	local body = Color3.fromRGB(210, 214, 220)
+	local accent = Color3.fromRGB(40, 170, 255)
+	local hull = part(m, Vector3.new(0.42, 0.42, 5.4), CFrame.new(), body, METAL, nil, "Hull")
+	wedge(m, Vector3.new(0.32, 0.32, 1.4), CFrame.new(0, 0, -3.3) * CFrame.Angles(0, math.rad(180), 0), body, METAL, "Nose")
+	part(m, Vector3.new(0.08, 0.08, 4.2), CFrame.new(0, 0.24, -0.2), accent, NEON, nil, "Spine")
+	-- маленькие крылья
+	part(m, Vector3.new(2.6, 0.05, 0.7), CFrame.new(0, 0, 0.4), body, METAL, nil, "Wing")
+	part(m, Vector3.new(1.3, 0.04, 0.4), CFrame.new(0, 0, 2.1), accent, METAL, nil, "TailWing")
+	part(m, Vector3.new(0.05, 0.7, 0.45), CFrame.new(0, 0.3, 2.15), accent, METAL, nil, "Fin")
+	local exhaust = cyl(m, 0.28, 0.35, faceNose(CFrame.new(0, 0, 2.9)), Color3.fromRGB(80, 200, 255), NEON, "Exhaust")
+	local light = Instance.new("PointLight")
+	light.Color = accent
+	light.Range = 16
+	light.Brightness = 2
+	light.Parent = exhaust
+	return finish(m, hull, 26)
+end
+
+local function weldExtra(hull, piece)
+	local w = Instance.new("WeldConstraint")
+	w.Part0 = hull
+	w.Part1 = piece
+	w.Parent = hull
+end
+
+local BUILDERS = {
+	pchela = function()
+		local m = quad("Пчела", Color3.fromRGB(232, 190, 48), Color3.fromRGB(40, 42, 46), 2.6)
+		local hull = m.PrimaryPart
+		local grenade = ball(m, 0.36, CFrame.new(0, -0.22, 0.35), Color3.fromRGB(70, 90, 48), METAL, "Grenade")
+		weldExtra(hull, grenade)
+		return m
+	end,
+	upyr = function()
+		local m = quad("Упырь", Color3.fromRGB(22, 24, 26), Color3.fromRGB(70, 220, 90), 1.7)
+		local hull = m.PrimaryPart
+		local wh = ball(m, 0.42, CFrame.new(0, -0.2, -0.55), Color3.fromRGB(140, 90, 40), METAL, "Warhead")
+		weldExtra(hull, wh)
+		local cam = part(m, Vector3.new(0.22, 0.16, 0.12), CFrame.new(0, 0.16, -0.45), Color3.fromRGB(20, 20, 22), PLASTIC, nil, "GoPro")
+		weldExtra(hull, cam)
+		return m
+	end,
+	geran1 = function()
+		return geran("Герань-1", Color3.fromRGB(214, 214, 206), Color3.fromRGB(50, 52, 48), 1.55)
+	end,
+	geran2 = function()
+		return geran("Герань-2", Color3.fromRGB(232, 228, 214), Color3.fromRGB(28, 28, 30), 2.35)
+	end,
+	orlan = function()
+		return airplane("Орлан-10", Color3.fromRGB(236, 236, 230), Color3.fromRGB(36, 78, 160), 8.2, 3.4, false)
+	end,
+	lancet = function()
+		local m = lancet("Ланцет-3", Color3.fromRGB(168, 176, 148), Color3.fromRGB(86, 104, 58))
+		m:SetAttribute("PreviewDist", 20)
+		return m
+	end,
+	inohodets = function()
+		local m = airplane("Иноходец", Color3.fromRGB(78, 84, 72), Color3.fromRGB(196, 168, 74), 14, 7.2, true)
+		local hull = m.PrimaryPart
+		for _, x in ipairs({ -3.2, -1.5, 1.5, 3.2 }) do
+			local rack = part(m, Vector3.new(0.1, 0.4, 0.1), CFrame.new(x, -0.34, 0), Color3.fromRGB(40, 42, 40), METAL, nil, "Pylon")
+			local missile = part(m, Vector3.new(0.26, 0.26, 1.5), CFrame.new(x, -0.62, -0.15), Color3.fromRGB(92, 98, 78), PLASTIC, nil, "Missile")
+			local seeker = part(m, Vector3.new(0.16, 0.16, 0.28), CFrame.new(x, -0.62, -1.0), Color3.fromRGB(196, 168, 74), PLASTIC, nil, "Seeker")
+			weldExtra(hull, rack)
+			weldExtra(hull, missile)
+			weldExtra(hull, seeker)
+		end
+		local dish = cyl(m, 0.85, 0.1, faceUp(CFrame.new(0, 0.55, 0.6)), Color3.fromRGB(214, 216, 220), METAL, "Satcom")
+		weldExtra(hull, dish)
+		m:SetAttribute("PreviewDist", 34)
+		return m
+	end,
+	ohotnik = ohotnik,
+	molniya = molniya,
+	sarancha = function()
+		return quad("Саранча", Color3.fromRGB(74, 82, 46), Color3.fromRGB(190, 200, 60), 1.25)
+	end,
+}
+
+function DroneFactory.build(droneId, parent, cf)
+	local fn = BUILDERS[droneId] or BUILDERS.pchela
+	local model = fn()
+	model.Name = "Drone_" .. tostring(droneId)
+	model:SetAttribute("DroneId", droneId)
+	if cf then model:PivotTo(cf) end
+	if parent then model.Parent = parent end
 	return model
 end
 
--- Главная функция сборки
-function DroneFactory.build(droneId)
-	local builder = Builders[droneId]
-	if not builder then return nil end
-	local model = Instance.new("Model")
-	model.Name = "Drone_" .. droneId
-	builder(model)
+function DroneFactory.buildUnit(parent, position)
+	local model = BUILDERS.sarancha()
+	model.Name = "SwarmUnit"
+	model:SetAttribute("DroneId", "sarancha")
+	model:PivotTo(CFrame.new(position))
+	if parent then model.Parent = parent end
 	return model
 end
 
 return DroneFactory
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX10"><Properties><string name="Name">Util</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="14">
+        <Properties>
+          <string name="Name">Util</string>
+          <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  Util — общие помощники (сервер + клиент)
 -- ============================================================
 local Util = {}
@@ -561,7 +832,7 @@ end
 -- Трейсер выстрела: тонкая неоновая линия
 function Util.tracer(from, to, color, parent, thickness, life)
 	local dist = (to - from).Magnitude
-	if dist &lt; 0.5 then return end
+	if dist < 0.5 then return end
 	local p = Instance.new("Part")
 	p.Anchored = true
 	p.CanCollide = false
@@ -644,7 +915,7 @@ end
 function Util.lerp(a, b, t) return a + (b - a) * t end
 
 function Util.clampMag(v, max) 
-	if v.Magnitude &gt; max then return v.Unit * max end
+	if v.Magnitude > max then return v.Unit * max end
 	return v
 end
 
@@ -661,14 +932,68 @@ function Util.groundAt(pos, exclude)
 end
 
 return Util
-</ProtectedString></Properties></Item></Item>
+]]></ProtectedString>
+        </Properties>
+      </Item>
+    </Item>
   </Item>
-  <Item class="ServerScriptService" referent="RBX17">
-    <Properties><string name="Name">ServerScriptService</string></Properties>
-    <Item class="ModuleScript" referent="RBX1"><Properties><string name="Name">Destruction</string><ProtectedString name="Source">-- ============================================================
+  <Item class="ServerScriptService" referent="15">
+    <Properties>
+      <string name="Name">ServerScriptService</string>
+    </Properties>
+    <Item class="Script" referent="16">
+      <Properties>
+        <string name="Name">Bootstrap</string>
+        <bool name="Disabled">false</bool>
+        <token name="RunContext">1</token>
+        <ProtectedString name="Source"><![CDATA[-- Запускается отдельно от Main. Даже если Main упадёт, персонаж появится
+-- и камера Play начнёт слушаться мышь.
+local Players = game:GetService("Players")
+
+Players.CharacterAutoLoads = true
+
+local function ensurePad()
+	if workspace:FindFirstChild("EmergencyPad") then return end
+	local pad = Instance.new("SpawnLocation")
+	pad.Name = "EmergencyPad"
+	pad.Anchored = true
+	pad.Size = Vector3.new(64, 2, 64)
+	pad.Position = Vector3.new(0, 3, 0)
+	pad.Neutral = true
+	pad.Duration = 0
+	pad.Color = Color3.fromRGB(70, 180, 90)
+	pad.Material = Enum.Material.Grass
+	pad.Parent = workspace
+end
+
+local function spawn(pl)
+	if pl.Character then return end
+	local ok, err = pcall(function()
+		pl:LoadCharacter()
+	end)
+	if not ok then
+		warn("[БЕСПИЛОТНИКИ] LoadCharacter: " .. tostring(err))
+	end
+end
+
+ensurePad()
+Players.PlayerAdded:Connect(function(pl)
+	task.defer(spawn, pl)
+end)
+for _, pl in ipairs(Players:GetPlayers()) do
+	task.defer(spawn, pl)
+end
+print("[БЕСПИЛОТНИКИ] Bootstrap: спавн включён")
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="17">
+      <Properties>
+        <string name="Name">Destruction</string>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  Destruction — мега-разрушения зданий (СЕРВЕР)
 --  Каждая разрушаемая Part имеет атрибуты: HP, MH (maxHP), K (kind),
---  и зарегистрирована здесь. Взрыв -&gt; урон -&gt; обломки -&gt; обрушения.
+--  и зарегистрирована здесь. Взрыв -> урон -> обломки -> обрушения.
 -- ============================================================
 local Debris = game:GetService("Debris")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -735,7 +1060,7 @@ function Destruction.GetInfo(part) return partInfo[part] end
 local function addDebris(part, life)
 	table.insert(debrisQueue, { part = part, t = os.clock() })
 	Debris:AddItem(part, life or math.random(8, 12))
-	while #debrisQueue &gt; Config.MAX_DEBRIS do
+	while #debrisQueue > Config.MAX_DEBRIS do
 		local old = table.remove(debrisQueue, 1)
 		if old.part and old.part.Parent then old.part:Destroy() end
 	end
@@ -746,7 +1071,7 @@ local function spawnChunks(part, explosionPos)
 	for i = 1, n do
 		local chunk = Instance.new("Part")
 		chunk.Size = Vector3.new(part.Size.X, part.Size.Y, part.Size.Z) * (0.2 + math.random() * 0.25)
-		if chunk.Size.Magnitude &gt; 14 then chunk.Size = chunk.Size.Unit * 14 end
+		if chunk.Size.Magnitude > 14 then chunk.Size = chunk.Size.Unit * 14 end
 		chunk.Material = part.Material
 		chunk.Color = part.Color
 		chunk.Anchored = false
@@ -755,7 +1080,7 @@ local function spawnChunks(part, explosionPos)
 		local away = Vector3.new(math.random() - 0.5, math.random() * 0.8, math.random() - 0.5)
 		if explosionPos then
 			local dir = (part.Position - explosionPos)
-			if dir.Magnitude &gt; 0.1 then away = away + dir.Unit * 0.8 end
+			if dir.Magnitude > 0.1 then away = away + dir.Unit * 0.8 end
 		end
 		chunk.AssemblyLinearVelocity = away * math.random(20, 45)
 		chunk.Parent = workspace
@@ -834,7 +1159,7 @@ function Destruction.DamagePart(part, dmg, player, explosionPos)
 	if info.building then info.building.lastPlayer = player or info.building.lastPlayer end
 	info.hp = info.hp - dmg
 	part:SetAttribute("HP", math.max(0, math.floor(info.hp)))
-	if info.hp &lt;= 0 then
+	if info.hp <= 0 then
 		destroyPartNow(part, explosionPos, player)
 	end
 end
@@ -846,8 +1171,8 @@ CheckCollapseFn = function(building, floor, player)
 	if building.destroyed then return end
 	local f = building.floors[floor]
 	if not f then return end
-	local wallGone = f.wallTotal &gt; 0 and (f.wallDead / f.wallTotal) &gt;= 0.5
-	local colsGone = f.colTotal &gt; 0 and f.colDead &gt;= f.colTotal
+	local wallGone = f.wallTotal > 0 and (f.wallDead / f.wallTotal) >= 0.5
+	local colsGone = f.colTotal > 0 and f.colDead >= f.colTotal
 	if not (wallGone or colsGone) then return end
 	if building.collapsed[floor] then return end
 	building.collapsed[floor] = true
@@ -856,7 +1181,7 @@ CheckCollapseFn = function(building, floor, player)
 	local center = building.center
 	local dropCount = 0
 	for part, info in pairs(partInfo) do
-		if info.building == building and info.floor &gt; floor and part.Parent then
+		if info.building == building and info.floor > floor and part.Parent then
 			part.Anchored = false
 			part.AssemblyLinearVelocity = Vector3.new((math.random() - 0.5) * 8, -4, (math.random() - 0.5) * 8)
 			addDebris(part, math.random(6, 10))
@@ -866,7 +1191,7 @@ CheckCollapseFn = function(building, floor, player)
 	end
 	-- повторить проверку для этажей выше (каскад)
 	for fl in pairs(building.floors) do
-		if fl &gt; floor then building.collapsed[fl] = true end
+		if fl > floor then building.collapsed[fl] = true end
 	end
 
 	-- эффекты: грохот + пылевое облако + тряска
@@ -884,7 +1209,7 @@ CheckCollapseFn = function(building, floor, player)
 		if shakeEv then
 			for _, pl in ipairs(game:GetService("Players"):GetPlayers()) do
 				local char = pl.Character
-				if char and char.PrimaryPart and (char.PrimaryPart.Position - base).Magnitude &lt; 120 then
+				if char and char.PrimaryPart and (char.PrimaryPart.Position - base).Magnitude < 120 then
 					shakeEv:FireClient(pl, 1.2)
 				end
 			end
@@ -902,7 +1227,7 @@ local function checkBuildingDestroyed(building)
 	for _ in pairs(building.collapsed) do collapsedCount = collapsedCount + 1 end
 	local floorCount = 0
 	for _ in pairs(building.floors) do floorCount = floorCount + 1 end
-	if ratio &gt;= 0.7 or (floorCount &gt; 0 and collapsedCount &gt;= math.max(1, math.floor(floorCount * 0.6))) then
+	if ratio >= 0.7 or (floorCount > 0 and collapsedCount >= math.max(1, math.floor(floorCount * 0.6))) then
 		building.destroyed = true
 		if Destruction.OnBuildingDestroyed then
 			Destruction.OnBuildingDestroyed(building.lastPlayer, building.category, building.name, building.center)
@@ -950,7 +1275,7 @@ Destruction.Crater = crater
 function Destruction.Ignite(pos, fireTime, player)
 	local count = 0
 	for _ in pairs(fires) do count = count + 1 end
-	if count &gt;= 80 then return end
+	if count >= 80 then return end
 	local holder = Instance.new("Part")
 	holder.Anchored = true; holder.CanCollide = false; holder.CanQuery = false; holder.CanTouch = false
 	holder.Transparency = 1
@@ -977,9 +1302,9 @@ task.spawn(function()
 		local now = os.clock()
 		for i = #fires, 1, -1 do
 			local f = fires[i]
-			if not f.part.Parent or now &gt; f.expire then
+			if not f.part.Parent or now > f.expire then
 				table.remove(fires, i)
-			elseif now &gt;= f.nextSpread then
+			elseif now >= f.nextSpread then
 				f.nextSpread = now + 5
 				-- распространение: соседние стеновые секции получают 10 урона
 				local params = OverlapParams.new()
@@ -988,11 +1313,11 @@ task.spawn(function()
 				local near = workspace:GetPartBoundsInRadius(f.part.Position, 8, params)
 				for _, p in ipairs(near) do
 					local info = partInfo[p]
-					if info and (info.kind == "Wall" or info.kind == "Column" or info.kind == "Prop") and info.hp &gt; 0 then
+					if info and (info.kind == "Wall" or info.kind == "Column" or info.kind == "Prop") and info.hp > 0 then
 						local wasAlive = info.hp
 						Destruction.DamagePart(p, 10, nil)
 						local after = partInfo[p]
-						if not after and wasAlive &gt; 0 then
+						if not after and wasAlive > 0 then
 							-- часть сгорела — загорается дальше
 							Destruction.Ignite(p.Position, 20, nil)
 						end
@@ -1039,7 +1364,7 @@ function Destruction.Explode(pos, radius, damage, opts)
 	-- визуал
 	Util.burst(pos, { radius = math.min(radius, 25), fireCount = math.floor(radius * 2), smokeCount = math.floor(radius) })
 	Util.sound3d(Config.SOUNDS.Explosion, pos, 3, 0.8 + math.random() * 0.2, 400, 6)
-	if radius &gt;= 25 then
+	if radius >= 25 then
 		Util.sound3d(Config.SOUNDS.BigExplosion, pos, 3, 0.7, 500, 8)
 	end
 	local flash = Instance.new("PointLight")
@@ -1064,7 +1389,7 @@ function Destruction.Explode(pos, radius, damage, opts)
 		if shakeEv then
 			for _, pl in ipairs(game:GetService("Players"):GetPlayers()) do
 				local char = pl.Character
-				if char and char.PrimaryPart and (char.PrimaryPart.Position - pos).Magnitude &lt; radius + 80 then
+				if char and char.PrimaryPart and (char.PrimaryPart.Position - pos).Magnitude < radius + 80 then
 					shakeEv:FireClient(pl, math.min(2, radius / 30))
 				end
 			end
@@ -1076,15 +1401,15 @@ function Destruction.Explode(pos, radius, damage, opts)
 		local char = pl.Character
 		local hrp = char and char:FindFirstChild("HumanoidRootPart")
 		local hum = char and char:FindFirstChildOfClass("Humanoid")
-		if hrp and hum and hum.Health &gt; 0 then
+		if hrp and hum and hum.Health > 0 then
 			local d = (hrp.Position - pos).Magnitude
-			if d &lt; radius then
+			if d < radius then
 				local dmg = damage * (1 - 0.7 * d / radius)
 				if opts.armorPen then dmg = dmg * 1.25 end
 				hum:TakeDamage(dmg)
 				if opts.knockback then
 					local away = (hrp.Position - pos)
-					if away.Magnitude &lt; 0.5 then away = Vector3.new(0, 1, 0) end
+					if away.Magnitude < 0.5 then away = Vector3.new(0, 1, 0) end
 					hrp.AssemblyLinearVelocity = away.Unit * 50 + Vector3.new(0, 30, 0)
 				end
 			end
@@ -1113,7 +1438,7 @@ function Destruction.Explode(pos, radius, damage, opts)
 	for _, b in ipairs(hitBuildings) do checkBuildingDestroyed(b) end
 
 	-- пожар и воронка
-	if opts.fireTime and opts.fireTime &gt; 0 then
+	if opts.fireTime and opts.fireTime > 0 then
 		Destruction.Ignite(pos + Vector3.new(0, 2, 0), opts.fireTime, player)
 	end
 	if opts.crater then crater(pos, radius) end
@@ -1131,7 +1456,13 @@ function Destruction.Reset()
 end
 
 return Destruction
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX2"><Properties><string name="Name">DroneService</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="18">
+      <Properties>
+        <string name="Name">DroneService</string>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  DroneService — запуск и жизнь дронов (СЕРВЕР)
 --  Физику дрон ведёт клиент (NetworkOwnership), сервер следит
 --  за HP, топливом, камикадзе-детонацией, боеприпасами, радаром.
@@ -1218,7 +1549,7 @@ function DroneService.DamageDrone(model, dmg, attacker)
 	if attacker and attacker.Parent then
 		fireRemote(Config.REM.OperFX, info.player, { type = "hit" })
 	end
-	if hp &lt;= 0 then
+	if hp <= 0 then
 		local pos = info.primary and info.primary.Position or model:GetPivot().Position
 		-- засчитать защитнику
 		if attacker and attacker:IsA("Player") and attacker.Team and attacker.Team.Name == Config.TEAM_DEF then
@@ -1238,7 +1569,7 @@ end
 Destruction.OnDroneExplosion = function(pos, radius, damage, player)
 	for model, info in pairs(activeDrones) do
 		if info.primary and info.primary.Position and model.Parent then
-			if (info.primary.Position - pos).Magnitude &lt; radius then
+			if (info.primary.Position - pos).Magnitude < radius then
 				DroneService.DamageDrone(model, damage * 0.8, player)
 			end
 		end
@@ -1251,11 +1582,12 @@ end
 local function spawnBomb(drone, info, opts)
 	local primary = info.primary
 	local bomb = Instance.new("Part")
-	bomb.Size = Vector3.new(1.2, 1.2, 2.2)
+	bomb.Shape = Enum.PartType.Cylinder
+	bomb.Size = Vector3.new(1.8, 0.55, 0.55)
 	bomb.Color = Color3.fromRGB(70, 70, 60)
 	bomb.Material = Enum.Material.Metal
 	bomb.CanCollide = false
-	bomb.CFrame = primary.CFrame * CFrame.new(0, -2, -2)
+	bomb.CFrame = primary.CFrame * CFrame.new(0, -1.4, -1.2) * CFrame.Angles(0, math.rad(90), 0)
 	bomb.AssemblyLinearVelocity = primary.AssemblyVelocity * 0.6 + Vector3.new(0, -6, 0)
 	bomb.Parent = workspace
 	local born = os.clock()
@@ -1263,18 +1595,18 @@ local function spawnBomb(drone, info, opts)
 	local conn
 	conn = RunService.Heartbeat:Connect(function(dt)
 		if not bomb.Parent then conn:Disconnect() return end
-		if os.clock() - born &gt; life then
+		if os.clock() - born > life then
 			conn:Disconnect()
 			Destruction.Explode(bomb.Position, info.cfg.BRadius, info.cfg.BDamage,
-				{ player = info.player, fireTime = info.cfg.FireTime, crater = info.cfg.BRadius &gt;= 15 })
+				{ player = info.player, fireTime = info.cfg.FireTime, crater = info.cfg.BRadius >= 15 })
 			bomb:Destroy()
 			return
 		end
 		local r = workspace:Raycast(bomb.Position, bomb.AssemblyLinearVelocity * dt * 1.5 + Vector3.new(0, -1, 0), rayParams)
-		if r and os.clock() - born &gt; 0.25 then
+		if r and os.clock() - born > 0.25 then
 			conn:Disconnect()
 			Destruction.Explode(r.Position, info.cfg.BRadius, info.cfg.BDamage,
-				{ player = info.player, fireTime = info.cfg.FireTime, crater = info.cfg.BRadius &gt;= 15 })
+				{ player = info.player, fireTime = info.cfg.FireTime, crater = info.cfg.BRadius >= 15 })
 			bomb:Destroy()
 		end
 	end)
@@ -1284,15 +1616,16 @@ local function spawnDroneMissile(drone, info, dir, opts)
 	opts = opts or {}
 	local primary = info.primary
 	local missile = Instance.new("Part")
-	missile.Size = Vector3.new(0.8, 0.8, 3.4)
+	missile.Shape = Enum.PartType.Cylinder
+	missile.Size = Vector3.new(3.2, 0.42, 0.42)
 	missile.Color = Color3.fromRGB(200, 190, 140)
 	missile.Material = Enum.Material.Metal
 	missile.CanCollide = false
-	missile.CFrame = CFrame.lookAt(primary.Position + dir * 6, primary.Position + dir * 20)
+	missile.CFrame = CFrame.lookAt(primary.Position + dir * 6, primary.Position + dir * 20) * CFrame.Angles(0, math.rad(90), 0)
 	missile.Parent = workspace
 	-- трейл
-	local a0 = Instance.new("Attachment", missile); a0.Position = Vector3.new(0, 0, 1.6)
-	local a1 = Instance.new("Attachment", missile); a1.Position = Vector3.new(0, 0, -1.6)
+	local a0 = Instance.new("Attachment", missile); a0.Position = Vector3.new(1.4, 0, 0)
+	local a1 = Instance.new("Attachment", missile); a1.Position = Vector3.new(-1.4, 0, 0)
 	local trail = Instance.new("Trail", missile)
 	trail.Attachment0 = a0; trail.Attachment1 = a1
 	trail.Lifetime = 0.35
@@ -1316,9 +1649,9 @@ local function spawnDroneMissile(drone, info, dir, opts)
 			missile:Destroy()
 			return
 		end
-		missile.CFrame = CFrame.lookAt(missile.Position + step, missile.Position + step + vel)
+		missile.CFrame = CFrame.lookAt(missile.Position + step, missile.Position + step + vel) * CFrame.Angles(0, math.rad(90), 0)
 		missile.Position = missile.Position + step
-		if os.clock() - born &gt; life or missile.Position.Y &lt; 0 then
+		if os.clock() - born > life or missile.Position.Y < 0 then
 			conn:Disconnect()
 			Destruction.Explode(missile.Position, opts.radius, opts.damage,
 				{ player = info.player, fireTime = opts.fireTime or 0, crater = true, knockback = opts.knockback })
@@ -1335,7 +1668,7 @@ local function kamikazeExplode(model, info)
 	Destruction.Explode(pos, info.cfg.BRadius, info.cfg.BDamage, {
 		player = info.player,
 		fireTime = info.cfg.FireTime,
-		crater = info.cfg.BRadius &gt;= 20,
+		crater = info.cfg.BRadius >= 20,
 		knockback = info.cfg.Flags.Knockback,
 	})
 	if info.cfg.Flags.ShakeAll then
@@ -1354,27 +1687,40 @@ end
 -- ------------------------------------------------------------
 local function spawnSwarmUnits(player, leaderModel, cfg)
 	local units = {}
-	local origin = PAD + Vector3.new(0, 6, 0)
+	local origin = PAD + Vector3.new(0, 18, 0)
 	for i = 1, cfg.Ammo do
 		local ang = (i / cfg.Ammo) * math.pi * 2
-		local pos = origin + Vector3.new(math.cos(ang) * 14, (i % 3) * 3, math.sin(ang) * 14)
+		local pos = origin + Vector3.new(math.cos(ang) * 16, (i % 3) * 2.5, math.sin(ang) * 16)
 		local unit = DroneFactory.buildUnit(workspace.Drones, pos)
 		local primary = unit.PrimaryPart
-		for _, p in ipairs(unit:GetDescendants()) do
-			if p:IsA("BasePart") then p.Anchored = false p.CanCollide = false end
-		end
 		local att = Instance.new("Attachment", primary)
 		local align = Instance.new("AlignOrientation")
+		align.Name = "FlightAlign"
 		align.Mode = Enum.OrientationAlignmentMode.OneAttachment
 		align.Attachment0 = att
-		align.MaxTorque = 1e6
-		align.Responsiveness = 40
+		align.RigidityEnabled = true
+		align.Responsiveness = 60
+		align.MaxTorque = 1e7
+		align.CFrame = CFrame.Angles(0, math.pi, 0)
 		align.Parent = primary
 		local lvel = Instance.new("LinearVelocity")
+		lvel.Name = "FlightVel"
 		lvel.Attachment0 = att
-		lvel.MaxForce = 1e6
-		lvel.VectorVelocity = Vector3.new()
+		lvel.MaxForce = 1e7
+		lvel.RelativeTo = Enum.ActuatorRelativeTo.World
+		lvel.VectorVelocity = Vector3.new(0, 22, 28)
+		pcall(function()
+			lvel.ForceLimitMode = Enum.ForceLimitMode.Magnitude
+			lvel.VelocityConstraintMode = Enum.VelocityConstraintMode.Vector
+		end)
 		lvel.Parent = primary
+		for _, part in ipairs(unit:GetDescendants()) do
+			if part:IsA("BasePart") then
+				part.Anchored = false
+				part.CanCollide = false
+				part.AssemblyLinearVelocity = Vector3.new(0, 22, 28)
+			end
+		end
 		pcall(function() primary:SetNetworkOwner(player) end)
 		unit:SetAttribute("Unit", true)
 		unit:SetAttribute("Owner", player.Name)
@@ -1393,7 +1739,7 @@ local function swarmAttack(info, targetPos, all)
 		end
 	end
 	if #candidates == 0 then return end
-	table.sort(candidates, function(a, b) return a.dist &lt; b.dist end)
+	table.sort(candidates, function(a, b) return a.dist < b.dist end)
 	local n = all and #candidates or 1
 	for i = 1, math.min(n, #candidates) do
 		local unit = candidates[i].unit
@@ -1414,7 +1760,7 @@ function DroneService.Launch(player, droneId)
 	if not cfg then return nil, "Неизвестный дрон" end
 	if not player.Team or player.Team.Name ~= Config.TEAM_OPS then return nil, "Вы не оператор" end
 	if droneByPlayer[player] and droneByPlayer[player].Parent then return nil, "Дрон уже в воздухе" end
-	if cfg.Price &gt; 0 then
+	if cfg.Price > 0 then
 		if not Economy.TrySpend(player, cfg.Price) then return nil, "Не хватает монет" end
 	end
 
@@ -1430,32 +1776,45 @@ function DroneService.Launch(player, droneId)
 	model:SetAttribute("Loiter", false)
 	model:SetAttribute("Formation", "wedge")
 
-	local primary = model.PrimaryPart
-	primary.CFrame = CFrame.lookAt(PAD + Vector3.new(0, 8, 0), PAD + Vector3.new(0, 8, 30))
+	-- PivotTo пока детали Anchored: иначе сварка рвёт модель, и двигается только корпус.
+	local launchPos = PAD + Vector3.new(0, 16, 0)
+	local launchCF = CFrame.lookAt(launchPos, launchPos + Vector3.new(0, 4, 40))
+	model:PivotTo(launchCF)
 	model.Parent = workspace.Drones
+	local primary = model.PrimaryPart
+	if not primary then return nil, "Нет корпуса" end
 
-	-- сварка уже есть; рас anchor
-	for _, p in ipairs(model:GetDescendants()) do
-		if p:IsA("BasePart") then
-			p.Anchored = false
-			p.CanCollide = (p == primary)
-		end
-	end
-
-	local att = Instance.new("Attachment", primary)
+	local att = Instance.new("Attachment")
+	att.Name = "FlightAtt"
+	att.Parent = primary
 	local align = Instance.new("AlignOrientation")
+	align.Name = "FlightAlign"
 	align.Mode = Enum.OrientationAlignmentMode.OneAttachment
 	align.Attachment0 = att
-	align.MaxTorque = primary.AssemblyMass * 400 + 1e5
-	align.Responsiveness = math.clamp(cfg.Turn / 2, 15, 80)
-	align.CFrame = primary.CFrame - primary.Position
+	align.RigidityEnabled = true
+	align.Responsiveness = 200
+	align.MaxTorque = 1e7
+	align.CFrame = launchCF - launchCF.Position
 	align.Parent = primary
 	local lvel = Instance.new("LinearVelocity")
+	lvel.Name = "FlightVel"
 	lvel.Attachment0 = att
-	lvel.MaxForce = primary.AssemblyMass * 400 + 1e5
+	lvel.MaxForce = 1e7
 	lvel.RelativeTo = Enum.ActuatorRelativeTo.World
-	lvel.VectorVelocity = Vector3.new()
+	lvel.VectorVelocity = Vector3.new(0, 36, 62)
+	pcall(function()
+		lvel.ForceLimitMode = Enum.ForceLimitMode.Magnitude
+		lvel.VelocityConstraintMode = Enum.VelocityConstraintMode.Vector
+	end)
 	lvel.Parent = primary
+
+	for _, part in ipairs(model:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.Anchored = false
+			part.CanCollide = (part == primary)
+			part.AssemblyLinearVelocity = Vector3.new(0, 36, 62)
+		end
+	end
 
 	-- звук мотора
 	local sId = Config.SOUNDS[cfg.Sound.Key] or Config.SOUNDS.Motor
@@ -1501,8 +1860,8 @@ local function bindRemotes()
 			local info = activeDrones[model]
 			if not info or type(dir) ~= "Vector3" then return end
 			local ammo = model:GetAttribute("Ammo") or 0
-			if ammo &lt;= 0 then return end
-			if (info.primary.Position - origin).Magnitude &gt; 40 then return end -- валидация
+			if ammo <= 0 then return end
+			if (info.primary.Position - origin).Magnitude > 40 then return end -- валидация
 			dir = dir.Unit
 			local cfg = info.cfg
 			model:SetAttribute("Ammo", ammo - 1)
@@ -1601,10 +1960,10 @@ local function bindRemotes()
 			local info = model and activeDrones[model]
 			if not info then return end
 			local dist = (info.primary.Position - PAD).Magnitude
-			if dist &lt; 90 then
+			if dist < 90 then
 				-- посадка: возврат 50% цены
 				local refund = math.floor(info.cfg.Price * 0.5)
-				if refund &gt; 0 then Economy.Add(player, refund, "Посадка дрона") end
+				if refund > 0 then Economy.Add(player, refund, "Посадка дрона") end
 				removeDrone(model, nil, nil)
 				fireRemote(Config.REM.OperFX, player, { type = "landed" })
 			end
@@ -1626,12 +1985,12 @@ local function heartbeatLoop(dt)
 			if cfg.Kind == "kamikaze" then
 				local vel = primary.AssemblyLinearVelocity
 				local speed = vel.Magnitude
-				if speed &gt; 5 then
+				if speed > 5 then
 					local hit = workspace:Raycast(primary.Position, vel.Unit * (speed * dt * 1.6 + 3), rayParams)
-					if hit or primary.Position.Y &lt; 1 then
+					if hit or primary.Position.Y < 1 then
 						kamikazeExplode(model, info)
 					end
-				elseif primary.Position.Y &lt; 1 then
+				elseif primary.Position.Y < 1 then
 					kamikazeExplode(model, info)
 				end
 			end
@@ -1639,20 +1998,20 @@ local function heartbeatLoop(dt)
 			if info.fuelLeft then
 				info.fuelLeft = info.fuelLeft - dt
 				model:SetAttribute("Fuel", math.max(0, math.floor(info.fuelLeft)))
-				if info.fuelLeft &lt;= 0 then
+				if info.fuelLeft <= 0 then
 					kamikazeExplode(model, info) -- крушение
 				end
 			end
 			-- скорость манёвра (для ПЗРК)
 			local yaw = math.atan2(-primary.CFrame.LookVector.X, -primary.CFrame.LookVector.Z)
 			local dyaw = math.abs(yaw - info.yawPrev)
-			if dyaw &gt; math.pi then dyaw = math.pi * 2 - dyaw end
+			if dyaw > math.pi then dyaw = math.pi * 2 - dyaw end
 			info.yawRate = Util.lerp(info.yawRate, dyaw / math.max(dt, 0.01), 0.2)
 			info.yawPrev = yaw
 			-- дым при повреждении
 			local hpFrac = (model:GetAttribute("HP") or 1) / (model:GetAttribute("MaxHP") or 1)
 			local emitter = primary:FindFirstChild("DamageSmoke")
-			if hpFrac &lt; 0.5 and not emitter then
+			if hpFrac < 0.5 and not emitter then
 				emitter = Instance.new("ParticleEmitter")
 				emitter.Name = "DamageSmoke"
 				emitter.Texture = "rbxasset://textures/particles/smoke_main.dds"
@@ -1673,7 +2032,7 @@ local function heartbeatLoop(dt)
 			local pp = unit.PrimaryPart
 			if pp then
 				local toT = a.target - pp.Position
-				if toT.Magnitude &lt; 7 then
+				if toT.Magnitude < 7 then
 					attackingUnits[unit] = nil
 					Destruction.Explode(pp.Position, a.cfg.BRadius, a.cfg.BDamage, { player = a.player })
 					unit:Destroy()
@@ -1702,12 +2061,12 @@ local function fuelAndRadarLoop()
 							local pos = info.primary.Position
 							local cfg = info.cfg
 							if cfg.Flags.Stealth then
-								-- «Охотник» виден только &lt; 100 studs
-								if myPos and (pos - myPos).Magnitude &lt; 100 then
+								-- «Охотник» виден только < 100 studs
+								if myPos and (pos - myPos).Magnitude < 100 then
 									table.insert(blips, { x = pos.X, y = pos.Y, z = pos.Z })
 								end
 							elseif cfg.Id == "molniya" then
-								if math.random() &lt; 0.15 then -- мелькает
+								if math.random() < 0.15 then -- мелькает
 									table.insert(blips, { x = pos.X, y = pos.Y, z = pos.Z })
 								end
 							else
@@ -1724,12 +2083,12 @@ local function fuelAndRadarLoop()
 		for model, info in pairs(activeDrones) do
 			if model.Parent and info.primary then
 				local p = info.primary.Position
-				if math.abs(p.X) &lt; Config.MAP_HALF and p.Z &gt; -Config.MAP_HALF and p.Z &lt; Config.MAP_HALF then
+				if math.abs(p.X) < Config.MAP_HALF and p.Z > -Config.MAP_HALF and p.Z < Config.MAP_HALF then
 					anyInCity = true
 				end
 			end
 		end
-		if anyInCity and os.clock() - lastSiren &gt; 90 then
+		if anyInCity and os.clock() - lastSiren > 90 then
 			lastSiren = os.clock()
 			local sirenEv = Remotes and Remotes:FindFirstChild(Config.REM.Siren)
 			if sirenEv then
@@ -1750,7 +2109,7 @@ local function monitorOperators()
 			else
 				local char = pl.Character
 				local hum = char and char:FindFirstChildOfClass("Humanoid")
-				if hum and hum.Health &lt;= 0 then
+				if hum and hum.Health <= 0 then
 					kamikazeExplode(model, info)
 				end
 			end
@@ -1766,7 +2125,13 @@ function DroneService.Init()
 end
 
 return DroneService
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX3"><Properties><string name="Name">Economy</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="19">
+      <Properties>
+        <string name="Name">Economy</string>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  Economy — монеты, покупки, DataStore (СЕРВЕР)
 -- ============================================================
 local Players = game:GetService("Players")
@@ -1805,7 +2170,7 @@ function Economy.Coins(pl)
 end
 
 function Economy.Add(pl, amount, reason)
-	if not pl or amount &lt;= 0 then return end
+	if not pl or amount <= 0 then return end
 	local c = coinsStat(pl)
 	if not c then return end
 	c.Value = c.Value + amount
@@ -1819,9 +2184,29 @@ end
 function Economy.TrySpend(pl, amount)
 	local c = coinsStat(pl)
 	if not c then return false end
-	if c.Value &lt; amount then return false end
+	if c.Value < amount then return false end
 	c.Value = c.Value - amount
 	return true
+end
+
+function Economy.Set(pl, amount)
+	local c = coinsStat(pl)
+	if not c then return end
+	c.Value = math.max(0, math.floor(amount))
+end
+
+function Economy.Adjust(pl, delta)
+	local c = coinsStat(pl)
+	if not c then return 0 end
+	c.Value = math.max(0, c.Value + math.floor(delta))
+	return c.Value
+end
+
+function Economy.IsAdmin(pl)
+	if not pl then return false end
+	if game:GetService("RunService"):IsStudio() then return true end
+	if game.CreatorId ~= 0 and pl.UserId == game.CreatorId then return true end
+	return pl:GetAttribute("Admin") == true
 end
 
 function Economy.AddScore(pl, score)
@@ -1882,7 +2267,7 @@ function Economy.BuyUpgrade(pl, itemId)
 	local hum = char and char:FindFirstChildOfClass("Humanoid")
 	if itemId == "hp" then
 		if not hum then return false, "Нет персонажа" end
-		if (pl:GetAttribute("HPLvl") or 0) &gt;= 5 then return false, "Максимум 300 HP" end
+		if (pl:GetAttribute("HPLvl") or 0) >= 5 then return false, "Максимум 300 HP" end
 		if not Economy.TrySpend(pl, up.Price) then return false, "Не хватает монет" end
 		pl:SetAttribute("HPLvl", (pl:GetAttribute("HPLvl") or 0) + 1)
 		hum.MaxHealth = hum.MaxHealth + 50
@@ -1933,14 +2318,40 @@ function Economy.Init()
 				local char = pl.Character
 				local hum = char and char:FindFirstChildOfClass("Humanoid")
 				local team = pl.Team and pl.Team.Name
-				if hum and hum.Health &gt; 0 and team == Config.TEAM_DEF then
+				if hum and hum.Health > 0 and team == Config.TEAM_DEF then
 					Economy.Add(pl, Config.SURVIVAL_COINS, "Выживание")
 				end
 			end
 		end)
 	end
-	Players.PlayerAdded:Connect(setup)
-	for _, pl in ipairs(Players:GetPlayers()) do setup(pl) end
+	local function markAdmin(pl)
+		if Economy.IsAdmin(pl) then pl:SetAttribute("Admin", true) end
+	end
+	Players.PlayerAdded:Connect(function(pl)
+		setup(pl)
+		markAdmin(pl)
+	end)
+	for _, pl in ipairs(Players:GetPlayers()) do
+		setup(pl)
+		markAdmin(pl)
+	end
+
+	if Remotes then
+		local adminEv = Remotes:FindFirstChild("AdminCoins")
+		if adminEv then
+			adminEv.OnServerEvent:Connect(function(pl, action, amount)
+				if not Economy.IsAdmin(pl) then return end
+				amount = tonumber(amount) or 0
+				if action == "add" then
+					Economy.Adjust(pl, math.clamp(amount, 1, 1000000))
+				elseif action == "sub" then
+					Economy.Adjust(pl, -math.clamp(amount, 1, 1000000))
+				elseif action == "zero" then
+					Economy.Set(pl, 0)
+				end
+			end)
+		end
+	end
 
 	if Remotes then
 		local buyRF = Remotes:FindFirstChild(Config.REM.BuyUpgrade)
@@ -1953,7 +2364,15 @@ function Economy.Init()
 end
 
 return Economy
-</ProtectedString></Properties></Item><Item class="Script" referent="RBX4"><Properties><string name="Name">Main</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="Script" referent="20">
+      <Properties>
+        <string name="Name">Main</string>
+        <bool name="Disabled">false</bool>
+        <token name="RunContext">1</token>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  Main — точка входа сервера «БЕСПИЛОТНИКИ»
 --  Освещение, команды, лобби+бункер, раунды, погода, день/ночь.
 -- ============================================================
@@ -1980,6 +2399,7 @@ local Main = {}
 -- 1. LIGHTING (Future, Atmosphere, Bloom, DoF, SunRays)
 -- ------------------------------------------------------------
 local function setupLighting()
+	local ok, err = pcall(function()
 	Lighting.Technology = Enum.Technology.Future
 	Lighting.Brightness = 2
 	Lighting.ClockTime = 12
@@ -2017,10 +2437,17 @@ local function setupLighting()
 	sun.Parent = Lighting
 
 	-- облака
-	local clouds = Instance.new("Clouds")
-	clouds.Cover = 0.4
-	clouds.Density = 0.6
-	clouds.Parent = workspace.Terrain
+	local terrain = workspace:FindFirstChildOfClass("Terrain")
+	if terrain then
+		local clouds = Instance.new("Clouds")
+		clouds.Cover = 0.4
+		clouds.Density = 0.6
+		clouds.Parent = terrain
+	end
+	end)
+	if not ok then
+		warn("[БЕСПИЛОТНИКИ] Освещение не настроено, игра продолжается: " .. tostring(err))
+	end
 end
 
 -- ------------------------------------------------------------
@@ -2033,6 +2460,9 @@ local function setupRemotesAndTeams()
 	Remotes = Instance.new("Folder")
 	Remotes.Name = "Remotes"
 	Remotes.Parent = ReplicatedStorage
+	local adminEv = Instance.new("RemoteEvent")
+	adminEv.Name = "AdminCoins"
+	adminEv.Parent = Remotes
 	for _, name in pairs(Config.REM) do
 		if name == Config.REM.LaunchDrone or name == Config.REM.BuyUpgrade then
 			local rf = Instance.new("RemoteFunction")
@@ -2146,7 +2576,7 @@ local function buildLobby()
 			for _, p in ipairs(Players:GetPlayers()) do
 				if p.Team == team then count = count + 1 end
 			end
-			if pl.Team ~= team and count &gt;= Config.TEAM_CAP then return end
+			if pl.Team ~= team and count >= Config.TEAM_CAP then return end
 			pl.Team = team
 			pl:LoadCharacter()
 		end)
@@ -2171,16 +2601,35 @@ local function buildBunker()
 	Util.part({ Size = Vector3.new(W, 2, D), CFrame = CFrame.new(base + Vector3.new(0, H, 0)), Color = Color3.fromRGB(38, 40, 44), Material = Enum.Material.Concrete }, folder)
 	for _, sx in ipairs({ -1, 1 }) do
 		Util.part({ Size = Vector3.new(2, H, D), CFrame = CFrame.new(base + Vector3.new(sx * W / 2, H / 2, 0)), Color = Color3.fromRGB(52, 56, 60), Material = Enum.Material.Concrete }, folder)
-		Util.part({ Size = Vector3.new(W, H, 2), CFrame = CFrame.new(base + Vector3.new(0, H / 2, sx * D / 2)), Color = Color3.fromRGB(52, 56, 60), Material = Enum.Material.Concrete }, folder)
 	end
+	-- северная стена глухая, южная — с дверью, иначе оператор, упавший под пол, не может войти
+	Util.part({ Size = Vector3.new(W, H, 2), CFrame = CFrame.new(base + Vector3.new(0, H / 2, -D / 2)), Color = Color3.fromRGB(52, 56, 60), Material = Enum.Material.Concrete }, folder)
+	local doorW = 10
+	local sideW = (W - doorW) / 2
+	Util.part({ Size = Vector3.new(sideW, H, 2), CFrame = CFrame.new(base + Vector3.new(-(doorW / 2 + sideW / 2), H / 2, D / 2)), Color = Color3.fromRGB(52, 56, 60), Material = Enum.Material.Concrete }, folder)
+	Util.part({ Size = Vector3.new(sideW, H, 2), CFrame = CFrame.new(base + Vector3.new(doorW / 2 + sideW / 2, H / 2, D / 2)), Color = Color3.fromRGB(52, 56, 60), Material = Enum.Material.Concrete }, folder)
+	Util.part({ Size = Vector3.new(doorW, H - 12, 2), CFrame = CFrame.new(base + Vector3.new(0, 12 + (H - 12) / 2, D / 2)), Color = Color3.fromRGB(52, 56, 60), Material = Enum.Material.Concrete }, folder)
+	-- бункер за краем террейна: свой остров и дамба к карте, иначе из двери — пустота
+	Util.part({ Size = Vector3.new(160, 10, 120), CFrame = CFrame.new(base + Vector3.new(0, -6, 0)), Color = Color3.fromRGB(74, 76, 70), Material = Enum.Material.Slate }, folder)
+	Util.part({ Size = Vector3.new(16, 1, 22), CFrame = CFrame.new(base + Vector3.new(0, 0.5, D / 2 + 8)), Color = Color3.fromRGB(96, 98, 94), Material = Enum.Material.Concrete }, folder)
+	local rampAng = -math.atan(16 / 490)
+	Util.part({ Size = Vector3.new(28, 3, 490), CFrame = CFrame.new(0, 9, -1805) * CFrame.Angles(rampAng, 0, 0), Color = Color3.fromRGB(92, 94, 88), Material = Enum.Material.Ground }, folder)
 	-- антенны на крыше
 	for i = 1, 3 do
 		Util.part({ Size = Vector3.new(0.6, 18, 0.6), CFrame = CFrame.new(base + Vector3.new(-20 + i * 20, H + 9, -20)), Color = Color3.fromRGB(200, 200, 205), Material = Enum.Material.Metal }, folder)
 		Util.part({ Size = Vector3.new(4, 0.4, 0.4), CFrame = CFrame.new(base + Vector3.new(-20 + i * 20, H + 16, -20)), Color = Color3.fromRGB(255, 80, 80), Material = Enum.Material.Neon }, folder)
 	end
-	-- взлётная площадка на крыше (PAD_POS = 46)
-	Util.part({ Size = Vector3.new(50, 1, 50), CFrame = CFrame.new(Config.PAD_POS - Vector3.new(0, 0.5, 0)), Color = Color3.fromRGB(30, 32, 36), Material = Enum.Material.Concrete }, folder)
-	Util.part({ Shape = Enum.PartType.Cylinder, Size = Vector3.new(0.3, 34, 34), CFrame = CFrame.new(Config.PAD_POS + Vector3.new(0, 0.2, 0)) * CFrame.Angles(0, 0, math.rad(90)), Color = Color3.fromRGB(80, 220, 120), Material = Enum.Material.Neon, CanCollide = false }, folder)
+	-- взлётная полоса в открытом небе, не на крыше бункера
+	Util.part({ Size = Vector3.new(70, 2, 130), CFrame = CFrame.new(Config.PAD_POS - Vector3.new(0, 1, 0)), Color = Color3.fromRGB(34, 36, 40), Material = Enum.Material.Concrete }, folder)
+	Util.part({ Shape = Enum.PartType.Cylinder, Size = Vector3.new(0.25, 28, 28), CFrame = CFrame.new(Config.PAD_POS + Vector3.new(0, 0.2, -20)) * CFrame.Angles(0, 0, math.rad(90)), Color = Color3.fromRGB(80, 220, 120), Material = Enum.Material.Neon, CanCollide = false }, folder)
+	for stripe = -2, 2 do
+		Util.part({ Size = Vector3.new(1.4, 0.12, 14), CFrame = CFrame.new(Config.PAD_POS + Vector3.new(0, 0.15, stripe * 22)), Color = Color3.fromRGB(230, 230, 220), Material = Enum.Material.Neon, CanCollide = false }, folder)
+	end
+	for _, px in ipairs({ -24, 24 }) do
+		for _, pz in ipairs({ -40, 40 }) do
+			Util.part({ Size = Vector3.new(2.4, 54, 2.4), CFrame = CFrame.new(Config.PAD_POS + Vector3.new(px, -28, pz)), Color = Color3.fromRGB(70, 74, 78), Material = Enum.Material.Metal }, folder)
+		end
+	end
 	-- посадочный маяк
 	local beacon = Instance.new("Part")
 	beacon.Anchored = true; beacon.CanCollide = false; beacon.Transparency = 1
@@ -2191,12 +2640,15 @@ local function buildBunker()
 	beacon.Parent = folder
 
 	-- интерьер: мониторы, столы с картами, сиденья
-	local light = Instance.new("PointLight")
-	light.Color = Color3.fromRGB(150, 200, 255)
-	light.Brightness = 1.5
-	light.Range = 60
-	local lampPart = Util.part({ Size = Vector3.new(1, 1, 1), Transparency = 1, CFrame = CFrame.new(base + Vector3.new(0, H - 4, 0)) }, folder)
-	light.Parent = lampPart
+	for _, off in ipairs({ Vector3.new(0, H - 6, 0), Vector3.new(-20, 8, 0), Vector3.new(20, 8, 10) }) do
+		local light = Instance.new("PointLight")
+		light.Color = Color3.fromRGB(180, 210, 255)
+		light.Brightness = 3
+		light.Range = 50
+		light.Shadows = false
+		local lampPart = Util.part({ Size = Vector3.new(1, 1, 1), Transparency = 1, CanCollide = false, CFrame = CFrame.new(base + off) }, folder)
+		light.Parent = lampPart
+	end
 
 	for i = 1, 3 do
 		local mx = base + Vector3.new(-24 + i * 24, 8, -D / 2 + 4)
@@ -2243,31 +2695,58 @@ local function buildBunker()
 	mapLabel.TextScaled = true
 	mapLabel.TextColor3 = Color3.fromRGB(120, 60, 40)
 	mapLabel.Text = "ГОРОД · СЕКТОР 7 · КВАДРАТ 12-34"
-	-- сиденья операторов
+	-- табуреты без Seat: настоящий Seat сразу сажает игрока и магазин не открывается
 	for i = 1, 4 do
-		local seat = Instance.new("Seat")
-		seat.Size = Vector3.new(4, 0.8, 4)
-		seat.Anchored = true
-		seat.CFrame = CFrame.new(base + Vector3.new(-15 + i * 10, 1.5, 18))
-		seat.Color = Color3.fromRGB(30, 34, 40)
-		seat.Parent = folder
+		Util.part({ Size = Vector3.new(4, 0.8, 4), CFrame = CFrame.new(base + Vector3.new(-15 + i * 10, 1.5, 18)), Color = Color3.fromRGB(30, 34, 40), Material = Enum.Material.Metal }, folder)
 	end
+
+	-- командный спавн операторов: стоит НА полу, не внутри плиты
+	local opSpawn = Instance.new("SpawnLocation")
+	opSpawn.Name = "OperatorSpawn"
+	opSpawn.Size = Vector3.new(8, 1, 8)
+	opSpawn.Anchored = true
+	opSpawn.Neutral = false
+	opSpawn.AllowTeamChangeOnTouch = false
+	opSpawn.TeamColor = BrickColor.new("Bright blue")
+	opSpawn.Duration = 0
+	opSpawn.CFrame = CFrame.new(base + Vector3.new(-22, 1.5, -16))
+	opSpawn.Color = Color3.fromRGB(60, 140, 255)
+	opSpawn.Material = Enum.Material.Neon
+	opSpawn.Parent = folder
 end
 
 -- ------------------------------------------------------------
 -- 5. СПАВН ИГРОКОВ
 -- ------------------------------------------------------------
+local function standUp(char, cf)
+	local root = char:FindFirstChild("HumanoidRootPart") or char:WaitForChild("HumanoidRootPart", 5)
+	local hum = char:FindFirstChildOfClass("Humanoid")
+	if not root then return end
+	char:PivotTo(cf)
+	root.AssemblyLinearVelocity = Vector3.zero
+	root.AssemblyAngularVelocity = Vector3.zero
+	if hum then
+		hum.Sit = false
+		hum.PlatformStand = false
+		pcall(function() hum:ChangeState(Enum.HumanoidStateType.GettingUp) end)
+	end
+end
+
 local function onCharacterAdded(player, char)
-	task.wait(0.1)
+	task.wait(0.15)
+	if not char.Parent then return end
 	if player.Team == teamOps then
-		-- в бункер
-		local seatPos = Config.BUNKER_POS + Vector3.new(math.random(-15, 15), 3, 14)
-		char:PivotTo(CFrame.new(seatPos))
+		-- HRP на 5 studs выше верха пола (пол: центр y=4, верх y=5). Раньше y=7
+		-- ставил ноги внутрь плиты, и персонаж проваливался под бункер.
+		local stand = CFrame.new(Config.BUNKER_POS + Vector3.new(-22, 6, -16))
+		standUp(char, stand)
+		task.delay(0.4, function()
+			if char.Parent and player.Team == teamOps then standUp(char, stand) end
+		end)
 	elseif player.Team == teamDef then
 		local spawn = Config.DEF_SPAWNS[math.random(1, #Config.DEF_SPAWNS)]
-		char:PivotTo(CFrame.new(spawn + Vector3.new(0, 3, 0)))
+		standUp(char, CFrame.new(spawn + Vector3.new(0, 6, 0)))
 	end
-	-- иначе — Neutral, спавн в лобби через SpawnLocation
 end
 
 -- ------------------------------------------------------------
@@ -2342,7 +2821,7 @@ local function setupHooks()
 			local char = pl.Character
 			local hum = char and char:FindFirstChildOfClass("Humanoid")
 			local root = char and char:FindFirstChild("HumanoidRootPart")
-			if hum and root and hum.Health &gt; 0 and (root.Position - pos).Magnitude &lt; radius then
+			if hum and root and hum.Health > 0 and (root.Position - pos).Magnitude < radius then
 				local tag = hum:FindFirstChild("LastExplosionKiller") or Instance.new("StringValue")
 				tag.Name = "LastExplosionKiller"
 				tag.Value = player.Name
@@ -2368,7 +2847,7 @@ local function setNight(on)
 	for i, win in ipairs(MapGenerator.Windows) do
 		if win.Parent then
 			if on then
-				if math.random() &lt; 0.6 then
+				if math.random() < 0.6 then
 					win.Material = Enum.Material.Neon
 					win.Color = Color3.fromRGB(255, 214, 130)
 					win.Transparency = 0.15
@@ -2412,11 +2891,11 @@ local function startDayNightLoop()
 	RunService.Heartbeat:Connect(function(dt)
 		-- цикл суток 20 минут
 		accum = accum + dt
-		if accum &gt;= 1 then
+		if accum >= 1 then
 			accum = accum - 1
 			local t = Lighting.ClockTime + 24 / Config.DAY_CYCLE
 			Lighting.ClockTime = t % 24
-			local isNight = Lighting.ClockTime &gt;= 18.5 or Lighting.ClockTime &lt; 5.5
+			local isNight = Lighting.ClockTime >= 18.5 or Lighting.ClockTime < 5.5
 			setNight(isNight)
 		end
 	end)
@@ -2435,7 +2914,8 @@ local currentWeather = "clear"
 local function pickWeather()
 	local weathers = { "clear", "cloudy", "rain", "night" }
 	currentWeather = weathers[math.random(1, #weathers)]
-	local clouds = workspace.Terrain:FindFirstChildOfClass("Clouds")
+	local terrain = workspace:FindFirstChildOfClass("Terrain")
+	local clouds = terrain and terrain:FindFirstChildOfClass("Clouds")
 	local atmo = Lighting:FindFirstChildOfClass("Atmosphere")
 	if clouds then
 		clouds.Cover = (currentWeather == "clear") and 0.3 or 0.75
@@ -2485,7 +2965,7 @@ end
 
 local function playRound()
 	-- ОЖИДАНИЕ
-	while countTeam(teamOps) &lt; 1 or countTeam(teamDef) &lt; 1 do
+	while countTeam(teamOps) < 1 or countTeam(teamDef) < 1 do
 		broadcastPhase("wait", 0)
 		task.wait(2)
 	end
@@ -2503,7 +2983,7 @@ local function playRound()
 	local timeLeft = Config.ROUND_TIME
 	local timerConn
 	timerConn = task.spawn(function()
-		while timeLeft &gt; 0 do
+		while timeLeft > 0 do
 			task.wait(1)
 			timeLeft = timeLeft - 1
 			if timeLeft % 10 == 0 then broadcastPhase("battle", timeLeft) end
@@ -2512,10 +2992,10 @@ local function playRound()
 	broadcastPhase("battle", timeLeft)
 
 	-- следим за разрушением города
-	while timeLeft &gt; 0 do
+	while timeLeft > 0 do
 		task.wait(3)
 		local st = Destruction.Stats()
-		if st.total &gt; 100 and (st.destroyed / st.total) &gt; 0.9 then
+		if st.total > 100 and (st.destroyed / st.total) > 0.9 then
 			break -- город почти полностью разрушен
 		end
 	end
@@ -2523,24 +3003,24 @@ local function playRound()
 
 	-- ИТОГИ
 	local st = Destruction.Stats()
-	local destPct = st.total &gt; 0 and math.floor(st.destroyed / st.total * 100) or 0
+	local destPct = st.total > 0 and math.floor(st.destroyed / st.total * 100) or 0
 	local dronesDown = 0
 	local mvpOps, mvpDef = nil, nil
 	for _, pl in ipairs(Players:GetPlayers()) do
 		dronesDown = dronesDown + Economy.Kills(pl)
 		local score = getScore(pl)
 		if pl.Team == teamOps then
-			if not mvpOps or score &gt; mvpOps.score then
+			if not mvpOps or score > mvpOps.score then
 				mvpOps = { name = pl.Name, score = score }
 			end
 		elseif pl.Team == teamDef then
-			if not mvpDef or score &gt; mvpDef.score then
+			if not mvpDef or score > mvpDef.score then
 				mvpDef = { name = pl.Name, score = score }
 			end
 		end
 	end
 	-- бонус защитникам за уцелевший город
-	if destPct &lt; 20 then
+	if destPct < 20 then
 		for _, pl in ipairs(Players:GetPlayers()) do
 			if pl.Team == teamDef then
 				Economy.Add(pl, Config.CITY_ALIVE_BONUS, "Город устоял")
@@ -2568,14 +3048,16 @@ local function playRound()
 	WeaponService.RebuildStationary()
 	NpcService.Rebuild()
 	Destruction.SetExcludes({ workspace.Debris, workspace.FX, workspace.Drones })
-	DroneService.SetRayExcludes({ workspace.Debris, workspace.FX, workspace.Drones })
+	DroneService.SetRayExcludes({ workspace.Debris, workspace.FX, workspace.Drones, workspace:FindFirstChild("Bunker") })
 	Economy.ResetRound()
 end
 
 -- ------------------------------------------------------------
 local function main()
 	Players.RespawnTime = Config.RESPAWN_TIME
-	Players.CharacterAutoLoads = false -- включим после постройки лобби
+	-- Не выключать CharacterAutoLoads. Иначе любая ошибка до LoadCharacter
+	-- оставляет Play с застывшей камерой в небе — чат при этом работает.
+	Players.CharacterAutoLoads = true
 	setupLighting()
 	setupRemotesAndTeams()
 
@@ -2588,42 +3070,56 @@ local function main()
 		end
 	end
 
-	-- инициализация сервисов
+	-- сервисы, которым карта ещё не нужна
 	Destruction.Remotes = Remotes
-	MapGenerator.Generate()
-	Destruction.SetExcludes({ workspace.Debris, workspace.FX, workspace.Drones })
 	DroneService.SetRemotes(Remotes)
-	DroneService.SetRayExcludes({ workspace.Debris, workspace.FX, workspace.Drones })
 	DroneService.SetEconomy(Economy)
-	DroneService.Init()
 	WeaponService.SetRemotes(Remotes)
 	WeaponService.SetEconomy(Economy)
 	WeaponService.SetDroneService(DroneService)
 	WeaponService.SetMapGenerator(MapGenerator)
-	WeaponService.Init()
 	Economy.SetRemotes(Remotes)
 	Economy.Init()
 	NpcService.SetMapGenerator(MapGenerator)
-	NpcService.Init()
 
+	-- Лобби и бункер ДО города. Пока CharacterAutoLoads = false и персонажа нет,
+	-- стандартная камера Play не крутится мышкой — игрок видит застывшее небо.
 	buildBunker()
 	buildLobby()
 	setupHooks()
-	startDayNightLoop()
+	WeaponService.BindPlayers()
+
+	local function bindSpawn(pl)
+		pl.CharacterAdded:Connect(function(char)
+			task.spawn(onCharacterAdded, pl, char)
+		end)
+	end
+	Players.PlayerAdded:Connect(function(pl)
+		bindSpawn(pl)
+		if Players.CharacterAutoLoads and not pl.Character then
+			pl:LoadCharacter()
+		end
+	end)
+	for _, pl in ipairs(Players:GetPlayers()) do
+		bindSpawn(pl)
+	end
 
 	Players.CharacterAutoLoads = true
 	for _, pl in ipairs(Players:GetPlayers()) do
 		if not pl.Character then pl:LoadCharacter() end
 	end
+	print("[БЕСПИЛОТНИКИ] Игрок заспавнен, камера должна слушаться мышь. Город строится...")
+	task.wait()
 
-	-- спавн игроков
-	Players.PlayerAdded:Connect(function(pl)
-		pl.CharacterAdded:Connect(function(char) onCharacterAdded(pl, char) end)
-	end)
-	for _, pl in ipairs(Players:GetPlayers()) do
-		pl.CharacterAdded:Connect(function(char) onCharacterAdded(pl, char) end)
-		if pl.Character then task.spawn(onCharacterAdded, pl, pl.Character) end
-	end
+	-- тяжёлая генерация уже не может оставить игрока без персонажа
+	MapGenerator.Generate()
+	Destruction.SetExcludes({ workspace.Debris, workspace.FX, workspace.Drones })
+	DroneService.SetRayExcludes({ workspace.Debris, workspace.FX, workspace.Drones, workspace:FindFirstChild("Bunker") })
+	DroneService.Init()
+	WeaponService.Init()
+	NpcService.Init()
+	startDayNightLoop()
+	print("[БЕСПИЛОТНИКИ] Город готов")
 
 	-- табло лидеров
 	task.spawn(function()
@@ -2638,7 +3134,7 @@ local function main()
 					table.insert(sorted, pl)
 				end
 				table.sort(sorted, function(a, b)
-					return getStat(a, "Монеты") &gt; getStat(b, "Монеты")
+					return getStat(a, "Монеты") > getStat(b, "Монеты")
 				end)
 				for i = 1, math.min(8, #sorted) do
 					local pl = sorted[i]
@@ -2658,7 +3154,7 @@ local function main()
 		for _, p in ipairs(Players:GetPlayers()) do
 			if p.Team == team then count = count + 1 end
 		end
-		if pl.Team ~= team and count &gt;= Config.TEAM_CAP then return end
+		if pl.Team ~= team and count >= Config.TEAM_CAP then return end
 		pl.Team = team
 		pl:LoadCharacter()
 	end)
@@ -2670,7 +3166,13 @@ local function main()
 end
 
 main()
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX5"><Properties><string name="Name">MapGenerator</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="21">
+      <Properties>
+        <string name="Name">MapGenerator</string>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  MapGenerator — процедурная постройка города 2048x2048.
 --  Все здания собираются из модульных Parts с HP (см. Destruction).
 -- ============================================================
@@ -2748,7 +3250,7 @@ local function addTrafficLight(x, z, rotY, axis)
 		{ Color3.fromRGB(60, 255, 80), Vector3.new(0, -0.9, 0) },
 	}
 	for _, c in ipairs(colors) do
-		local b = P({ Size = Vector3.new(0.55, 0.55, 0.2), CFrame = box.CFrame * c[2] * CFrame.new(0, 0, -0.35), Color = c[1], Material = MAT.Plastic, Transparency = 0.4 })
+		local b = P({ Size = Vector3.new(0.55, 0.55, 0.2), CFrame = box.CFrame * CFrame.new(c[2] + Vector3.new(0, 0, -0.35)), Color = c[1], Material = MAT.Plastic, Transparency = 0.4 })
 		table.insert(entry.bulbs, { part = b, baseColor = c[1] })
 	end
 	table.insert(MapGenerator.TrafficLights, entry)
@@ -2782,7 +3284,7 @@ local function buildRoads()
 	for _, z in ipairs(ROADS) do
 		-- east-west дороги: сегменты левее и правее реки (река x 128..192)
 		local segs = { { -1024, 128 }, { 192, 1024 } }
-		if z &lt; 256 then segs = { { -1024, 1024 } } end -- река южнее
+		if z < 256 then segs = { { -1024, 1024 } } end -- река южнее
 		for _, s in ipairs(segs) do
 			local x0, x1 = s[1], s[2]
 			local len = x1 - x0
@@ -2859,7 +3361,7 @@ local function buildBridge(cx, cz, alongX)
 	local line = P({ Size = Vector3.new(180, 0.06, 0.4), CFrame = dir * CFrame.new(0, 4.15, 0), Color = Color3.fromRGB(230, 230, 230), Material = MAT.Plastic, CanCollide = false })
 	-- съезды-пандусы к берегам
 	for _, s in ipairs({ -1, 1 }) do
-		local ramp = Util.wedge({ Size = Vector3.new(24, 3, 30), CFrame = dir * CFrame.new(s * 103, 1.6, 0) * CFrame.Angles(0, 0, s &gt; 0 and math.rad(90) or math.rad(-90)), Color = Color3.fromRGB(95, 93, 88), Material = MAT.Concrete }, City)
+		local ramp = Util.wedge({ Size = Vector3.new(24, 3, 30), CFrame = dir * CFrame.new(s * 103, 1.6, 0) * CFrame.Angles(0, 0, s > 0 and math.rad(90) or math.rad(-90)), Color = Color3.fromRGB(95, 93, 88), Material = MAT.Concrete }, City)
 	end
 	return bld
 end
@@ -2868,13 +3370,14 @@ end
 -- ЖИЛОЙ ДОМ (панель/кирпич, 5/9/16 этажей)
 -- ------------------------------------------------------------
 local function residential(cx, cz, floors, opts)
+	task.wait()
 	opts = opts or {}
 	local w, d = opts.w or 34, opts.d or 26
-	local color = opts.color or (floors &gt;= 9 and Color3.fromRGB(196, 188, 172) or Color3.fromRGB(188, 134, 108))
+	local color = opts.color or (floors >= 9 and Color3.fromRGB(196, 188, 172) or Color3.fromRGB(188, 134, 108))
 	if opts.panel then color = Color3.fromRGB(178, 182, 178) end
 	local material = opts.panel and MAT.Concrete or MAT.Brick
-	local category = floors &gt;= 9 and "residential_big" or "residential_small"
-	local name = opts.name or (floors &gt;= 9 and "Многоэтажка" or "Жилой дом")
+	local category = floors >= 9 and "residential_big" or "residential_small"
+	local name = opts.name or (floors >= 9 and "Многоэтажка" or "Жилой дом")
 	local bld = Destruction.RegisterBuilding(category, name, Vector3.new(cx, floors * FLOOR_H / 2, cz))
 	local baseY = 0
 
@@ -2916,14 +3419,14 @@ local function residential(cx, cz, floors, opts)
 				if not isDoor then
 					reg(P({ Size = Vector3.new(step - winW * 0.55, 5, 1), CFrame = faceCF * CFrame.new(px, y0 + 5, 0), Color = color, Material = material }), 70, "Wall", bld, f)
 				end
-				if i &lt; nWin then
+				if i < nWin then
 					local glass = P({ Size = Vector3.new(winW * 0.75, 4, 0.4), CFrame = faceCF * CFrame.new(px + step / 2, y0 + 5, 0), Color = Color3.fromRGB(140, 170, 190), Material = MAT.Glass, Transparency = 0.45 })
 					reg(glass, 1, "Window", bld, f)
 					table.insert(MapGenerator.Windows, glass)
 				end
 			end
 			-- балконы (не на 1 этаже)
-			if f &gt; 1 and math.random() &lt; 0.5 then
+			if f > 1 and math.random() < 0.5 then
 				local bx = (math.random() - 0.5) * (w - 12)
 				local bsCF = CFrame.new(cx + bx, y0 + 2.6, zc + side * 1.4)
 				reg(P({ Size = Vector3.new(5, 0.4, 2.4), CFrame = bsCF, Color = color, Material = MAT.Concrete }), 40, "Prop", bld, f)
@@ -2947,11 +3450,11 @@ local function residential(cx, cz, floors, opts)
 	-- спутниковые тарелки и кондиционеры на фасадах
 	for i = 1, math.floor(floors * 0.7) do
 		local ff = math.random(2, floors)
-		local side = math.random() &lt; 0.5 and -1 or 1
+		local side = math.random() < 0.5 and -1 or 1
 		local acx = cx + (math.random() - 0.5) * (w - 8)
 		local ac = P({ Size = Vector3.new(1.6, 1.2, 1), CFrame = CFrame.new(acx, (ff - 1) * FLOOR_H + 3.5, cz + side * (d / 2 + 0.7)), Color = Color3.fromRGB(168, 170, 172), Material = MAT.Metal })
 		reg(ac, 15, "Prop", bld, ff)
-		if math.random() &lt; 0.4 then
+		if math.random() < 0.4 then
 			local dish = P({ Size = Vector3.new(0.3, 2, 2), CFrame = CFrame.new(acx + 6, (ff - 1) * FLOOR_H + 6, cz + side * (d / 2 + 0.6)) * CFrame.Angles(math.rad(30), 0, 0), Color = Color3.fromRGB(200, 200, 200), Material = MAT.Plastic })
 			reg(dish, 10, "Prop", bld, ff)
 		end
@@ -2973,6 +3476,7 @@ end
 -- СТЕКЛЯННАЯ БАШНЯ ЦЕНТРА (10-20 этажей)
 -- ------------------------------------------------------------
 local function glassTower(cx, cz, floors, opts)
+	task.wait()
 	opts = opts or {}
 	local w, d = opts.w or 34, opts.d or 34
 	local color = opts.color or Color3.fromRGB(120, 160, 190)
@@ -3031,6 +3535,7 @@ local function smokeStack(cf, bld, height)
 end
 
 local function factory(cx, cz)
+	task.wait()
 	local bld = Destruction.RegisterBuilding("industrial", "Завод", Vector3.new(cx, 12, cz))
 	local w, d, h = 90, 46, 22
 	reg(P({ Size = Vector3.new(w, 1, d), CFrame = CFrame.new(cx, 0.5, cz), Color = Color3.fromRGB(100, 100, 100), Material = MAT.Concrete }), 500, "Floor", bld, 0)
@@ -3335,7 +3840,7 @@ local function park(cx, cz)
 		local r = 30 + rnd:NextNumber() * 65
 		local tx = cx + math.cos(ang) * r
 		local tz = cz + math.sin(ang) * r
-		if math.abs(tx - (cx + 55)) &gt; 30 or math.abs(tz - (cz + 55)) &gt; 26 then
+		if math.abs(tx - (cx + 55)) > 30 or math.abs(tz - (cz + 55)) > 26 then
 			local kinds = { "birch", "spruce", "maple" }
 			tree(tx, tz, kinds[rnd:NextInteger(1, 3)])
 		end
@@ -3571,7 +4076,9 @@ function MapGenerator.Generate()
 
 	buildTerrain()
 	buildRoads()
+	task.wait()
 	buildQuadrants()
+	task.wait()
 	computePoints()
 end
 
@@ -3589,7 +4096,13 @@ function MapGenerator.Rebuild()
 end
 
 return MapGenerator
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX6"><Properties><string name="Name">NpcService</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="22">
+      <Properties>
+        <string name="Name">NpcService</string>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  NpcService — мирные жители (гуляют, разбегаются от взрывов)
 --  и утки в пруду. Атмосферный элемент.
 -- ============================================================
@@ -3658,12 +4171,12 @@ local function makeCivilian(pos)
 end
 
 local function wander(civ)
-	if not civ.model.Parent or civ.hum.Health &lt;= 0 then return end
+	if not civ.model.Parent or civ.hum.Health <= 0 then return end
 	local target = waypoints[math.random(1, #waypoints)]
 	-- ищем ближайшие 3 случайных попытки
 	for i = 1, 3 do
 		local wp = waypoints[math.random(1, #waypoints)]
-		if (wp - civ.root.Position).Magnitude &lt; 400 then target = wp break end
+		if (wp - civ.root.Position).Magnitude < 400 then target = wp break end
 	end
 	civ.busy = true
 	civ.hum:MoveTo(target)
@@ -3681,14 +4194,14 @@ end
 
 local function fleeFrom(pos)
 	for _, civ in ipairs(civilians) do
-		if civ.model.Parent and civ.hum.Health &gt; 0 then
+		if civ.model.Parent and civ.hum.Health > 0 then
 			local d = (civ.root.Position - pos).Magnitude
-			if d &lt; 90 then
+			if d < 90 then
 				-- бежать к самому дальнему путику
 				local best, bestD = nil, 0
 				for _, wp in ipairs(waypoints) do
 					local dd = (wp - pos).Magnitude
-					if dd &gt; bestD and (wp - civ.root.Position).Magnitude &lt; 600 then
+					if dd > bestD and (wp - civ.root.Position).Magnitude < 600 then
 						best, bestD = wp, dd
 					end
 				end
@@ -3712,8 +4225,8 @@ function NpcService.Init()
 		if prev then prev(pos, radius, player) end
 		fleeFrom(pos)
 		for _, civ in ipairs(civilians) do
-			if civ.model.Parent and civ.hum.Health &gt; 0 then
-				if (civ.root.Position - pos).Magnitude &lt; radius then
+			if civ.model.Parent and civ.hum.Health > 0 then
+				if (civ.root.Position - pos).Magnitude < radius then
 					Util.sound3d(Config.SOUNDS.Hurt, civ.root.Position, 1, 1, 80, 3)
 					civ.hum.Health = 0
 				end
@@ -3747,12 +4260,12 @@ function NpcService.Init()
 			task.wait(10)
 			for i = #civilians, 1, -1 do
 				local civ = civilians[i]
-				if not civ.model.Parent or civ.hum.Health &lt;= 0 then
+				if not civ.model.Parent or civ.hum.Health <= 0 then
 					if civ.model.Parent then DebrisRemove(civ.model) end
 					table.remove(civilians, i)
 				end
 			end
-			while #civilians &lt; 20 do
+			while #civilians < 20 do
 				local wp = waypoints[math.random(1, #waypoints)]
 				table.insert(civilians, makeCivilian(wp))
 				task.wait(0.3)
@@ -3836,7 +4349,13 @@ function NpcService.Rebuild()
 end
 
 return NpcService
-</ProtectedString></Properties></Item><Item class="ModuleScript" referent="RBX7"><Properties><string name="Name">WeaponService</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="23">
+      <Properties>
+        <string name="Name">WeaponService</string>
+        <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  WeaponService — оружие защитников и стационарные системы (СЕРВЕР)
 -- ============================================================
 local Players = game:GetService("Players")
@@ -3876,19 +4395,129 @@ end
 -- ============================================================
 --  ВЫДАЧА ОРУЖИЯ
 -- ============================================================
+-- Ствол вдоль +Y рукояти. Grip поворачивает +Y вперёд (LookVector руки).
+-- У Cylinder ось — локальный X.
+local function gunPart(tool, handle, size, cf, color, mat, shape, name)
+	local p = Instance.new("Part")
+	p.Name = name or "Part"
+	p.Size = size
+	p.CFrame = cf
+	p.Color = color
+	p.Material = mat or Enum.Material.Metal
+	p.CanCollide = false
+	p.Massless = true
+	p.TopSurface = Enum.SurfaceType.Smooth
+	p.BottomSurface = Enum.SurfaceType.Smooth
+	if shape then p.Shape = shape end
+	p.Parent = tool
+	local w = Instance.new("WeldConstraint")
+	w.Part0 = handle
+	w.Part1 = p
+	w.Parent = handle
+	return p
+end
+
+local function cylY(tool, handle, dia, len, cf, color, mat, name)
+	-- длина вдоль +Y инструмента
+	return gunPart(tool, handle, Vector3.new(len, dia, dia), cf * CFrame.Angles(0, 0, math.rad(90)), color, mat, Enum.PartType.Cylinder, name)
+end
+
+local function buildAK(tool, handle)
+	local wood = Color3.fromRGB(92, 64, 38)
+	local steel = Color3.fromRGB(42, 44, 46)
+	local dark = Color3.fromRGB(28, 30, 32)
+	handle.Size = Vector3.new(0.28, 0.95, 0.32)
+	handle.Color = wood
+	handle.Material = Enum.Material.Wood
+	-- ствольная коробка
+	gunPart(tool, handle, Vector3.new(0.32, 1.15, 0.36), CFrame.new(0, 0.95, 0.02), steel, Enum.Material.Metal, nil, "Receiver")
+	gunPart(tool, handle, Vector3.new(0.3, 0.9, 0.08), CFrame.new(0, 1.15, 0.2), dark, Enum.Material.Metal, nil, "DustCover")
+	-- ствол + газоотвод + цевьё
+	cylY(tool, handle, 0.12, 2.15, CFrame.new(0, 2.45, 0.02), dark, Enum.Material.Metal, "Barrel")
+	cylY(tool, handle, 0.07, 1.15, CFrame.new(0, 2.05, 0.16), Color3.fromRGB(55, 58, 60), Enum.Material.Metal, "GasTube")
+	gunPart(tool, handle, Vector3.new(0.3, 0.85, 0.3), CFrame.new(0, 1.85, 0.02), wood, Enum.Material.Wood, nil, "Handguard")
+	-- дульный тормоз и мушка
+	cylY(tool, handle, 0.16, 0.22, CFrame.new(0, 3.55, 0.02), Color3.fromRGB(20, 20, 22), Enum.Material.Metal, "Muzzle")
+	gunPart(tool, handle, Vector3.new(0.06, 0.22, 0.06), CFrame.new(0, 3.35, 0.16), dark, Enum.Material.Metal, nil, "FrontSight")
+	gunPart(tool, handle, Vector3.new(0.08, 0.16, 0.1), CFrame.new(0, 1.45, 0.26), dark, Enum.Material.Metal, nil, "RearSight")
+	-- магазин вниз (-Z после хвата оказывается вниз — см. комментарий выше, магазин на -Z)
+	gunPart(tool, handle, Vector3.new(0.26, 0.85, 0.38), CFrame.new(0, 0.55, -0.28) * CFrame.Angles(math.rad(12), 0, 0), Color3.fromRGB(36, 38, 34), Enum.Material.Metal, nil, "Magazine")
+	-- приклад назад
+	gunPart(tool, handle, Vector3.new(0.26, 0.85, 0.28), CFrame.new(0, -0.15, 0.02), wood, Enum.Material.Wood, nil, "Stock")
+	gunPart(tool, handle, Vector3.new(0.3, 0.16, 0.34), CFrame.new(0, -0.55, 0.02), dark, Enum.Material.Metal, nil, "Butt")
+end
+
+local function buildKORD(tool, handle)
+	local steel = Color3.fromRGB(58, 62, 58)
+	local dark = Color3.fromRGB(28, 32, 30)
+	local olive = Color3.fromRGB(70, 78, 52)
+	handle.Size = Vector3.new(0.34, 0.7, 0.36)
+	handle.Color = dark
+	handle.Material = Enum.Material.Metal
+	gunPart(tool, handle, Vector3.new(0.42, 1.3, 0.46), CFrame.new(0, 0.85, 0.04), steel, Enum.Material.Metal, nil, "Receiver")
+	cylY(tool, handle, 0.16, 3.4, CFrame.new(0, 2.9, 0.04), dark, Enum.Material.Metal, "Barrel")
+	cylY(tool, handle, 0.22, 0.28, CFrame.new(0, 4.65, 0.04), Color3.fromRGB(18, 18, 18), Enum.Material.Metal, "Muzzle")
+	gunPart(tool, handle, Vector3.new(0.36, 1.4, 0.36), CFrame.new(0, 2.3, 0.04), olive, Enum.Material.Metal, nil, "Shroud")
+	-- сошки
+	gunPart(tool, handle, Vector3.new(0.08, 0.9, 0.08), CFrame.new(-0.28, 2.4, -0.35) * CFrame.Angles(math.rad(28), 0, math.rad(18)), dark, Enum.Material.Metal, nil, "Bipod")
+	gunPart(tool, handle, Vector3.new(0.08, 0.9, 0.08), CFrame.new(0.28, 2.4, -0.35) * CFrame.Angles(math.rad(28), 0, math.rad(-18)), dark, Enum.Material.Metal, nil, "Bipod")
+	-- короб
+	gunPart(tool, handle, Vector3.new(0.55, 0.42, 0.7), CFrame.new(0.15, 0.55, -0.4), olive, Enum.Material.Metal, nil, "AmmoBox")
+	-- рукояти-рогатки
+	gunPart(tool, handle, Vector3.new(0.1, 0.45, 0.1), CFrame.new(-0.16, 0.35, -0.15), dark, Enum.Material.Metal, nil, "Spade")
+	gunPart(tool, handle, Vector3.new(0.1, 0.45, 0.1), CFrame.new(0.16, 0.35, -0.15), dark, Enum.Material.Metal, nil, "Spade")
+	gunPart(tool, handle, Vector3.new(0.28, 0.7, 0.24), CFrame.new(0, -0.25, 0.04), steel, Enum.Material.Metal, nil, "Stock")
+	gunPart(tool, handle, Vector3.new(0.08, 0.2, 0.08), CFrame.new(0, 3.8, 0.22), Color3.fromRGB(20, 20, 20), Enum.Material.Metal, nil, "Sight")
+end
+
+local function buildIGLA(tool, handle)
+	local olive = Color3.fromRGB(78, 92, 58)
+	local dark = Color3.fromRGB(36, 42, 32)
+	handle.Size = Vector3.new(0.26, 0.85, 0.3)
+	handle.Color = dark
+	handle.Material = Enum.Material.Metal
+	-- труба ПЗРК
+	cylY(tool, handle, 0.42, 3.6, CFrame.new(0, 2.15, 0.18), olive, Enum.Material.Metal, "Tube")
+	cylY(tool, handle, 0.5, 0.35, CFrame.new(0, 3.9, 0.18), dark, Enum.Material.Metal, "MuzzleRing")
+	-- головка самонаведения
+	local seeker = gunPart(tool, handle, Vector3.new(0.36, 0.36, 0.36), CFrame.new(0, 4.2, 0.18), Color3.fromRGB(20, 24, 28), Enum.Material.Glass, Enum.PartType.Ball, "Seeker")
+	seeker.Transparency = 0.15
+	-- прицел и батарея
+	gunPart(tool, handle, Vector3.new(0.16, 0.2, 0.22), CFrame.new(0, 2.6, 0.48), dark, Enum.Material.Metal, nil, "Sight")
+	gunPart(tool, handle, Vector3.new(0.28, 0.45, 0.22), CFrame.new(0.22, 1.3, 0.18), Color3.fromRGB(40, 48, 36), Enum.Material.Metal, nil, "Battery")
+	-- плечевой упор
+	gunPart(tool, handle, Vector3.new(0.28, 0.7, 0.24), CFrame.new(0, -0.2, 0.16), olive, Enum.Material.Metal, nil, "Stock")
+	gunPart(tool, handle, Vector3.new(0.34, 0.12, 0.3), CFrame.new(0, -0.55, 0.16), dark, Enum.Material.Metal, nil, "Butt")
+	local tip = gunPart(tool, handle, Vector3.new(0.12, 0.12, 0.12), CFrame.new(0, 4.35, 0.18), Color3.fromRGB(80, 220, 255), Enum.Material.Neon, nil, "SeekerGlow")
+	local light = Instance.new("PointLight")
+	light.Color = Color3.fromRGB(80, 220, 255)
+	light.Range = 6
+	light.Brightness = 0.8
+	light.Parent = tip
+end
+
 local function makeTool(name, color, size, grip)
 	local tool = Instance.new("Tool")
 	tool.Name = name
 	tool.RequiresHandle = true
 	tool.CanBeDropped = false
 	tool.ToolTip = name
+	-- +Y модели → вперёд, магазин (-Z) → вниз
+	tool.Grip = CFrame.new(0.02, -0.15, 0.1) * CFrame.Angles(math.rad(-90), 0, 0)
 	local handle = Instance.new("Part")
 	handle.Name = "Handle"
-	handle.Size = size
-	handle.Color = color
+	handle.Size = size or Vector3.new(0.3, 1, 0.3)
+	handle.Color = color or Color3.fromRGB(40, 40, 40)
 	handle.Material = Enum.Material.Metal
 	handle.CanCollide = false
 	handle.Parent = tool
+	if name == "AK74M" then
+		buildAK(tool, handle)
+	elseif name == "KORD" then
+		buildKORD(tool, handle)
+	elseif name == "IGLA" then
+		buildIGLA(tool, handle)
+	end
 	return tool
 end
 
@@ -3964,7 +4593,7 @@ local function handleWeaponFire(player, origin, dir)
 	local char = player.Character
 	if not char then return end
 	local hum = char:FindFirstChildOfClass("Humanoid")
-	if not hum or hum.Health &lt;= 0 then return end
+	if not hum or hum.Health <= 0 then return end
 	-- какой инструмент?
 	local tool = char:FindFirstChildOfClass("Tool")
 	if not tool then return end
@@ -3975,11 +4604,11 @@ local function handleWeaponFire(player, origin, dir)
 	-- темп стрельбы
 	local now = os.clock()
 	local minInt = 1 / wcfg.Rate * 0.85
-	if lastShot[player] and now - lastShot[player] &lt; minInt then return end
+	if lastShot[player] and now - lastShot[player] < minInt then return end
 	lastShot[player] = now
 	-- валидация точки выстрела
 	local head = char:FindFirstChild("Head")
-	if not head or (head.Position - origin).Magnitude &gt; 12 then origin = head and head.Position or origin end
+	if not head or (head.Position - origin).Magnitude > 12 then origin = head and head.Position or origin end
 	dir = dir.Unit
 
 	local rayParams = RaycastParams.new()
@@ -4020,7 +4649,7 @@ local function launchManpad(player, targetDrone, fromGunId)
 		local gun = guns[fromGun]
 		if not gun or gun.dead then return end
 		local missiles = fromGun:GetAttribute("Missiles") or 0
-		if missiles &lt;= 0 then
+		if missiles <= 0 then
 			fireRemote(Config.REM.OperFX, player, { type = "msg", text = "Ракеты перезаряжаются" })
 			return
 		end
@@ -4034,7 +4663,7 @@ local function launchManpad(player, targetDrone, fromGunId)
 		if not tool or tool.Name ~= "IGLA" then return end
 		local now = os.clock()
 		local ready = iglaReady[player] or 0
-		if now &lt; ready then
+		if now < ready then
 			fireRemote(Config.REM.OperFX, player, { type = "msg", text = "ПЗРК перезаряжается: " .. math.ceil(ready - now) .. "с" })
 			return
 		end
@@ -4048,25 +4677,26 @@ local function launchManpad(player, targetDrone, fromGunId)
 	if not targetDrone or not targetDrone.Parent then return end
 	local tInfo = DroneService.GetDroneInfo and DroneService.GetDroneInfo(targetDrone)
 	local targetPos = targetDrone:GetPivot().Position
-	if (targetPos - origin).Magnitude &gt; 450 then return end
+	if (targetPos - origin).Magnitude > 450 then return end
 
 	-- шанс промаха при резком манёвре дрона
 	local miss = false
-	if tInfo and tInfo.yawRate and tInfo.yawRate &gt; math.rad(90) and math.random() &lt; Config.WEAPONS.IGLA.MissChance then
+	if tInfo and tInfo.yawRate and tInfo.yawRate > math.rad(90) and math.random() < Config.WEAPONS.IGLA.MissChance then
 		miss = true
 	end
 
 	Util.sound3d(Config.SOUNDS.RocketLaunch, origin, 1.5, 1, 250, 4)
 
 	local missile = Instance.new("Part")
-	missile.Size = Vector3.new(0.7, 0.7, 3)
+	missile.Shape = Enum.PartType.Cylinder
+	missile.Size = Vector3.new(3.1, 0.38, 0.38) -- ось X = длина
 	missile.Color = Color3.fromRGB(220, 220, 200)
 	missile.Material = Enum.Material.Metal
 	missile.CanCollide = false
-	missile.CFrame = CFrame.lookAt(origin, targetPos)
+	missile.CFrame = CFrame.lookAt(origin, targetPos) * CFrame.Angles(0, math.rad(90), 0)
 	missile.Parent = workspace
-	local a0 = Instance.new("Attachment", missile); a0.Position = Vector3.new(0, 0, 1.5)
-	local a1 = Instance.new("Attachment", missile); a1.Position = Vector3.new(0, 0, -1.5)
+	local a0 = Instance.new("Attachment", missile); a0.Position = Vector3.new(1.4, 0, 0)
+	local a1 = Instance.new("Attachment", missile); a1.Position = Vector3.new(-1.4, 0, 0)
 	local trail = Instance.new("Trail", missile)
 	trail.Attachment0 = a0; trail.Attachment1 = a1
 	trail.Lifetime = 0.4
@@ -4084,7 +4714,7 @@ local function launchManpad(player, targetDrone, fromGunId)
 	local conn
 	conn = RunService.Heartbeat:Connect(function(dt)
 		if not missile.Parent then conn:Disconnect() return end
-		if os.clock() - born &gt; life then
+		if os.clock() - born > life then
 			conn:Disconnect()
 			Destruction.Explode(missile.Position, 8, 10, { player = player })
 			missile:Destroy()
@@ -4096,7 +4726,7 @@ local function launchManpad(player, targetDrone, fromGunId)
 			if miss then desired = desired + Vector3.new(0, 40, 0) end -- ракета обманута
 		end
 		local toT = (desired - missile.Position)
-		if toT.Magnitude &lt; 7 then
+		if toT.Magnitude < 7 then
 			conn:Disconnect()
 			-- ПОПАДАНИЕ
 			if not miss then
@@ -4118,7 +4748,7 @@ local function launchManpad(player, targetDrone, fromGunId)
 			missile:Destroy()
 			return
 		end
-		missile.CFrame = CFrame.lookAt(missile.Position + step, missile.Position + step + vel)
+		missile.CFrame = CFrame.lookAt(missile.Position + step, missile.Position + step + vel) * CFrame.Angles(0, math.rad(90), 0)
 		missile.Position = missile.Position + step
 	end)
 end
@@ -4129,7 +4759,7 @@ end
 local function seatPlayer(player, gun)
 	local char = player.Character
 	local hum = char and char:FindFirstChildOfClass("Humanoid")
-	if not hum or hum.Health &lt;= 0 then return end
+	if not hum or hum.Health <= 0 then return end
 	if gun.dead then return end
 	local root = char:FindFirstChild("HumanoidRootPart")
 	if root then
@@ -4157,7 +4787,7 @@ end
 local function onGunDestroyed(center)
 	-- найти ближайшую пушку и «убить» её
 	for id, gun in pairs(guns) do
-		if not gun.dead and (gun.pos - center).Magnitude &lt; 40 then
+		if not gun.dead and (gun.pos - center).Magnitude < 40 then
 			gun.dead = true
 			gun.prompt.Enabled = false
 			if gun.turret then gun.turret:Destroy() gun.turret = nil end
@@ -4172,6 +4802,29 @@ local function onGunDestroyed(center)
 			end
 		end
 	end
+end
+
+local function playerFromGun(gun)
+	for _, pl in ipairs(Players:GetPlayers()) do
+		if pl:GetAttribute("SeatedGun") == gun.id then return pl end
+	end
+	return nil
+end
+
+local function makeRoofTeleport(roofPos, groundPos)
+	local padDown = Util.part({ Size = Vector3.new(6, 0.3, 6), CFrame = CFrame.new(roofPos + Vector3.new(10, 0.4, 0)), Color = Color3.fromRGB(60, 200, 120), Material = Enum.Material.Neon }, workspace.City)
+	local padUp = Util.part({ Size = Vector3.new(6, 0.3, 6), CFrame = CFrame.new(groundPos + Vector3.new(0, 0.4, 0)), Color = Color3.fromRGB(60, 200, 120), Material = Enum.Material.Neon }, workspace.City)
+	local function bind(a, b)
+		a.Touched:Connect(function(hit)
+			local char = hit.Parent
+			local hum = char and char:FindFirstChildOfClass("Humanoid")
+			if hum and char.PrimaryPart then
+				char:PivotTo(CFrame.new(b.Position + Vector3.new(0, 4, 0)))
+			end
+		end)
+	end
+	bind(padDown, padUp)
+	bind(padUp, padDown)
 end
 
 local function buildZU23(pos, roofAccess)
@@ -4192,8 +4845,8 @@ local function buildZU23(pos, roofAccess)
 		local barrel = Instance.new("Part")
 		barrel.Anchored = true; barrel.CanCollide = false; barrel.CanQuery = false
 		barrel.Shape = Enum.PartType.Cylinder
-		barrel.Size = Vector3.new(9, 0.5, 0.5)
-		barrel.CFrame = pivot.CFrame * CFrame.new(0, 0.6, -3.5) * CFrame.Angles(0, 0, math.rad(90)) * CFrame.new(sx * 0.5, 0, 0)
+		barrel.Size = Vector3.new(8.5, 0.42, 0.42)
+		barrel.CFrame = pivot.CFrame * CFrame.new(sx * 0.55, 0.55, -4.6) * CFrame.Angles(0, math.rad(90), 0)
 		barrel.Color = Color3.fromRGB(55, 55, 58); barrel.Material = Enum.Material.Metal
 		barrel.Parent = turret
 	end
@@ -4238,29 +4891,6 @@ local function buildZU23(pos, roofAccess)
 	return gun
 end
 
-local function playerFromGun(gun)
-	for _, pl in ipairs(Players:GetPlayers()) do
-		if pl:GetAttribute("SeatedGun") == gun.id then return pl end
-	end
-	return nil
-end
-
-local function makeRoofTeleport(roofPos, groundPos)
-	local padDown = Util.part({ Size = Vector3.new(6, 0.3, 6), CFrame = CFrame.new(roofPos + Vector3.new(10, 0.4, 0)), Color = Color3.fromRGB(60, 200, 120), Material = Enum.Material.Neon }, workspace.City)
-	local padUp = Util.part({ Size = Vector3.new(6, 0.3, 6), CFrame = CFrame.new(groundPos + Vector3.new(0, 0.4, 0)), Color = Color3.fromRGB(60, 200, 120), Material = Enum.Material.Neon }, workspace.City)
-	local function bind(a, b)
-		a.Touched:Connect(function(hit)
-			local char = hit.Parent
-			local hum = char and char:FindFirstChildOfClass("Humanoid")
-			if hum and char.PrimaryPart then
-				char:PivotTo(CFrame.new(b.Position + Vector3.new(0, 4, 0)))
-			end
-		end)
-	end
-	bind(padDown, padUp)
-	bind(padUp, padDown)
-end
-
 local function buildPantsir(pos)
 	gunCounter = gunCounter + 1
 	local id = "pantsir"
@@ -4285,12 +4915,12 @@ local function buildPantsir(pos)
 	local body = Util.part({ Size = Vector3.new(7, 3, 8), CFrame = pivot.CFrame * CFrame.new(0, 0.8, 0), Color = Color3.fromRGB(85, 95, 78), Material = Enum.Material.Metal }, turret)
 	-- пушки
 	for _, sx in ipairs({ -1, 1 }) do
-		local gunBlock = Util.part({ Size = Vector3.new(1.6, 1.6, 7), CFrame = pivot.CFrame * CFrame.new(sx * 1.6, 0.6, -5), Color = Color3.fromRGB(50, 55, 50), Material = Enum.Material.Metal }, turret)
+		local gunBlock = Util.part({ Shape = Enum.PartType.Cylinder, Size = Vector3.new(7.2, 0.55, 0.55), CFrame = pivot.CFrame * CFrame.new(sx * 1.5, 0.55, -4.2) * CFrame.Angles(0, math.rad(90), 0), Color = Color3.fromRGB(42, 46, 42), Material = Enum.Material.Metal }, turret)
 	end
 	-- ракетные ТПК (2 блока по 6)
 	for _, sx in ipairs({ -1, 1 }) do
 		for i = 1, 6 do
-			local tube = Util.part({ Size = Vector3.new(1.4, 1.4, 7), CFrame = pivot.CFrame * CFrame.new(sx * 3, 1.2 + math.floor((i - 1) / 3) * 1.6, 1 + ((i - 1) % 3) * 1.6 - 1.6), Color = Color3.fromRGB(60, 65, 58), Material = Enum.Material.Metal }, turret)
+			local tube = Util.part({ Shape = Enum.PartType.Cylinder, Size = Vector3.new(6.4, 0.85, 0.85), CFrame = pivot.CFrame * CFrame.new(sx * 2.6, 1.15 + math.floor((i - 1) / 3) * 1.15, ((i - 1) % 3) * 1.15 - 0.4) * CFrame.Angles(0, math.rad(90), 0), Color = Color3.fromRGB(62, 68, 56), Material = Enum.Material.Metal }, turret)
 		end
 	end
 	-- вращающийся радар
@@ -4355,7 +4985,7 @@ local function handleGunAim(player, gunModel, dir)
 	local gun = gunId and guns[gunId]
 	if not gun or gun.model ~= gunModel or gun.dead then return end
 	local now = os.clock()
-	if aimLast[gunId] and now - aimLast[gunId] &lt; 0.08 then return end
+	if aimLast[gunId] and now - aimLast[gunId] < 0.08 then return end
 	aimLast[gunId] = now
 	dir = dir.Unit
 	dir = Vector3.new(dir.X, math.clamp(dir.Y, -0.08, 0.985), dir.Z).Unit
@@ -4376,21 +5006,21 @@ local function handleGunFire(player, origin, dir)
 	local gun = gunId and guns[gunId]
 	if not gun or gun.dead then return end
 	local now = os.clock()
-	if now &lt; gun.overheatUntil then return end
+	if now < gun.overheatUntil then return end
 
 	local scfg
 	if gun.kind == "zu23" then scfg = Config.STATIONARY.ZU23
 	else scfg = Config.STATIONARY.PANTSIR.Cannon end
 
 	local minInt = 1 / scfg.Rate * 0.85
-	if gun.lastShot and now - gun.lastShot &lt; minInt then return end
+	if gun.lastShot and now - gun.lastShot < minInt then return end
 	gun.lastShot = now
 
 	dir = dir.Unit
 	local muzzle = gun.pivot.Position + dir * 6
 	-- перегрев
 	gun.heat = gun.heat + 1
-	if gun.heat &gt;= scfg.HeatShots then
+	if gun.heat >= scfg.HeatShots then
 		gun.heat = 0
 		gun.overheatUntil = now + scfg.HeatTime
 		gun.model:SetAttribute("OverheatUntil", gun.overheatUntil)
@@ -4439,10 +5069,10 @@ local function repairGun(player)
 	for id, gun in pairs(guns) do
 		if gun.dead and gun.kind == "zu23" then
 			local d = (root.Position - gun.pos).Magnitude
-			if d &lt; bestDist then best = gun bestDist = d end
+			if d < bestDist then best = gun bestDist = d end
 		end
 	end
-	if not best then return false, "Рядом нет уничтоженной ЗУ-23 (нужна &lt; 200 studs)" end
+	if not best then return false, "Рядом нет уничтоженной ЗУ-23 (нужна < 200 studs)" end
 	-- пересоздать установку
 	best.model:Destroy()
 	guns[best.id] = nil
@@ -4505,20 +5135,27 @@ local function buildStationary()
 	WeaponService.SetSpotlightsNight(nightState)
 end
 
-function WeaponService.Init()
-	-- персонажи
-	Players.PlayerAdded:Connect(function(pl)
+function WeaponService.BindPlayers()
+	if WeaponService._playersBound then return end
+	WeaponService._playersBound = true
+	local function hook(pl)
 		pl.CharacterAdded:Connect(function(char)
 			task.spawn(onCharacterAdded, pl, char)
 			watchToolWeight(pl, char)
 		end)
-	end)
-	for _, pl in ipairs(Players:GetPlayers()) do
-		pl.CharacterAdded:Connect(function(char)
-			task.spawn(onCharacterAdded, pl, char)
-			watchToolWeight(pl, char)
-		end)
+		if pl.Character then
+			task.spawn(onCharacterAdded, pl, pl.Character)
+			watchToolWeight(pl, pl.Character)
+		end
 	end
+	Players.PlayerAdded:Connect(hook)
+	for _, pl in ipairs(Players:GetPlayers()) do
+		hook(pl)
+	end
+end
+
+function WeaponService.Init()
+	WeaponService.BindPlayers()
 
 	-- ремоуты
 	local wf = Remotes:FindFirstChild(Config.REM.WeaponFire)
@@ -4566,7 +5203,7 @@ function WeaponService.Init()
 			for id, gun in pairs(guns) do
 				if gun.kind == "pantsir" and gun.model.Parent then
 					local m = gun.model:GetAttribute("Missiles") or 0
-					if m &lt; Config.STATIONARY.PANTSIR.Missile.Count then
+					if m < Config.STATIONARY.PANTSIR.Missile.Count then
 						gun.model:SetAttribute("Missiles", m + 1)
 					end
 				end
@@ -4603,13 +5240,170 @@ function WeaponService.RebuildStationary()
 end
 
 return WeaponService
-</ProtectedString></Properties></Item>
+]]></ProtectedString>
+      </Properties>
+    </Item>
   </Item>
-  <Item class="StarterPlayer" referent="RBX18">
-    <Properties><string name="Name">StarterPlayer</string></Properties>
-    <Item class="StarterPlayerScripts" referent="RBX19">
-      <Properties><string name="Name">StarterPlayerScripts</string></Properties>
-      <Item class="LocalScript" referent="RBX12"><Properties><string name="Name">DefenderController</string><ProtectedString name="Source">-- ============================================================
+  <Item class="StarterPlayer" referent="24">
+    <Properties>
+      <string name="Name">StarterPlayer</string>
+    </Properties>
+    <Item class="StarterPlayerScripts" referent="25">
+      <Properties>
+        <string name="Name">StarterPlayerScripts</string>
+      </Properties>
+      <Item class="LocalScript" referent="26">
+        <Properties>
+          <string name="Name">Admin</string>
+          <ProtectedString name="Source"><![CDATA[-- Тестовая панель монет. Видна в Studio и создателю места.
+-- Сервер всё равно проверяет право, клиент только рисует кнопки.
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer or Players.PlayerAdded:Wait()
+
+local function allowed()
+	if RunService:IsStudio() then return true end
+	if player:GetAttribute("Admin") == true then return true end
+	return false
+end
+
+if not allowed() then
+	player:GetAttributeChangedSignal("Admin"):Wait()
+	if not allowed() then return end
+end
+
+local remotes = ReplicatedStorage:WaitForChild("Remotes", 30)
+local ev = remotes and remotes:WaitForChild("AdminCoins", 30)
+if not ev then return end
+
+local pg = player:WaitForChild("PlayerGui")
+local gui = Instance.new("ScreenGui")
+gui.Name = "AdminCoins"
+gui.ResetOnSpawn = false
+gui.DisplayOrder = 50
+gui.Parent = pg
+
+local panel = Instance.new("Frame")
+panel.Size = UDim2.new(0, 168, 0, 168)
+panel.Position = UDim2.new(0, 12, 1, -186)
+panel.BackgroundColor3 = Color3.fromRGB(16, 18, 24)
+panel.BackgroundTransparency = 0.1
+panel.BorderSizePixel = 0
+panel.Parent = gui
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10)
+corner.Parent = panel
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 28)
+title.BackgroundTransparency = 1
+title.Font = Enum.Font.GothamBold
+title.TextSize = 14
+title.TextColor3 = Color3.fromRGB(255, 210, 80)
+title.Text = "АДМИН · МОНЕТЫ"
+title.Parent = panel
+
+local function button(y, text, color, action, amount)
+	local b = Instance.new("TextButton")
+	b.Size = UDim2.new(1, -16, 0, 30)
+	b.Position = UDim2.new(0, 8, 0, y)
+	b.BackgroundColor3 = color
+	b.Font = Enum.Font.GothamBold
+	b.TextSize = 15
+	b.TextColor3 = Color3.fromRGB(255, 255, 255)
+	b.Text = text
+	b.AutoButtonColor = true
+	b.Parent = panel
+	local c = Instance.new("UICorner")
+	c.CornerRadius = UDim.new(0, 6)
+	c.Parent = b
+	b.MouseButton1Click:Connect(function()
+		ev:FireServer(action, amount)
+	end)
+end
+
+button(32, "+ 1 000", Color3.fromRGB(40, 140, 70), "add", 1000)
+button(66, "+ 10 000", Color3.fromRGB(30, 110, 180), "add", 10000)
+button(100, "− 1 000", Color3.fromRGB(160, 70, 50), "sub", 1000)
+button(134, "Обнулить", Color3.fromRGB(70, 72, 80), "zero", 0)
+]]></ProtectedString>
+        </Properties>
+      </Item>
+      <Item class="LocalScript" referent="27">
+        <Properties>
+          <string name="Name">Boot</string>
+          <ProtectedString name="Source"><![CDATA[-- Сразу показывает, что клиент жив, и привязывает камеру к персонажу.
+-- Не ждёт Remotes: если сервер упал, эта надпись всё равно должна быть видна.
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer or Players.PlayerAdded:Wait()
+
+local function bindCamera(char)
+	local cam = workspace.CurrentCamera
+	local hum = char:FindFirstChildOfClass("Humanoid") or char:WaitForChild("Humanoid", 8)
+	if cam and hum then
+		cam.CameraType = Enum.CameraType.Custom
+		cam.CameraSubject = hum
+	end
+end
+
+if player.Character then
+	task.spawn(bindCamera, player.Character)
+end
+player.CharacterAdded:Connect(bindCamera)
+
+local pg = player:WaitForChild("PlayerGui", 15)
+if not pg then return end
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "BootStatus"
+gui.ResetOnSpawn = false
+gui.DisplayOrder = 1000
+gui.IgnoreGuiInset = true
+
+local label = Instance.new("TextLabel")
+label.Name = "Status"
+label.Size = UDim2.new(0, 640, 0, 44)
+label.Position = UDim2.new(0.5, -320, 0, 8)
+label.BackgroundColor3 = Color3.fromRGB(12, 28, 18)
+label.BackgroundTransparency = 0.15
+label.BorderSizePixel = 0
+label.Font = Enum.Font.GothamBold
+label.TextSize = 18
+label.TextColor3 = Color3.fromRGB(140, 255, 170)
+label.Text = "БЕСПИЛОТНИКИ: клиент запущен, ждём персонажа..."
+label.Parent = gui
+gui.Parent = pg
+
+task.spawn(function()
+	local started = os.clock()
+	while gui.Parent do
+		task.wait(0.4)
+		local char = player.Character
+		local hum = char and char:FindFirstChildOfClass("Humanoid")
+		local city = workspace:FindFirstChild("City")
+		if hum then
+			local team = player.Team and player.Team.Name
+			if team then
+				label.Text = "БЕСПИЛОТНИКИ: команда «" .. team .. "». " .. (city and "Город готов." or "Город строится...")
+			else
+				label.Text = city and "БЕСПИЛОТНИКИ: город на месте. Выбери сторону." or "БЕСПИЛОТНИКИ: персонаж есть, город строится..."
+			end
+			label.TextColor3 = Color3.fromRGB(140, 255, 170)
+		else
+			label.Text = string.format("БЕСПИЛОТНИКИ: персонажа нет уже %d с. Открой View → Output.", math.floor(os.clock() - started))
+			label.TextColor3 = Color3.fromRGB(255, 180, 80)
+		end
+	end
+end)
+]]></ProtectedString>
+        </Properties>
+      </Item>
+      <Item class="LocalScript" referent="28">
+        <Properties>
+          <string name="Name">DefenderController</string>
+          <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  DefenderController — клиент защитника:
 --  АК-74М / Корд (автострельба), ПЗРК «Игла-С» (захват цели),
 --  управление ЗУ-23-2 / «Панцирь-С1» / прожектором.
@@ -4716,10 +5510,10 @@ local function shootLoop()
 			local tool = currentTool()
 			local char = player.Character
 			local hum = char and char:FindFirstChildOfClass("Humanoid")
-			if tool and hum and hum.Health &gt; 0 and (tool.Name == "AK74M" or tool.Name == "KORD") then
+			if tool and hum and hum.Health > 0 and (tool.Name == "AK74M" or tool.Name == "KORD") then
 				local wcfg = Config.WEAPONS[tool.Name]
 				if not reloading then
-					if (mags[tool.Name] or 0) &gt; 0 then
+					if (mags[tool.Name] or 0) > 0 then
 						mags[tool.Name] = mags[tool.Name] - 1
 						local head = char:FindFirstChild("Head")
 						local origin = head and head.Position or char:GetPivot().Position
@@ -4782,14 +5576,14 @@ local function updateIglaLock(dt)
 			lockProgress = lockProgress + dt / lockTime
 			lockBack.Visible = true
 			lockBar.Size = UDim2.new(math.min(lockProgress, 1), 0, 1, 0)
-			lockLabel.Text = lockProgress &gt;= 1 and "ПУСК: ЛКМ (Игла) / ЛКМ" or ("ЗАХВАТ ЦЕЛИ... " .. math.floor(lockProgress * 100) .. "%")
+			lockLabel.Text = lockProgress >= 1 and "ПУСК: ЛКМ (Игла) / ЛКМ" or ("ЗАХВАТ ЦЕЛИ... " .. math.floor(lockProgress * 100) .. "%")
 			-- нарастающий писк
 			if not lockBeep or not lockBeep.Parent then
 				lockBeep = Util.soundOn(workspace, Config.SOUNDS.Beep, { Volume = 0.5 })
 			end
 			lockBeep.PlaybackSpeed = 1 + lockProgress * 3
-			if math.random() &lt; 0.3 then lockBeep:Play() end
-			if lockProgress &gt;= 1 then
+			if math.random() < 0.3 then lockBeep:Play() end
+			if lockProgress >= 1 then
 				if isIgla then
 					iglaLaunchEv:FireServer(lockTarget)
 					lockTarget = nil
@@ -4813,7 +5607,7 @@ end
 -- Панцирь: ЛКМ при полном захвате → пуск ракеты, иначе пушка
 local function onGunFireInput()
 	if gun and gun.kind == "pantsir" then
-		if lockTarget and lockProgress &gt;= 1 then
+		if lockTarget and lockProgress >= 1 then
 			iglaLaunchEv:FireServer(lockTarget)
 			lockTarget = nil
 			lockProgress = 0
@@ -4893,8 +5687,8 @@ RunService.RenderStepped:Connect(function(dt)
 		local heat = gun.model:GetAttribute("Heat") or 0
 		local ohUntil = gun.model:GetAttribute("OverheatUntil") or 0
 		local maxHeat = gun.kind == "pantsir" and Config.STATIONARY.PANTSIR.Cannon.HeatShots or Config.STATIONARY.ZU23.HeatShots
-		heatBack.Visible = heat &gt; 5 or os.clock() &lt; ohUntil
-		if os.clock() &lt; ohUntil then
+		heatBack.Visible = heat > 5 or os.clock() < ohUntil
+		if os.clock() < ohUntil then
 			heatBar.BackgroundColor3 = Color3.fromRGB(255, 40, 30)
 			heatBar.Size = UDim2.new(1, 0, 1, 0)
 		else
@@ -4904,7 +5698,7 @@ RunService.RenderStepped:Connect(function(dt)
 	end
 	-- наведение на сервер (10 Гц)
 	aimAccum = aimAccum + dt
-	if aimAccum &gt; 0.1 then
+	if aimAccum > 0.1 then
 		aimAccum = 0
 		gunAimEv:FireServer(gun.model, rot.LookVector)
 	end
@@ -4927,7 +5721,7 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 		if gun then onGunFireInput() end
 		-- Игла: полный захват → пуск по ЛКМ (обрабатывается в updateIglaLock)
 		local tool = currentTool()
-		if tool and tool.Name == "IGLA" and not gun and lockTarget and lockProgress &gt;= 1 then
+		if tool and tool.Name == "IGLA" and not gun and lockTarget and lockProgress >= 1 then
 			iglaLaunchEv:FireServer(lockTarget)
 			lockTarget = nil
 			lockProgress = 0
@@ -4977,7 +5771,7 @@ operFXEv.OnClientEvent:Connect(function(payload)
 		local t0 = os.clock()
 		local conn
 		conn = RunService.RenderStepped:Connect(function()
-			if not missile.Parent or os.clock() - t0 &gt; 1 then
+			if not missile.Parent or os.clock() - t0 > 1 then
 				conn:Disconnect()
 				camera.CameraType = Enum.CameraType.Custom
 				return
@@ -4997,13 +5791,19 @@ end)
 RunService.Heartbeat:Connect(function(dt)
 	local char = player.Character
 	local hum = char and char:FindFirstChildOfClass("Humanoid")
-	crossGui.Enabled = (hum and hum.Health &gt; 0) and (currentTool() ~= nil or gun ~= nil)
+	crossGui.Enabled = (hum and hum.Health > 0) and (currentTool() ~= nil or gun ~= nil)
 	if not gun then
 		updateIglaLock(dt)
 	end
 	-- подсказка о перегреве
 end)
-</ProtectedString></Properties></Item><Item class="LocalScript" referent="RBX13"><Properties><string name="Name">DroneController</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+        </Properties>
+      </Item>
+      <Item class="LocalScript" referent="29">
+        <Properties>
+          <string name="Name">DroneController</string>
+          <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  DroneController — клиент оператора:
 --  магазин дронов, управление Тип A (WASD) и Тип B (FPV-мышь),
 --  HUD, рой, барражирование, экран помех.
@@ -5160,7 +5960,8 @@ local function buildShop()
 			model.Parent = world
 			local cf = CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0)
 			model:PivotTo(cf)
-			vpCam.CFrame = CFrame.new(0, 4, drone.Id == "inohodets" and 42 or 22) * CFrame.Angles(math.rad(-12), 0, 0)
+			local dist = model:GetAttribute("PreviewDist") or 24
+		vpCam.CFrame = CFrame.new(0, dist * 0.28, dist) * CFrame.Angles(math.rad(-14), math.rad(18), 0)
 			table.insert(viewports, { model = model, cam = vpCam })
 		end
 		mk("TextLabel", { Size = UDim2.new(1, -16, 0, 26), Position = UDim2.new(0, 8, 0, 160), BackgroundTransparency = 1, Font = Enum.Font.GothamBold, Text = drone.Name, TextSize = 19, TextColor3 = Color3.fromRGB(140, 220, 255) }, card)
@@ -5184,6 +5985,7 @@ local function buildShop()
 	return { gui = gui, coins = coinsLabel, viewports = viewports, Frame = gui }
 end
 
+
 -- ------------------------------------------------------------
 -- ПОЛЁТ
 -- ------------------------------------------------------------
@@ -5195,15 +5997,22 @@ local function nearBunker()
 	local char = player.Character
 	local root = char and char:FindFirstChild("HumanoidRootPart")
 	if not root then return false end
-	return (root.Position - Config.BUNKER_POS).Magnitude &lt; 70
+	return (root.Position - Config.BUNKER_POS).Magnitude < 70
 end
 
 function startFlying(model, cfg)
-	local primary = model.PrimaryPart
-	if not primary then return end
-	local align = primary:FindFirstChildOfClass("AlignOrientation")
-	local lvel = primary:FindFirstChildOfClass("LinearVelocity")
-	if not align or not lvel then return end
+	local primary = model.PrimaryPart or model:WaitForChild("Hull", 3)
+	if not primary then
+		toast("Дрон не собрался", Color3.fromRGB(255, 120, 100))
+		return
+	end
+	-- ждём репликацию ограничений, иначе полёт молча не начинается и аппарат падает
+	local align = primary:FindFirstChild("FlightAlign") or primary:WaitForChild("FlightAlign", 3)
+	local lvel = primary:FindFirstChild("FlightVel") or primary:WaitForChild("FlightVel", 3)
+	if not align or not lvel then
+		toast("Нет двигателя дрона — перезапусти вылет", Color3.fromRGB(255, 120, 100))
+		return
+	end
 	-- юниты роя
 	local units = {}
 	if cfg.Kind == "swarm" then
@@ -5215,16 +6024,20 @@ function startFlying(model, cfg)
 			end
 		end)
 	end
+	local look = primary.CFrame.LookVector
 	flying = {
 		model = model, cfg = cfg, primary = primary, align = align, lvel = lvel,
-		yaw = 0, pitch = 0, throttle = 1, kind = cfg.Kind, units = units,
+		yaw = math.atan2(-look.X, -look.Z), pitch = math.rad(-8), throttle = 1, kind = cfg.Kind, units = units,
+		takeoffUntil = os.clock() + 2.4,
 	}
 	camera.CameraType = Enum.CameraType.Scriptable
 	camera.FieldOfView = 70
 	if cfg.Control == "B" then
 		fpvGui.gui.Enabled = true
 		wasdGui.gui.Enabled = false
-		fpvGui.help.Text = cfg.Flags.Loiter and "ЛКМ — подрыв · C — барражирование · W/S — газ" or "ЛКМ — подрыв · W/S — газ · мышь — направление"
+		fpvGui.help.Text = cfg.Flags.Loiter and "ЛКМ — подрыв · C — барражирование · W/S — газ · мышь влево = влево" or "ЛКМ — подрыв · W/S — газ · мышь влево = влево"
+		UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+		UserInputService.MouseIconEnabled = false
 	else
 		wasdGui.gui.Enabled = true
 		fpvGui.gui.Enabled = false
@@ -5240,9 +6053,17 @@ function startFlying(model, cfg)
 end
 
 local function stopFlying()
+	local model = flying and flying.model
+	if model then
+		for _, p in ipairs(model:GetDescendants()) do
+			if p:IsA("BasePart") then p.LocalTransparencyModifier = 0 end
+		end
+	end
 	flying = nil
 	camera.CameraType = Enum.CameraType.Custom
 	camera.FieldOfView = 70
+	UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+	UserInputService.MouseIconEnabled = true
 	if fpvGui then fpvGui.gui.Enabled = false end
 	if wasdGui then wasdGui.gui.Enabled = false end
 	-- вернуть видимость персонажа
@@ -5307,7 +6128,7 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 			swarmAttackEv:FireServer(pos, false)
 			task.delay(0.7, function()
 				local t0 = os.clock()
-				while firing and flying and os.clock() - t0 &lt; 5 do
+				while firing and flying and os.clock() - t0 < 5 do
 					swarmAttackEv:FireServer(pos, true)
 					task.wait(0.4)
 				end
@@ -5340,7 +6161,7 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 		returnEv:FireServer()
 	elseif input.KeyCode == Enum.KeyCode.B then
 		if flying then return end
-		if isOperator() and (nearBunker() or (shopGui and shopGui.gui.Enabled)) then
+		if isOperator() then
 			shopGui.gui.Enabled = not shopGui.gui.Enabled
 		end
 	end
@@ -5380,7 +6201,19 @@ RunService.RenderStepped:Connect(function(dt)
 	local cfg = f.cfg
 	local loiterOn = model:GetAttribute("Loiter")
 
-	if cfg.Control == "A" then
+	local takingOff = f.takeoffUntil and os.clock() < f.takeoffUntil
+	if takingOff then
+		-- автонабор: видно, что дрон оторвался, даже если игрок ещё не нажал W
+		f.yaw = math.pi
+		f.pitch = math.rad(-10)
+		f.lvel.VectorVelocity = Vector3.new(0, 34, 58)
+		f.align.CFrame = CFrame.Angles(f.pitch, f.yaw, 0)
+		local target = f.primary.Position
+		local back = math.clamp(f.primary.Size.Magnitude * 3 + 16, 20, 42)
+		local behind = (CFrame.Angles(0, f.yaw, 0) * CFrame.new(0, 8, back)).Position
+		camPos = camPos and Util.lerp(camPos, target + behind, math.clamp(8 * dt, 0, 1)) or (target + behind)
+		camera.CFrame = CFrame.lookAt(camPos, target)
+	elseif cfg.Control == "A" then
 		-- ===== ТИП A: WASD =====
 		local yaw = f.yaw
 		local forward = 0
@@ -5402,40 +6235,56 @@ RunService.RenderStepped:Connect(function(dt)
 		f.align.CFrame = (CFrame.Angles(0, f.yaw, 0) * lean) - Vector3.new()
 		-- камера от третьего лица со сглаживанием
 		local target = f.primary.Position
-		local behind = (CFrame.Angles(0, f.yaw, 0) * CFrame.new(0, 9, 22)).Position
-		camPos = camPos and Util.lerp(camPos, behind, math.clamp(8 * dt, 0, 1)) or behind
+		local back = math.clamp(f.primary.Size.Magnitude * 3 + 16, 18, 46)
+		local behind = (CFrame.Angles(0, f.yaw, 0) * CFrame.new(0, 8, back)).Position
+		camPos = camPos and Util.lerp(camPos, target + behind, math.clamp(8 * dt, 0, 1)) or (target + behind)
 		local shakeOff = Vector3.new((math.random() - 0.5), (math.random() - 0.5), (math.random() - 0.5)) * shakePower
 		camera.CFrame = CFrame.lookAt(camPos + shakeOff, target + shakeOff)
 	else
-		-- ===== ТИП B: FPV-МЫШЬ =====
-		local mousePos = UserInputService:GetMouseLocation()
-		local vp = camera.ViewportSize
-		local center = Vector2.new(vp.X / 2, vp.Y / 2 + GuiServiceInset.Y / 2)
-		local delta = (mousePos - center) / math.max(vp.Y, 1)
-		local maxYaw = math.rad(cfg.Turn)
-		local yawRate = math.clamp(delta.X * 6, -1, 1) * maxYaw
-		local pitchRate = math.clamp(-delta.Y * 6, -1, 1) * maxYaw * 0.8
+		-- ===== ТИП B: мышь. Влево = влево. Камера сзади-сверху, не в сопле. =====
+		UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+		UserInputService.MouseIconEnabled = false
+		local delta = UserInputService:GetMouseDelta()
+		local sens = 0.0036
 		if loiterOn then
-			yawRate = math.rad(40)
-			pitchRate = 0
+			f.yaw = f.yaw + math.rad(40) * dt
+			f.bank = (f.bank or 0) * 0.9
+		else
+			-- положительный yaw крутит влево, поэтому знак мыши обратный старому
+			f.yaw = f.yaw - delta.X * sens
+			f.pitch = math.clamp(f.pitch - delta.Y * sens, math.rad(-70), math.rad(50))
+			f.bank = math.clamp((f.bank or 0) * 0.82 - delta.X * 0.0016, -0.4, 0.4)
 		end
-		f.yaw = f.yaw + yawRate * dt
-		f.pitch = math.clamp(f.pitch + pitchRate * dt, math.rad(-80), math.rad(80))
-		-- газ
 		if UserInputService:IsKeyDown(Enum.KeyCode.W) then f.throttle = math.clamp(f.throttle + dt * 0.7, 0.35, 1.5) end
 		if UserInputService:IsKeyDown(Enum.KeyCode.S) then f.throttle = math.clamp(f.throttle - dt * 0.7, 0.35, 1.5) end
 		local speed = cfg.Speed * f.throttle
-		-- пикирование «Ланцета»
-		if cfg.Flags.Dive and f.pitch &lt; math.rad(-35) then
+		if cfg.Flags.Dive and f.pitch < math.rad(-35) then
 			speed = math.min(speed * 1.35, 200)
 		end
-		local rot = CFrame.Angles(f.pitch, f.yaw, math.clamp(-delta.X * 0.5, -0.5, 0.5))
+		local rot = CFrame.Angles(f.pitch, f.yaw, f.bank or 0)
 		f.align.CFrame = rot - Vector3.new()
 		f.lvel.VectorVelocity = rot.LookVector * speed
-		-- FPV камера из носа + шум
-		local nose = f.primary.Position + rot.LookVector * (cfg.Kind == "kamikaze" and -3 or -4)
-		local noise = Vector3.new((math.random() - 0.5), (math.random() - 0.5), (math.random() - 0.5)) * (0.15 + shakePower * 0.3)
-		camera.CFrame = CFrame.new(nose + noise) * rot * CFrame.Angles(math.rad(-4), 0, 0)
+		local size = f.model:GetExtentsSize()
+		local back = math.clamp(size.Z * 0.4 + 9, 11, 26)
+		local height = math.clamp(size.Y + 4.5, 5, 12)
+		local desired = f.primary.Position - rot.LookVector * back + Vector3.new(0, height, 0)
+		camPos = camPos and Util.lerp(camPos, desired, math.clamp(12 * dt, 0, 1)) or desired
+		local aim = f.primary.Position + rot.LookVector * 28
+		local shakeOff = Vector3.new((math.random() - 0.5), (math.random() - 0.5), (math.random() - 0.5)) * shakePower
+		camera.CFrame = CFrame.lookAt(camPos + shakeOff, aim)
+		local look = camera.CFrame.LookVector
+		for _, part in ipairs(f.model:GetDescendants()) do
+			if part:IsA("BasePart") then
+				local rel = part.Position - camera.CFrame.Position
+				local along = rel:Dot(look)
+				local side = (rel - look * along).Magnitude
+				if rel.Magnitude < part.Size.Magnitude * 0.55 + 2 or (along > -1 and along < 7 and side < part.Size.Magnitude * 0.6 + 0.8) then
+					part.LocalTransparencyModifier = 1
+				else
+					part.LocalTransparencyModifier = 0
+				end
+			end
+		end
 	end
 
 	-- режим подвесной камеры «Орлана»
@@ -5481,16 +6330,16 @@ task.spawn(function()
 			local dirs = { "С", "СВ", "В", "ЮВ", "Ю", "ЮЗ", "З", "СЗ" }
 			local heading = dirs[(math.floor(((math.deg(f.yaw) % 360) + 360) % 360 / 45) % 8) + 1]
 			if f.cfg.Control == "B" then
-				fpvGui.telL.Text = string.format("ВЫСОТА: %d studs\nСКОРОСТЬ: %d studs/s\nТОПЛИВО: %s", alt, spd, fuel &gt;= 0 and (fuel .. " c") or "∞")
+				fpvGui.telL.Text = string.format("ВЫСОТА: %d studs\nСКОРОСТЬ: %d studs/s\nТОПЛИВО: %s", alt, spd, fuel >= 0 and (fuel .. " c") or "∞")
 				fpvGui.telR.Text = string.format("X: %d  Z: %d\n%s\nБОЕПРИПАСЫ: %d", math.floor(pos.X), math.floor(pos.Z), mode and ("РЕЖИМ: " .. mode:upper()) or "", ammo)
 				fpvGui.compass.Text = heading .. string.rep("  ·", 6) .. "  " .. heading
 				fpvGui.hpBar.Size = UDim2.new(math.max(hp / maxhp, 0) - 0.006, 0, 1, -4)
 				-- помехи при повреждении
-				if hp / maxhp &lt; 0.5 then
-					fpvGui.gui.Enabled = math.random() &gt; 0.06
+				if hp / maxhp < 0.5 then
+					fpvGui.gui.Enabled = math.random() > 0.06
 				end
 			else
-				wasdGui.tel.Text = string.format("ВЫСОТА: %d\nСКОРОСТЬ: %d\nБОЕПРИПАСЫ: %d\nТОПЛИВО: %s", alt, spd, ammo, fuel &gt;= 0 and (fuel .. " c") or "∞")
+				wasdGui.tel.Text = string.format("ВЫСОТА: %d\nСКОРОСТЬ: %d\nБОЕПРИПАСЫ: %d\nТОПЛИВО: %s", alt, spd, ammo, fuel >= 0 and (fuel .. " c") or "∞")
 				wasdGui.hpBar.Size = UDim2.new(math.max(hp / maxhp, 0) - 0.006, 0, 1, -4)
 			end
 		end
@@ -5528,7 +6377,7 @@ RunService.Heartbeat:Connect(function(dt)
 			end
 			if ao then
 				local v = lv and lv.VectorVelocity
-				if v and v.Magnitude &gt; 2 then
+				if v and v.Magnitude > 2 then
 					ao.CFrame = CFrame.lookAt(Vector3.new(), v.Unit) - Vector3.new()
 				end
 			end
@@ -5601,29 +6450,57 @@ wasdGui = buildWasdHud()
 staticGui = buildStatic()
 shopGui = buildShop()
 
--- авто-открытие магазина при появлении в бункере
+local shopBtnGui = mk("ScreenGui", { Name = "ShopButton", ResetOnSpawn = false, DisplayOrder = 20 }, player:WaitForChild("PlayerGui"))
+local shopBtn = mk("TextButton", {
+	Size = UDim2.new(0, 280, 0, 48),
+	Position = UDim2.new(0.5, -140, 1, -70),
+	BackgroundColor3 = Color3.fromRGB(30, 110, 210),
+	Font = Enum.Font.GothamBold,
+	TextSize = 18,
+	TextColor3 = Color3.fromRGB(255, 255, 255),
+	Text = "МАГАЗИН БПЛА  (B)",
+	Visible = false,
+	AutoButtonColor = true,
+}, shopBtnGui)
+mk("UICorner", { CornerRadius = UDim.new(0, 10) }, shopBtn)
+shopBtn.MouseButton1Click:Connect(function()
+	if not isOperator() or flying then return end
+	shopGui.gui.Enabled = not shopGui.gui.Enabled
+end)
+
+local function refreshCoins()
+	local ls = player:FindFirstChild("leaderstats")
+	local coins = ls and ls:FindFirstChild("Монеты")
+	shopGui.coins.Text = "Монеты: " .. (coins and coins.Value or 0)
+end
+
+local shopAutoOpened = false
+player.CharacterAdded:Connect(function()
+	shopAutoOpened = false
+end)
+
+-- Один раз открываем магазин, когда оператор появился в бункере.
+-- Повторно не открываем, чтобы кнопку «закрыть» можно было нажать.
 task.spawn(function()
 	while true do
-		task.wait(1)
-		if isOperator() and not flying and nearBunker() and not shopGui.gui.Enabled then
-			local char = player.Character
-			local hum = char and char:FindFirstChildOfClass("Humanoid")
-			local seated = char and char:FindFirstChildOfClass("Humanoid") and hum.SitSeatPart
-			if hum and hum.Health &gt; 0 and seated == nil then
-				-- показываем магазин только после первого выбора команды (персонаж в бункере)
-				if (player.Character.HumanoidRootPart.Position - Config.BUNKER_POS).Magnitude &lt; 40 then
-					shopGui.gui.Enabled = true
-				end
-			end
+		task.wait(0.4)
+		local op = isOperator() and not flying
+		shopBtn.Visible = op
+		shopBtn.Text = shopGui.gui.Enabled and "ЗАКРЫТЬ МАГАЗИН  (B)" or "МАГАЗИН БПЛА  (B)"
+		if op and nearBunker() and not shopAutoOpened then
+			shopAutoOpened = true
+			shopGui.gui.Enabled = true
 		end
-		if shopGui.gui.Enabled then
-			local ls = player:FindFirstChild("leaderstats")
-			local coins = ls and ls:FindFirstChild("Монеты")
-			shopGui.coins.Text = "Монеты: " .. (coins and coins.Value or 0)
-		end
+		if shopGui.gui.Enabled then refreshCoins() end
 	end
 end)
-</ProtectedString></Properties></Item><Item class="LocalScript" referent="RBX14"><Properties><string name="Name">HUDController</string><ProtectedString name="Source">-- ============================================================
+]]></ProtectedString>
+        </Properties>
+      </Item>
+      <Item class="LocalScript" referent="30">
+        <Properties>
+          <string name="Name">HUDController</string>
+          <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  HUDController — общий интерфейс:
 --  выбор команды, монеты, килфид, радар-миникарта, таймер раунда,
 --  сирена, итоги, погода (дождь), табло (Tab).
@@ -5741,7 +6618,7 @@ killfeedEv.OnClientEvent:Connect(function(msg)
 	for _, c in ipairs(feedFrame:GetChildren()) do
 		if c:IsA("TextLabel") then table.insert(children, c) end
 	end
-	if #children &gt; 6 then children[1]:Destroy() end
+	if #children > 6 then children[1]:Destroy() end
 end)
 
 -- ============================================================
@@ -5762,7 +6639,7 @@ phaseEv.OnClientEvent:Connect(function(phase, timeLeft, extra)
 		local m = math.floor(timeLeft / 60)
 		local s = timeLeft % 60
 		phaseText.Text = string.format("ДО КОНЦА РАУНДА: %d:%02d", m, s)
-		phaseText.TextColor3 = timeLeft &lt; 60 and Color3.fromRGB(255, 90, 70) or Color3.fromRGB(240, 240, 240)
+		phaseText.TextColor3 = timeLeft < 60 and Color3.fromRGB(255, 90, 70) or Color3.fromRGB(240, 240, 240)
 	elseif phase == "results" then
 		phaseText.Text = "РАУНД ЗАВЕРШЁН"
 		phaseText.TextColor3 = Color3.fromRGB(255, 210, 80)
@@ -5897,14 +6774,14 @@ RunService.Heartbeat:Connect(function()
 			dot.Position = UDim2.new(fx, -3.5, fz, -3.5)
 			if myPos then
 				local d = (Vector3.new(p.x, p.y, p.z) - myPos).Magnitude
-				if not nearest or d &lt; nearest then nearest = d end
+				if not nearest or d < nearest then nearest = d end
 			end
 		else
 			dot.Visible = false
 		end
 	end
-	-- сирена близости (&lt; 50 studs) — раз в 1.5 сек
-	if nearest and nearest &lt; 50 then
+	-- сирена близости (< 50 studs) — раз в 1.5 сек
+	if nearest and nearest < 50 then
 		if not warnBeep.IsPlaying then warnBeep:Play() end
 	end
 end)
@@ -5936,8 +6813,8 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 				table.insert(defs, "[лобби] " .. pl.Name)
 			end
 		end
-		local t = "== ОПЕРАТОРЫ БПЛА ==\n" .. (#ops &gt; 0 and table.concat(ops, "\n") or "— пусто —")
-		t = t .. "\n\n== ЗАЩИТНИКИ ПВО ==\n" .. (#defs &gt; 0 and table.concat(defs, "\n") or "— пусто —")
+		local t = "== ОПЕРАТОРЫ БПЛА ==\n" .. (#ops > 0 and table.concat(ops, "\n") or "— пусто —")
+		t = t .. "\n\n== ЗАЩИТНИКИ ПВО ==\n" .. (#defs > 0 and table.concat(defs, "\n") or "— пусто —")
 		boardText.Text = t
 	end
 end)
@@ -5963,7 +6840,7 @@ resultsEv.OnClientEvent:Connect(function(data)
 	for name, earned in pairs(data.coins or {}) do
 		table.insert(names, name)
 	end
-	table.sort(names, function(a, b) return (data.coins[a] or 0) &gt; (data.coins[b] or 0) end)
+	table.sort(names, function(a, b) return (data.coins[a] or 0) > (data.coins[b] or 0) end)
 	for i = 1, math.min(5, #names) do
 		table.insert(coinsRows, string.format("  %s — +%d монет", names[i], data.coins[names[i]]))
 	end
@@ -5973,7 +6850,7 @@ resultsEv.OnClientEvent:Connect(function(data)
 	)
 	t = t .. "MVP ОПЕРАТОРОВ: " .. (data.mvpOps and (data.mvpOps.name .. " (" .. data.mvpOps.score .. " очк.)") or "—") .. "\n"
 	t = t .. "MVP ЗАЩИТНИКОВ: " .. (data.mvpDef and (data.mvpDef.name .. " (" .. data.mvpDef.score .. " очк.)") or "—") .. "\n\n"
-	t = t .. "ЗАРАБОТАНО ЗА РАУНД:\n" .. (#coinsRows &gt; 0 and table.concat(coinsRows, "\n") or "  —")
+	t = t .. "ЗАРАБОТАНО ЗА РАУНД:\n" .. (#coinsRows > 0 and table.concat(coinsRows, "\n") or "  —")
 	rText.Text = t
 	resultGui.Enabled = true
 end)
@@ -5981,7 +6858,9 @@ end)
 closeBtn.MouseButton1Click:Connect(function()
 	resultGui.Enabled = false
 end)
-</ProtectedString></Properties></Item>
+]]></ProtectedString>
+        </Properties>
+      </Item>
     </Item>
   </Item>
 </roblox>
