@@ -260,7 +260,7 @@ Config.DRONES = {
 		Speed=150, Turn=140, HP=50, Ammo=1, BRadius=20, BDamage=120, FireTime=0, Fuel=180,
 		Reward=60, Flags={Loiter=true, Dive=true, ArmorPen=true},
 		Sound={Key="Beep", Pitch=3.0, Volume=0.15, MaxDistance=120}, -- электромотор, тихий
-		Desc="Барражирующий боеприпас с X-крылом. Тихий электромотор. C — барражирование (кружит, ждёт цель). Пикирование до 200 studs/s. Взрыв: R=20, 120 HP, игнорирует 50% защиты щитов.",
+		Desc="Барражирующий боеприпас с X-крылом. Тихий электромотор. ЛКМ — захват цели кликом (квадрат-маркер), дрон сам пикирует на неё. SPACE — ручной подрыв. C — барражирование. Пикирование до 200 studs/s. Взрыв: R=20, 120 HP, игнорирует 50% защиты щитов.",
 	},
 	{
 		Id="inohodets", Name="«Иноходец» (Орион)", Price=5000, Control="A", Kind="missile",
@@ -282,6 +282,27 @@ Config.DRONES = {
 		Reward=200, Flags={Knockback=true, ShakeAll=true, Blur=true},
 		Sound={Key="Jet", Pitch=2.4, Volume=0.8, MaxDistance=400},
 		Desc="Гиперзвуковой камикадзе, 400 studs/s. Практически неперехватываем. Взрыв: R=70, 300 HP, полная уничтожение здания, ударная волна отбрасывает на 50 studs, тряска экрана у всех.",
+	},
+	{
+		Id="termit", Name="«Термит»", Price=450, Control="B", Kind="kamikaze",
+		Speed=115, Turn=150, HP=35, Ammo=1, BRadius=13, BDamage=70, FireTime=40, Fuel=150,
+		Reward=40, Flags={},
+		Sound={Key="Motor", Pitch=2.4, Volume=0.5, MaxDistance=230},
+		Desc="FPV-камикадзе с термобарической боевой частью. Взрыв слабее «Упыря» по радиусу (R=13, 70 HP), но выжигает всё внутри: пожар 40 секунд, отлично против ангаров и техники.",
+	},
+	{
+		Id="strizh", Name="«Стриж»", Price=2600, Control="A", Kind="missile",
+		Speed=170, Turn=90, HP=60, Ammo=2, BRadius=16, BDamage=60, FireTime=0, Fuel=150,
+		Reward=70, Flags={Marker=true},
+		Sound={Key="Jet", Pitch=1.6, Volume=0.55, MaxDistance=300},
+		Desc="Скоростной реактивный разведчик-целеуказатель. 2 лёгкие ракеты (R=16, 60 HP). E — режим камеры с маркером цели. Минимальная скорость — самолёт не умеет висеть на месте!",
+	},
+	{
+		Id="uley", Name="«Улей»", Price=4200, Control="A", Kind="bomber",
+		Speed=55, Turn=70, HP=150, Ammo=8, BRadius=9, BDamage=40, FireTime=6, Fuel=240,
+		Reward=90, Flags={},
+		Sound={Key="Motor", Pitch=1.4, Volume=0.7, MaxDistance=280},
+		Desc="Тяжёлый восьмивинтовой бомбовоз. 8 осколочных бомб (R=9, 40 HP) — ковровое бомбометание по кварталам. Медленный и живучий: 150 HP.",
 	},
 	{
 		Id="sarancha", Name="Рой «Саранча»", Price=15000, Control="A", Kind="swarm",
@@ -381,6 +402,7 @@ Config.REM = {
 	MarkerFX      = "MarkerFX",       -- (pos) — операторам: маркер цели
 	Award         = "Award",          -- (amount, reason)
 	Phase         = "Phase",          -- (phase, timeLeft, weather)
+	DroneUnlocked = "DroneUnlocked",  -- S→C ({droneId=true,...}) — купленные навсегда дроны
 }
 
 return Config
@@ -714,6 +736,65 @@ local BUILDERS = {
 	sarancha = function()
 		return quad("Саранча", Color3.fromRGB(74, 82, 46), Color3.fromRGB(190, 200, 60), 1.25)
 	end,
+	-- ===== НОВЫЕ БПЛА =====
+	-- «Термит» — FPV-камикадзе с термобарическим зарядом
+	termit = function()
+		local m = quad("Термит", Color3.fromRGB(46, 32, 22), Color3.fromRGB(255, 120, 40), 1.85)
+		local hull = m.PrimaryPart
+		local tank = cyl(m, 0.52, 0.95, faceNose(CFrame.new(0, -0.24, -0.5)), Color3.fromRGB(150, 60, 30), METAL, "ThermoTank")
+		weldExtra(hull, tank)
+		local cap = ball(m, 0.52, CFrame.new(0, -0.24, -1.0), Color3.fromRGB(96, 42, 24), METAL, "ThermoCap")
+		weldExtra(hull, cap)
+		local stripe = part(m, Vector3.new(0.54, 0.1, 0.12), CFrame.new(0, -0.24, -0.35), Color3.fromRGB(255, 170, 60), NEON, nil, "Hazard")
+		weldExtra(hull, stripe)
+		return m
+	end,
+	-- «Стриж» — скоростной реактивный разведчик-целеуказатель
+	strizh = function()
+		local m = airplane("Стриж", Color3.fromRGB(64, 84, 104), Color3.fromRGB(120, 220, 255), 6.4, 4.8, false)
+		local hull = m.PrimaryPart
+		for _, x in ipairs({ -1.7, 1.7 }) do
+			local mis = cyl(m, 0.3, 1.5, faceNose(CFrame.new(x, -0.34, 0.25)), Color3.fromRGB(184, 186, 192), METAL, "Missile")
+			weldExtra(hull, mis)
+			local nose = ball(m, 0.3, CFrame.new(x, -0.34, -0.55), Color3.fromRGB(220, 90, 60), PLASTIC, "MissileNose")
+			weldExtra(hull, nose)
+		end
+		local optics = ball(m, 0.32, CFrame.new(0, -0.3, -1.5), Color3.fromRGB(20, 22, 26), GLASS, "Optics")
+		weldExtra(hull, optics)
+		m:SetAttribute("PreviewDist", 22)
+		return m
+	end,
+	-- «Улей» — тяжёлый восьмивинтовой бомбовоз
+	uley = function()
+		local m = Instance.new("Model")
+		m.Name = "Улей"
+		local body = Color3.fromRGB(58, 62, 48)
+		local accent = Color3.fromRGB(255, 200, 60)
+		local hull = part(m, Vector3.new(2.2, 0.7, 3), CFrame.new(), body, PLASTIC, nil, "Hull")
+		part(m, Vector3.new(0.16, 0.06, 2.6), CFrame.new(0, 0.4, 0), accent, NEON, nil, "Stripe")
+		ball(m, 0.6, CFrame.new(0, -0.55, -0.6), Color3.fromRGB(24, 26, 28), PLASTIC, "Gimbal")
+		cyl(m, 0.22, 0.12, faceNose(CFrame.new(0, -0.55, -0.98)), Color3.fromRGB(80, 170, 255), GLASS, "Lens")
+		-- 8 лучей с моторами
+		for i = 1, 8 do
+			local ang = math.rad((i - 0.5) * 45)
+			local dx, dz = math.cos(ang) * 2.5, math.sin(ang) * 2.5
+			part(m, Vector3.new(2.7, 0.12, 0.2), CFrame.new(dx * 0.5, 0.12, dz * 0.5) * CFrame.Angles(0, -ang, 0), Color3.fromRGB(32, 34, 36), METAL, nil, "Arm")
+			motor(m, CFrame.new(dx, 0.22, dz), accent)
+		end
+		-- бомбовая кассета
+		for i = 1, 4 do
+			local bomb = cyl(m, 0.36, 1.15, faceNose(CFrame.new(-0.9 + (i - 1) * 0.6, -0.75, 0.45)), Color3.fromRGB(64, 70, 52), METAL, "Bomb")
+			weldExtra(hull, bomb)
+		end
+		-- шасси
+		for _, sgn in ipairs({ -1, 1 }) do
+			part(m, Vector3.new(0.12, 0.1, 2.7), CFrame.new(sgn * 0.95, -1.05, 0), body, METAL, nil, "Skid")
+			part(m, Vector3.new(0.1, 0.55, 0.1), CFrame.new(sgn * 0.95, -0.72, -0.95), body, METAL, nil, "Strut")
+			part(m, Vector3.new(0.1, 0.55, 0.1), CFrame.new(sgn * 0.95, -0.72, 0.95), body, METAL, nil, "Strut")
+		end
+		navLight(m, CFrame.new(0, 0.52, 1.35), accent)
+		return finish(m, hull, 26)
+	end,
 }
 
 function DroneFactory.build(droneId, parent, cf)
@@ -829,7 +910,7 @@ function Util.soundOn(part, soundId, props)
 	return s
 end
 
--- Трейсер выстрела: тонкая неоновая линия
+-- Трейсер выстрела: яркая неоновая линия со свечением
 function Util.tracer(from, to, color, parent, thickness, life)
 	local dist = (to - from).Magnitude
 	if dist < 0.5 then return end
@@ -840,11 +921,11 @@ function Util.tracer(from, to, color, parent, thickness, life)
 	p.CanTouch = false
 	p.Material = Enum.Material.Neon
 	p.Color = color
-	p.Transparency = 0.25
-	p.Size = Vector3.new(thickness or 0.15, thickness or 0.15, dist)
+	p.Transparency = 0.05
+	p.Size = Vector3.new(thickness or 0.25, thickness or 0.25, dist)
 	p.CFrame = CFrame.lookAt(from, to) * CFrame.new(0, 0, -dist / 2)
 	p.Parent = parent or workspace
-	Debris:AddItem(p, life or 0.07)
+	Debris:AddItem(p, life or 0.15)
 	return p
 end
 
@@ -1760,8 +1841,11 @@ function DroneService.Launch(player, droneId)
 	if not cfg then return nil, "Неизвестный дрон" end
 	if not player.Team or player.Team.Name ~= Config.TEAM_OPS then return nil, "Вы не оператор" end
 	if droneByPlayer[player] and droneByPlayer[player].Parent then return nil, "Дрон уже в воздухе" end
-	if cfg.Price > 0 then
+	-- покупка ОДИН РАЗ навсегда: дальше запуски бесплатные
+	if cfg.Price > 0 and not Economy.IsUnlocked(player, droneId) then
 		if not Economy.TrySpend(player, cfg.Price) then return nil, "Не хватает монет" end
+		Economy.Unlock(player, droneId)
+		fireRemote(Config.REM.OperFX, player, { type = "msg", text = cfg.Name .. " куплен НАВСЕГДА! Следующие запуски бесплатны." })
 	end
 
 	local model = DroneFactory.build(droneId)
@@ -1961,9 +2045,7 @@ local function bindRemotes()
 			if not info then return end
 			local dist = (info.primary.Position - PAD).Magnitude
 			if dist < 90 then
-				-- посадка: возврат 50% цены
-				local refund = math.floor(info.cfg.Price * 0.5)
-				if refund > 0 then Economy.Add(player, refund, "Посадка дрона") end
+				-- посадка: дрон возвращается в ангар (запуск уже бесплатный — без рефанда)
 				removeDrone(model, nil, nil)
 				fireRemote(Config.REM.OperFX, player, { type = "landed" })
 			end
@@ -2150,6 +2232,29 @@ function Economy.SetRemotes(folder) Remotes = folder end
 
 local roundEarned = {} -- [player] = заработано за раунд
 local kills = {}       -- [player] = сбито дронов
+local unlocked = {}    -- [player] = { droneId = true, ... } — купленные НАВСЕГДА дроны
+
+function Economy.UnlockedSet(pl) return unlocked[pl] or {} end
+
+function Economy.IsUnlocked(pl, id)
+	local u = unlocked[pl]
+	return u ~= nil and u[id] == true
+end
+
+local function fireUnlocked(pl)
+	if not Remotes or not pl.Parent then return end
+	local ev = Remotes:FindFirstChild(Config.REM.DroneUnlocked)
+	if ev then ev:FireClient(pl, Economy.UnlockedSet(pl)) end
+end
+
+function Economy.Unlock(pl, id)
+	local u = unlocked[pl] or {}
+	if u[id] then return end
+	u[id] = true
+	unlocked[pl] = u
+	fireUnlocked(pl)
+	saveSoon(pl) -- сохранить покупку сразу
+end
 
 function Economy.RoundEarned(pl) return roundEarned[pl] or 0 end
 function Economy.Kills(pl) return kills[pl] or 0 end
@@ -2221,23 +2326,53 @@ function Economy.AddKill(pl)
 end
 
 -- ------------------------------------------------------------
--- DataStore
+-- DataStore (монеты + купленные навсегда дроны)
 -- ------------------------------------------------------------
+local save -- объявлено заранее: используется в saveSoon/Economy.Unlock
+
+local pendingSave = {}
+function saveSoon(pl) -- отложенное сохранение, чтобы не долбить DataStore
+	pendingSave[pl] = true
+	task.delay(2, function()
+		if pendingSave[pl] then
+			pendingSave[pl] = nil
+			save(pl)
+		end
+	end)
+end
+
 local function load(pl)
 	local ok, data = pcall(function() return store:GetAsync("u_" .. pl.UserId) end)
-	if ok and type(data) == "number" then
+	if ok and type(data) == "table" then
+		local c = coinsStat(pl)
+		if c and type(data.c) == "number" then c.Value = data.c end
+		if type(data.d) == "table" then
+			local u = {}
+			for _, id in ipairs(data.d) do u[id] = true end
+			unlocked[pl] = u
+		end
+	elseif ok and type(data) == "number" then
+		-- старый формат: только монеты
 		local c = coinsStat(pl)
 		if c then c.Value = data end
 	end
+	-- отправить клиенту список купленных дронов (с задержкой — скрипты клиента должны успеть подключиться)
+	task.delay(5, function() fireUnlocked(pl) end)
 end
 
-local function save(pl)
+save = function(pl)
 	if not store then return end
-	local coins = Economy.Coins(pl)
-	pcall(function() store:SetAsync("u_" .. pl.UserId, coins) end)
+	local list = {}
+	for id in pairs(unlocked[pl] or {}) do table.insert(list, id) end
+	local data = { c = Economy.Coins(pl), d = list }
+	pcall(function() store:SetAsync("u_" .. pl.UserId, data) end)
 end
 
-Players.PlayerRemoving:Connect(save)
+Players.PlayerRemoving:Connect(function(pl)
+	save(pl)
+	unlocked[pl] = nil
+	pendingSave[pl] = nil
+end)
 
 game:BindToClose(function()
 	for _, pl in ipairs(Players:GetPlayers()) do save(pl) end
@@ -3437,6 +3572,57 @@ local function residential(cx, cz, floors, opts)
 		for _, side in ipairs({ -1, 1 }) do
 			reg(P({ Size = Vector3.new(1, 8, d - 2), CFrame = CFrame.new(cx + side * (w / 2), y0 + 5, cz), Color = color, Material = material }), 80, "Wall", bld, f)
 		end
+
+		-- ===== ИНТЕРЬЕР: комнаты, мебель, свет =====
+		local fy = (f == 1) and 1.1 or (y0 - 0.4) -- уровень пола этажа
+		local rnd = Random.new(math.floor(math.abs(cx * 7 + cz * 13 + f * 131)) % 999983 + 1)
+		local wallC = Color3.fromRGB(216, 208, 194)
+		local ip = function(props, hp) return reg(P(props), hp, "Prop", bld, f) end
+		-- лифтовая шахта / лестничный узел
+		local core = ip({ Size = Vector3.new(6, 8, 5), CFrame = CFrame.new(cx + w / 4, fy + 4, cz), Color = Color3.fromRGB(150, 150, 148), Material = MAT.Concrete }, 220)
+		if f == 1 then
+			local lamp = Instance.new("PointLight")
+			lamp.Color = Color3.fromRGB(255, 220, 170)
+			lamp.Brightness = 1.1
+			lamp.Range = 45
+			lamp.Shadows = false
+			lamp.Parent = core
+		end
+		-- перегородка вдоль дома с дверным проёмом
+		local segW = (w - 8) / 2 - 2
+		for _, s in ipairs({ -1, 1 }) do
+			ip({ Size = Vector3.new(segW, 8, 0.6), CFrame = CFrame.new(cx + s * (segW / 2 + 3), fy + 4, cz - d * 0.12), Color = wallC, Material = MAT.Concrete }, 40)
+		end
+		-- поперечная перегородка (не на каждом этаже — планировки разные)
+		if f % 3 ~= 0 then
+			ip({ Size = Vector3.new(0.6, 8, d * 0.45), CFrame = CFrame.new(cx - w * 0.18, fy + 4, cz + d * 0.18), Color = wallC, Material = MAT.Concrete }, 40)
+		end
+		-- мебель
+		local function bed(x, z, rot)
+			local cf = CFrame.new(x, fy + 0.7, z) * CFrame.Angles(0, rot, 0)
+			ip({ Size = Vector3.new(5, 1.4, 7), CFrame = cf, Color = Color3.fromRGB(112, 84, 62), Material = MAT.Wood }, 20)
+			ip({ Size = Vector3.new(4.4, 0.6, 2.6), CFrame = cf * CFrame.new(0, 1, -1.8), Color = Color3.fromRGB(230, 230, 234), Material = MAT.Plastic }, 10)
+		end
+		local function wardrobe(x, z, rot)
+			ip({ Size = Vector3.new(4.5, 7, 1.6), CFrame = CFrame.new(x, fy + 3.5, z) * CFrame.Angles(0, rot, 0), Color = Color3.fromRGB(96, 66, 46), Material = MAT.Wood }, 25)
+		end
+		local function sofa(x, z, rot)
+			ip({ Size = Vector3.new(6.5, 2.6, 2.6), CFrame = CFrame.new(x, fy + 1.3, z) * CFrame.Angles(0, rot, 0), Color = Color3.fromRGB(80 + rnd:NextInteger(0, 90), 95, 115), Material = MAT.Plastic }, 20)
+		end
+		local function tableSet(x, z, rot)
+			local cf = CFrame.new(x, fy, z) * CFrame.Angles(0, rot, 0)
+			ip({ Size = Vector3.new(4.5, 0.35, 3), CFrame = cf * CFrame.new(0, 2.4, 0), Color = Color3.fromRGB(130, 96, 62), Material = MAT.Wood }, 15)
+			ip({ Size = Vector3.new(0.6, 2.4, 0.6), CFrame = cf * CFrame.new(0, 1.2, 0), Color = Color3.fromRGB(90, 70, 50), Material = MAT.Metal }, 10)
+		end
+		local fz1 = cz - d / 4 + rnd:NextNumber(-1.5, 1.5)
+		local fz2 = cz + d / 4 + rnd:NextNumber(-1.5, 1.5)
+		bed(cx - w / 4 + rnd:NextNumber(-2, 2), fz1, rnd:NextInteger(0, 1) * math.rad(90))
+		wardrobe(cx + w / 2 - 1.5, fz1, math.rad(90))
+		sofa(cx + w / 4 + rnd:NextNumber(-2, 2), fz2, rnd:NextInteger(0, 1) * math.rad(180))
+		tableSet(cx - w / 4 + rnd:NextNumber(-2, 2), cz + d / 4 + 2, 0)
+		-- потолочные светильники (светятся как настоящие)
+		ip({ Size = Vector3.new(2.6, 0.25, 2.6), CFrame = CFrame.new(cx - w / 4, y0 + 8.6, cz + d / 5), Color = Color3.fromRGB(255, 240, 200), Material = MAT.Neon }, 5)
+		ip({ Size = Vector3.new(2.6, 0.25, 2.6), CFrame = CFrame.new(cx + w / 4, y0 + 8.6, cz - d / 5), Color = Color3.fromRGB(255, 240, 200), Material = MAT.Neon }, 5)
 	end
 
 	-- крыша
@@ -3497,6 +3683,23 @@ local function glassTower(cx, cz, floors, opts)
 			local glassL = P({ Size = Vector3.new(0.6, 8, d - 4), CFrame = CFrame.new(cx + side * (w / 2), y0 + 5, cz), Color = color, Material = MAT.Glass, Transparency = 0.35, Reflectance = 0.25 })
 			reg(glassL, 4, "Window", bld, f)
 		end
+		-- ===== ИНТЕРЬЕР ОФИСА =====
+		local fy = (f == 1) and 1.1 or (y0 - 0.4)
+		local core = reg(P({ Size = Vector3.new(8, 8, 8), CFrame = CFrame.new(cx, fy + 4, cz), Color = Color3.fromRGB(72, 74, 80), Material = MAT.Concrete }), 260, "Prop", bld, f)
+		if f == 1 then
+			local lamp = Instance.new("PointLight")
+			lamp.Color = Color3.fromRGB(220, 235, 255)
+			lamp.Brightness = 1.1
+			lamp.Range = 45
+			lamp.Shadows = false
+			lamp.Parent = core
+		end
+		-- офисные столы
+		for _, s in ipairs({ -1, 1 }) do
+			reg(P({ Size = Vector3.new(11, 2.4, 3), CFrame = CFrame.new(cx + s * 9, fy + 1.2, cz + s * 4), Color = Color3.fromRGB(150, 120, 85), Material = MAT.Wood }), 25, "Prop", bld, f)
+		end
+		-- потолочная световая линия
+		reg(P({ Size = Vector3.new(9, 0.25, 1.4), CFrame = CFrame.new(cx, y0 + 8.6, cz + 8), Color = Color3.fromRGB(230, 240, 255), Material = MAT.Neon }), 5, "Prop", bld, f)
 	end
 	reg(P({ Size = Vector3.new(w, 1, d), CFrame = CFrame.new(cx, floors * FLOOR_H + 0.5, cz), Color = Color3.fromRGB(80, 80, 84), Material = MAT.Concrete }), 160, "Roof", bld, floors + 1)
 	-- неоновая вывеска
@@ -3584,6 +3787,12 @@ local function warehouse(cx, cz, alongX)
 		reg(gate, 90, "Wall", bld, 1)
 	end
 	reg(P({ Size = Vector3.new(w, 1, d), CFrame = cf * CFrame.new(0, h + 1.5, 0), Color = Color3.fromRGB(95, 100, 110), Material = MAT.CorrodedMetal }), 170, "Roof", bld, 2)
+	-- ===== ИНТЕРЬЕР: ящики и паллеты =====
+	for i = 1, 5 do
+		local bx = -w / 2 + 10 + ((i - 1) % 3) * 14
+		local bz = -d / 2 + 9 + math.floor((i - 1) / 3) * 12
+		reg(P({ Size = Vector3.new(5, 5, 5), CFrame = cf * CFrame.new(bx, 3.5, bz), Color = Color3.fromRGB(140, 100, 60), Material = MAT.Wood }), 35, "Prop", bld, 1)
+	end
 	return bld
 end
 
@@ -3756,6 +3965,13 @@ local function school(cx, cz)
 		end
 	end
 	reg(P({ Size = Vector3.new(w, 1, d), CFrame = CFrame.new(cx, h + 1.5, cz), Color = Color3.fromRGB(150, 80, 60), Material = MAT.Concrete }), 150, "Roof", bld, 2)
+	-- ===== ИНТЕРЬЕР: классы с партами =====
+	for row = 1, 3 do
+		for col = 1, 4 do
+			reg(P({ Size = Vector3.new(5, 2.4, 3), CFrame = CFrame.new(cx - 27 + col * 14, 2.3, cz - 9 + row * 9), Color = Color3.fromRGB(150, 110, 70), Material = MAT.Wood }), 20, "Prop", bld, 1)
+		end
+	end
+	reg(P({ Size = Vector3.new(20, 5, 0.5), CFrame = CFrame.new(cx, 6, cz - d / 2 + 1), Color = Color3.fromRGB(30, 60, 40), Material = MAT.Slate }), 15, "Prop", bld, 1)
 	-- ограждение территории
 	for i = -1, 1, 2 do
 		reg(P({ Size = Vector3.new(w + 40, 3, 0.5), CFrame = CFrame.new(cx, 1.5, cz + i * (d / 2 + 16)), Color = Color3.fromRGB(60, 130, 70), Material = MAT.Metal }), 30, "Prop", bld, 0)
@@ -3777,6 +3993,13 @@ local function mall(cx, cz)
 	local glassFront = P({ Size = Vector3.new(w - 8, h - 6, 0.6), CFrame = CFrame.new(cx, (h - 6) / 2 + 1, cz - d / 2 - 0.8), Color = Color3.fromRGB(120, 170, 210), Material = MAT.Glass, Transparency = 0.35, Reflectance = 0.2 })
 	reg(glassFront, 4, "Window", bld, 1)
 	reg(P({ Size = Vector3.new(w, 1, d), CFrame = CFrame.new(cx, h + 1.5, cz), Color = Color3.fromRGB(120, 118, 120), Material = MAT.Concrete }), 200, "Roof", bld, 2)
+	-- ===== ИНТЕРЬЕР: торговые киоски =====
+	for i = 1, 6 do
+		local kx = cx - 40 + (i - 1) * 16
+		local kz = cz + ((i % 2 == 0) and 12 or -12)
+		reg(P({ Size = Vector3.new(9, 7, 6), CFrame = CFrame.new(kx, 4.6, kz), Color = Color3.fromRGB(185 + (i * 13) % 50, 180 + (i * 7) % 30, 170), Material = MAT.Plastic }), 60, "Prop", bld, 1)
+	end
+	reg(P({ Size = Vector3.new(60, 0.3, 3), CFrame = CFrame.new(cx, 20, cz), Color = Color3.fromRGB(255, 240, 210), Material = MAT.Neon }), 10, "Prop", bld, 1)
 	-- неоновые вывески
 	local signs = {
 		{ "MEGA", Color3.fromRGB(255, 60, 160) },
@@ -4502,8 +4725,9 @@ local function makeTool(name, color, size, grip)
 	tool.RequiresHandle = true
 	tool.CanBeDropped = false
 	tool.ToolTip = name
-	-- +Y модели → вперёд, магазин (-Z) → вниз
-	tool.Grip = CFrame.new(0.02, -0.15, 0.1) * CFrame.Angles(math.rad(-90), 0, 0)
+	-- +Y модели → вперёд, магазин (-Z) → вниз.
+	-- Поворот на 180° вокруг оси ствола: ствол смотрит вперёд, прицел сверху, магазин снизу.
+	tool.Grip = CFrame.new(0.02, -0.15, 0.1) * CFrame.Angles(math.rad(-90), 0, 0) * CFrame.Angles(0, math.rad(180), 0)
 	local handle = Instance.new("Part")
 	handle.Name = "Handle"
 	handle.Size = size or Vector3.new(0.3, 1, 0.3)
@@ -4618,8 +4842,8 @@ local function handleWeaponFire(player, origin, dir)
 	local result = workspace:Raycast(origin, dir * wcfg.Range, rayParams)
 	local hitPos = result and result.Position or (origin + dir * wcfg.Range)
 
-	-- эффекты
-	Util.tracer(origin + dir * 2, hitPos, wcfg.Tracer, workspace, 0.12, 0.06)
+	-- эффекты: яркий длинный трассер + вспышка
+	Util.tracer(origin + dir * 3, hitPos, wcfg.Tracer, workspace:FindFirstChild("FX") or workspace, 0.3, 0.22)
 	Util.muzzleFlash(origin + dir * 2)
 	Util.sound3d(Config.SOUNDS.Shot, origin, (tool.Name == "KORD") and 1.2 or 0.6, tool.Name == "KORD" and 0.7 or 1, 200, 2)
 
@@ -5035,7 +5259,7 @@ local function handleGunFire(player, origin, dir)
 	local range = scfg.Range
 	local result = workspace:Raycast(muzzle, dir * range, rayParams)
 	local hitPos = result and result.Position or (muzzle + dir * range)
-	Util.tracer(muzzle, hitPos, Color3.fromRGB(255, 80, 60), workspace, 0.3, 0.08)
+	Util.tracer(muzzle, hitPos, Color3.fromRGB(255, 80, 60), workspace:FindFirstChild("FX") or workspace, 0.45, 0.16)
 	Util.sound3d(Config.SOUNDS.HeavyShot, muzzle, 1.6, gun.kind == "zu23" and 0.85 or 0.75, 350, 2)
 
 	if result then
@@ -5805,8 +6029,10 @@ end)
           <string name="Name">DroneController</string>
           <ProtectedString name="Source"><![CDATA[-- ============================================================
 --  DroneController — клиент оператора:
---  магазин дронов, управление Тип A (WASD) и Тип B (FPV-мышь),
---  HUD, рой, барражирование, экран помех.
+--  магазин дронов, управление Тип A (WASD + мышь) и Тип B (FPV-мышь),
+--  «Ланцет» — захват цели кликом (квадрат-маркер + автозаход),
+--  камеры от 1-го и 3-го лица (клавиша V), HUD, рой, барражирование,
+--  экран помех.
 -- ============================================================
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -5835,16 +6061,92 @@ local returnEv = Remotes:WaitForChild(Config.REM.ReturnDrone)
 local operFXEv = Remotes:WaitForChild(Config.REM.OperFX)
 local shakeEv = Remotes:WaitForChild(Config.REM.Shake)
 local markerFXEv = Remotes:WaitForChild(Config.REM.MarkerFX)
+local unlockEv = Remotes:WaitForChild(Config.REM.DroneUnlocked)
+
+-- купленные НАВСЕГДА дроны: [droneId] = true
+local unlockedSet = {}
 
 -- ------------------------------------------------------------
 -- СОСТОЯНИЕ
 -- ------------------------------------------------------------
-local flying = nil        -- {model, cfg, primary, align, lvel, kind, yaw, pitch, throttle, units}
+local flying = nil        -- {model, cfg, primary, align, lvel, kind, yaw, pitch, throttle, units, view, attackPos}
 local loitering = false
 local camMode = "gun"     -- или "camera" (Орлан)
 local camZoom = 120
 local shopGui, fpvGui, wasdGui, staticGui
 local markers = {}
+local lancetMark = nil    -- квадрат-маркер цели «Ланцета» {anchor, lbl}
+local camPos = nil        -- сглаженная позиция камеры (общая для всех веток)
+local GuiServiceInset = GuiService:GetGuiInset()
+
+-- ------------------------------------------------------------
+-- КВАДРАТ-МАРКЕР ЦЕЛИ «ЛАНЦЕТА»
+-- ------------------------------------------------------------
+local function clearLancetMark()
+	if lancetMark and lancetMark.anchor then
+		lancetMark.anchor:Destroy()
+	end
+	lancetMark = nil
+end
+
+local function setLancetMark(pos)
+	clearLancetMark()
+	local fx = workspace:FindFirstChild("FX") or workspace
+	local anchor = Instance.new("Part")
+	anchor.Anchored = true
+	anchor.CanCollide = false
+	anchor.CanQuery = false
+	anchor.CanTouch = false
+	anchor.Transparency = 1
+	anchor.Size = Vector3.new(1, 1, 1)
+	anchor.Position = pos
+	local gui = Instance.new("BillboardGui")
+	gui.Size = UDim2.new(0, 58, 0, 58)
+	gui.AlwaysOnTop = true
+	gui.Parent = anchor
+	-- красный квадратик (рамка)
+	local sq = Instance.new("Frame")
+	sq.Size = UDim2.new(1, 0, 1, 0)
+	sq.BackgroundTransparency = 1
+	sq.Parent = gui
+	local stroke = Instance.new("UIStroke")
+	stroke.Color = Color3.fromRGB(255, 60, 45)
+	stroke.Thickness = 2.6
+	stroke.Transparency = 0.08
+	stroke.Parent = sq
+	-- белые уголки-скобки
+	local function bar(px, py, w, h)
+		local f = Instance.new("Frame")
+		f.Size = UDim2.new(0, w, 0, h)
+		f.Position = UDim2.new(px[1], px[2], py[1], py[2])
+		f.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		f.BorderSizePixel = 0
+		f.Parent = gui
+	end
+	bar({ 0, -3 }, { 0, -3 }, 18, 4) bar({ 0, -3 }, { 0, -3 }, 4, 18)
+	bar({ 1, -15 }, { 0, -3 }, 18, 4) bar({ 1, -1 }, { 0, -3 }, 4, 18)
+	bar({ 0, -3 }, { 1, -1 }, 18, 4) bar({ 0, -3 }, { 1, -15 }, 4, 18)
+	bar({ 1, -15 }, { 1, -1 }, 18, 4) bar({ 1, -1 }, { 1, -15 }, 4, 18)
+	-- точка в центре
+	local dot = Instance.new("Frame")
+	dot.Size = UDim2.new(0, 4, 0, 4)
+	dot.Position = UDim2.new(0.5, -2, 0.5, -2)
+	dot.BackgroundColor3 = Color3.fromRGB(255, 60, 45)
+	dot.BorderSizePixel = 0
+	dot.Parent = gui
+	-- подпись с дальностью
+	local lbl = Instance.new("TextLabel")
+	lbl.Size = UDim2.new(0, 200, 0, 20)
+	lbl.Position = UDim2.new(0.5, -100, 1, 8)
+	lbl.BackgroundTransparency = 1
+	lbl.Font = Enum.Font.Code
+	lbl.TextSize = 16
+	lbl.TextColor3 = Color3.fromRGB(255, 120, 90)
+	lbl.Text = "ЦЕЛЬ ЗАХВАЧЕНА"
+	lbl.Parent = gui
+	anchor.Parent = fx
+	lancetMark = { anchor = anchor, lbl = lbl }
+end
 
 -- ------------------------------------------------------------
 -- УТИЛИТЫ GUI
@@ -5903,10 +6205,22 @@ local function buildFpvHud()
 	-- HP дрон
 	local hpBack = mk("Frame", { Size = UDim2.new(0, 320, 0, 14), Position = UDim2.new(0.5, -160, 1, -46), BackgroundColor3 = Color3.fromRGB(20, 30, 20), BackgroundTransparency = 0.3, BorderColor3 = Color3.fromRGB(90, 255, 120) }, gui)
 	local hpBar = mk("Frame", { Size = UDim2.new(1, -4, 1, -4), Position = UDim2.new(0, 2, 0, 2), BackgroundColor3 = Color3.fromRGB(90, 255, 120), BorderSizePixel = 0 }, hpBack)
+	-- виньетка по краям кадра (как у реальной FPV-камеры)
+	local vig = mk("Frame", { Size = UDim2.new(1, 0, 1, 0), BackgroundColor3 = Color3.new(0, 0, 0), BackgroundTransparency = 0, BorderSizePixel = 0, ZIndex = -1 }, gui)
+	vig.BackgroundColor3 = Color3.new(0, 0, 0)
+	mk("UIGradient", { Rotation = 90, Color = ColorSequence.new(Color3.new(0, 0, 0)), Transparency = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0.62), NumberSequenceKeypoint.new(0.14, 1), NumberSequenceKeypoint.new(0.86, 1), NumberSequenceKeypoint.new(1, 0.62) }) }, vig)
+	local vig2 = mk("Frame", { Size = UDim2.new(1, 0, 1, 0), BackgroundColor3 = Color3.new(0, 0, 0), BackgroundTransparency = 0, BorderSizePixel = 0, ZIndex = -1 }, gui)
+	mk("UIGradient", { Rotation = 0, Color = ColorSequence.new(Color3.new(0, 0, 0)), Transparency = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0.62), NumberSequenceKeypoint.new(0.16, 1), NumberSequenceKeypoint.new(0.84, 1), NumberSequenceKeypoint.new(1, 0.62) }) }, vig2)
+	-- REC + таймер полёта
+	local rec = mk("TextLabel", { Size = UDim2.new(0, 190, 0, 26), Position = UDim2.new(1, -204, 0, 100), BackgroundTransparency = 1, Font = Enum.Font.Code, Text = "● REC  00:00", TextSize = 19, TextColor3 = Color3.fromRGB(255, 70, 60), TextXAlignment = Enum.TextXAlignment.Right }, gui)
+	-- батарея (топливо) и сигнал связи
+	local battBack = mk("Frame", { Size = UDim2.new(0, 150, 0, 12), Position = UDim2.new(0, 14, 0, 128), BackgroundColor3 = Color3.fromRGB(20, 30, 20), BackgroundTransparency = 0.3, BorderColor3 = Color3.fromRGB(90, 255, 120) }, gui)
+	local battBar = mk("Frame", { Size = UDim2.new(1, -4, 1, -4), Position = UDim2.new(0, 2, 0, 2), BackgroundColor3 = Color3.fromRGB(255, 210, 80), BorderSizePixel = 0 }, battBack)
+	local sig = mk("TextLabel", { Size = UDim2.new(0, 200, 0, 20), Position = UDim2.new(0, 14, 0, 146), BackgroundTransparency = 1, Font = Enum.Font.Code, Text = "СИГНАЛ: ▮▮▮▮▮", TextSize = 15, TextColor3 = Color3.fromRGB(120, 255, 140), TextXAlignment = Enum.TextXAlignment.Left }, gui)
 	-- подсказки
 	local help = mk("TextLabel", { Size = UDim2.new(0, 340, 0, 70), Position = UDim2.new(0, 14, 1, -110), BackgroundTransparency = 1, Font = Enum.Font.Code, Text = "", TextSize = 14, TextColor3 = Color3.fromRGB(150, 255, 170), TextXAlignment = Enum.TextXAlignment.Left, TextTransparency = 0.25 }, gui)
 	gui.Enabled = false
-	return { gui = gui, telL = telL, telR = telR, compass = compass, hpBar = hpBar, help = help }
+	return { gui = gui, telL = telL, telR = telR, compass = compass, hpBar = hpBar, help = help, rec = rec, battBar = battBar, sig = sig }
 end
 
 local function buildWasdHud()
@@ -5947,6 +6261,25 @@ local function buildShop()
 	mk("UIPadding", { PaddingTop = UDim.new(0, 6), PaddingLeft = UDim.new(0, 6) }, scroll)
 
 	local viewports = {}
+	local cards = {}
+	local function refreshShopButtons()
+		for _, c in ipairs(cards) do
+			local d = c.drone
+			if d.Price == 0 then
+				c.btn.Text = "ВЫЛЕТЕТЬ (бесплатно)"
+				c.btn.BackgroundColor3 = Color3.fromRGB(40, 110, 200)
+				c.note.Text = "Стартовый дрон"
+			elseif unlockedSet[d.Id] then
+				c.btn.Text = "ЗАПУСТИТЬ (бесплатно)"
+				c.btn.BackgroundColor3 = Color3.fromRGB(40, 150, 80)
+				c.note.Text = "✔ Куплен навсегда"
+			else
+				c.btn.Text = "КУПИТЬ НАВСЕГДА · " .. d.Price .. " монет"
+				c.btn.BackgroundColor3 = Color3.fromRGB(40, 110, 200)
+				c.note.Text = "Платишь 1 раз — летать можно всегда"
+			end
+		end
+	end
 	for order, drone in ipairs(Config.DRONES) do
 		local card = mk("Frame", { Size = UDim2.new(0, 250, 0, 395), BackgroundColor3 = Color3.fromRGB(16, 20, 28), BorderColor3 = Color3.fromRGB(60, 120, 180), LayoutOrder = order }, scroll)
 		mk("UICorner", { CornerRadius = UDim.new(0, 10) }, card)
@@ -5967,7 +6300,7 @@ local function buildShop()
 		mk("TextLabel", { Size = UDim2.new(1, -16, 0, 26), Position = UDim2.new(0, 8, 0, 160), BackgroundTransparency = 1, Font = Enum.Font.GothamBold, Text = drone.Name, TextSize = 19, TextColor3 = Color3.fromRGB(140, 220, 255) }, card)
 		mk("TextLabel", { Size = UDim2.new(1, -16, 0, 88), Position = UDim2.new(0, 8, 0, 186), BackgroundTransparency = 1, Font = Enum.Font.Gotham, Text = drone.Desc, TextSize = 12, TextColor3 = Color3.fromRGB(190, 200, 215), TextWrapped = true, TextYAlignment = Enum.TextYAlignment.Top }, card)
 		mk("TextLabel", { Size = UDim2.new(1, -16, 0, 34), Position = UDim2.new(0, 8, 0, 274), BackgroundTransparency = 1, Font = Enum.Font.Code, Text = string.format("Скор. %d · HP %d\nБоееприпасы: %d · %s", drone.Speed, drone.HP, drone.Ammo, drone.Control == "A" and "WASD" or "FPV"), TextSize = 13, TextColor3 = Color3.fromRGB(130, 240, 160), TextXAlignment = Enum.TextXAlignment.Left }, card)
-		local btn = mk("TextButton", { Size = UDim2.new(1, -16, 0, 42), Position = UDim2.new(0, 8, 0, 316), Font = Enum.Font.GothamBold, TextSize = 18, TextColor3 = Color3.fromRGB(255, 255, 255), BackgroundColor3 = Color3.fromRGB(40, 110, 200), Text = drone.Price == 0 and "ВЫЛЕТЕТЬ (бесплатно)" or ("КУПИТЬ · " .. drone.Price .. " монет") }, card)
+		local btn = mk("TextButton", { Size = UDim2.new(1, -16, 0, 42), Position = UDim2.new(0, 8, 0, 316), Font = Enum.Font.GothamBold, TextSize = 17, TextColor3 = Color3.fromRGB(255, 255, 255), BackgroundColor3 = Color3.fromRGB(40, 110, 200), Text = drone.Price == 0 and "ВЫЛЕТЕТЬ (бесплатно)" or ("КУПИТЬ НАВСЕГДА · " .. drone.Price .. " монет") }, card)
 		mk("UICorner", { CornerRadius = UDim.new(0, 8) }, btn)
 		btn.MouseButton1Click:Connect(function()
 			local result, err = launchRF:InvokeServer(drone.Id)
@@ -5978,11 +6311,13 @@ local function buildShop()
 				toast(err or "Не удалось запустить дрон", Color3.fromRGB(255, 120, 100))
 			end
 		end)
-		mk("TextLabel", { Size = UDim2.new(1, -16, 0, 22), Position = UDim2.new(0, 8, 0, 362), BackgroundTransparency = 1, Font = Enum.Font.Gotham, Text = drone.Price == 0 and "Стартовый дрон" or "Одноразовый / возврат на базу", TextSize = 11, TextColor3 = Color3.fromRGB(120, 130, 150) }, card)
+		local note = mk("TextLabel", { Size = UDim2.new(1, -16, 0, 22), Position = UDim2.new(0, 8, 0, 362), BackgroundTransparency = 1, Font = Enum.Font.Gotham, Text = drone.Price == 0 and "Стартовый дрон" or "Платишь 1 раз — летать можно всегда", TextSize = 11, TextColor3 = Color3.fromRGB(120, 130, 150) }, card)
+		table.insert(cards, { drone = drone, btn = btn, note = note })
 	end
+	refreshShopButtons()
 	coinsLabel.Parent = gui
 	gui.Enabled = false
-	return { gui = gui, coins = coinsLabel, viewports = viewports, Frame = gui }
+	return { gui = gui, coins = coinsLabel, viewports = viewports, Frame = gui, refresh = refreshShopButtons }
 end
 
 
@@ -6029,19 +6364,42 @@ function startFlying(model, cfg)
 		model = model, cfg = cfg, primary = primary, align = align, lvel = lvel,
 		yaw = math.atan2(-look.X, -look.Z), pitch = math.rad(-8), throttle = 1, kind = cfg.Kind, units = units,
 		takeoffUntil = os.clock() + 2.4,
+		view = cfg.Control == "B" and "fpv" or "chase", -- дроны всегда от 1-го лица, самолёты от 3-го
+		startedAt = os.clock(),
+		fuelMax = cfg.Fuel,
 	}
+	-- сброс режимов с прошлого полёта (иначе камера Орлана/барраж «застревают»)
+	camMode = "gun"
+	camZoom = 120
+	loitering = false
+	clearLancetMark()
+	-- звук мотора: высота тона меняется от газа (локально для оператора)
+	local engSound = primary:FindFirstChildOfClass("Sound")
+	if engSound then
+		flying.engineSound = engSound
+		flying.enginePitch = engSound.PlaybackSpeed
+	end
 	camera.CameraType = Enum.CameraType.Scriptable
 	camera.FieldOfView = 70
 	if cfg.Control == "B" then
 		fpvGui.gui.Enabled = true
 		wasdGui.gui.Enabled = false
-		fpvGui.help.Text = cfg.Flags.Loiter and "ЛКМ — подрыв · C — барражирование · W/S — газ · мышь влево = влево" or "ЛКМ — подрыв · W/S — газ · мышь влево = влево"
-		UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-		UserInputService.MouseIconEnabled = false
+		if cfg.Id == "lancet" then
+			fpvGui.help.Text = "ЛКМ — цель (квадрат) · SPACE — подрыв · C — барраж · W/S — газ · V — камера"
+		else
+			fpvGui.help.Text = "ЛКМ/SPACE — подрыв · W/S — газ · мышь — направление · V — камера"
+		end
+		if cfg.Id ~= "lancet" then
+			UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+			UserInputService.MouseIconEnabled = false
+		end
 	else
 		wasdGui.gui.Enabled = true
 		fpvGui.gui.Enabled = false
-		wasdGui.help.Text = "WASD — полёт · Пробел/Shift — высота · ЛКМ — " .. (cfg.Kind == "bomber" and "сброс бомбы" or cfg.Kind == "missile" and "пуск ракеты" or cfg.Kind == "heavy" and "сброс (R — ракеты)" or cfg.Kind == "swarm" and "атака роя (G — строй)" or "сброс гранаты") .. (cfg.Flags.Marker and " · E — камера/маркер" or "")
+		wasdGui.help.Text = "W/S — газ · мышь — поворот · Пробел/Shift — высота · ЛКМ — " .. (cfg.Kind == "bomber" and "сброс бомбы" or cfg.Kind == "missile" and "пуск ракеты" or cfg.Kind == "heavy" and "сброс (R — ракеты)" or cfg.Kind == "swarm" and "атака роя (G — строй)" or "сброс гранаты") .. (cfg.Flags.Marker and " · E — камера/маркер" or "") .. " · V — вид 1/3 лицо"
+		-- курсор нужен: мышь указывает, куда повернуть
+		UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+		UserInputService.MouseIconEnabled = true
 	end
 	-- скрываем персонажа от камеры FPV
 	local char = player.Character
@@ -6060,6 +6418,7 @@ local function stopFlying()
 		end
 	end
 	flying = nil
+	clearLancetMark()
 	camera.CameraType = Enum.CameraType.Custom
 	camera.FieldOfView = 70
 	UserInputService.MouseBehavior = Enum.MouseBehavior.Default
@@ -6133,15 +6492,48 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 					task.wait(0.4)
 				end
 			end)
+		elseif cfg.Id == "lancet" then
+			-- «Ланцет»: клик по объекту → квадратик-маркер → автозаход на цель
+			local mpos = UserInputService:GetMouseLocation()
+			local ray = camera:ViewportPointToRay(mpos.X, mpos.Y - GuiServiceInset.Y)
+			local rp = RaycastParams.new()
+			rp.FilterType = Enum.RaycastFilterType.Exclude
+			local excl = { flying.model }
+			for _, n in ipairs({ "FX", "Debris", "Drones" }) do
+				local fo = workspace:FindFirstChild(n)
+				if fo then table.insert(excl, fo) end
+			end
+			rp.FilterDescendantsInstances = excl
+			local hit = workspace:Raycast(ray.Origin, ray.Direction * 1600, rp)
+			local pos = hit and hit.Position or (ray.Origin + ray.Direction * 1600)
+			flying.attackPos = pos
+			setLancetMark(pos)
+			if loitering then
+				loitering = false
+				loiterEv:FireServer(false)
+			end
+			toast("ЦЕЛЬ ЗАХВАЧЕНА — «Ланцет» пикирует", Color3.fromRGB(255, 140, 90))
 		elseif cfg.Kind == "kamikaze" then
 			detonateEv:FireServer()
 		else
 			droneFireEv:FireServer(flying.primary.Position, camera.CFrame.LookVector)
 		end
+	elseif input.KeyCode == Enum.KeyCode.Space and flying and flying.cfg.Kind == "kamikaze" then
+		-- ручной подрыв (у «Ланцета» ЛКМ занят целью)
+		detonateEv:FireServer()
 	elseif input.KeyCode == Enum.KeyCode.C and flying and flying.cfg.Flags.Loiter then
 		loitering = not loitering
 		loiterEv:FireServer(loitering)
+		if loitering and flying.attackPos then
+			flying.attackPos = nil
+			clearLancetMark()
+		end
 		toast(loitering and "БАРРАЖИРОВАНИЕ ВКЛ" or "БАРРАЖИРОВАНИЕ ВЫКЛ")
+	elseif input.KeyCode == Enum.KeyCode.V and flying then
+		-- смена вида: 1-е лицо (FPV) ⇄ 3-е лицо (за дроном)
+		flying.view = flying.view == "fpv" and "chase" or "fpv"
+		camPos = nil
+		toast(flying.view == "fpv" and "Камера: от 1-го лица (FPV)" or "Камера: от 3-го лица")
 	elseif input.KeyCode == Enum.KeyCode.R and flying and flying.cfg.Flags.Modes then
 		local cur = flying.model:GetAttribute("Mode")
 		local new = cur == "cruise" and "bombs" or "cruise"
@@ -6179,11 +6571,9 @@ end)
 -- ------------------------------------------------------------
 -- ЦИКЛ КАМЕРЫ / ФИЗИКИ
 -- ------------------------------------------------------------
-local GuiServiceInset = GuiService:GetGuiInset()
 local blur = Instance.new("BlurEffect")
 blur.Size = 0
 blur.Parent = game:GetService("Lighting")
-local camPos = nil
 
 RunService.RenderStepped:Connect(function(dt)
 	-- вращение витрин магазина
@@ -6214,42 +6604,111 @@ RunService.RenderStepped:Connect(function(dt)
 		camPos = camPos and Util.lerp(camPos, target + behind, math.clamp(8 * dt, 0, 1)) or (target + behind)
 		camera.CFrame = CFrame.lookAt(camPos, target)
 	elseif cfg.Control == "A" then
-		-- ===== ТИП A: WASD =====
-		local yaw = f.yaw
+		-- ===== ТИП A: WASD + МЫШЬ (куда мышка — туда и поворачивает) =====
+		local maxYaw = math.rad(cfg.Turn)
+		local mpos = UserInputService:GetMouseLocation()
+		local vp = camera.ViewportSize
+		local center = Vector2.new(vp.X / 2, vp.Y / 2 + GuiServiceInset.Y / 2)
+		local off = (mpos - center) / math.max(vp.Y, 1)
+		-- мёртвая зона в центре: аппарат летит прямо, даже если курсор чуть смещён
+		if math.abs(off.X) < 0.06 then off = Vector2.new(0, off.Y) end
+		if math.abs(off.Y) < 0.06 then off = Vector2.new(off.X, 0) end
+		local mYaw = math.clamp(off.X * 3.2, -1, 1) * maxYaw
+		local mPitch = math.clamp(-off.Y * 3.2, -1, 1) * maxYaw * 0.7
 		local forward = 0
 		if UserInputService:IsKeyDown(Enum.KeyCode.W) then forward = forward + 1 end
 		if UserInputService:IsKeyDown(Enum.KeyCode.S) then forward = forward - 0.6 end
 		local turn = 0
 		if UserInputService:IsKeyDown(Enum.KeyCode.A) then turn = turn + 1 end
 		if UserInputService:IsKeyDown(Enum.KeyCode.D) then turn = turn - 1 end
-		if loiterOn then turn = 0.5 forward = 0.4 end
-		f.yaw = yaw + turn * math.rad(cfg.Turn) * dt
+		if loiterOn then turn = 0.5 forward = 0.4 mYaw = 0 mPitch = 0 end
+		local isPlane = cfg.Id == "orlan" or cfg.Id == "inohodets" or cfg.Id == "ohotnik" or cfg.Id == "strizh"
+		-- самолёт всегда летит вперёд (минимальная скорость), не висит в воздухе
+		if isPlane then forward = math.max(forward, 0.55) end
+		f.yaw = f.yaw + (turn * maxYaw * 0.85 + mYaw) * dt
+		f.pitch = math.clamp((f.pitch or 0) + mPitch * dt, math.rad(-55), math.rad(40))
+		-- квадрокоптеры сами выравнивают нос, когда мышь в центре
+		if not isPlane and off.Y == 0 then
+			f.pitch = f.pitch * math.clamp(1 - 1.6 * dt, 0, 1)
+		end
 		local vertical = 0
 		if UserInputService:IsKeyDown(Enum.KeyCode.Space) then vertical = vertical + 1 end
 		if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then vertical = vertical - 1 end
-		local look = CFrame.Angles(0, f.yaw, 0).LookVector
+		local targetBank = math.clamp(-mYaw / maxYaw * 0.45 - turn * 0.25, -0.6, 0.6)
+		f.bank = Util.lerp(f.bank or 0, targetBank, math.clamp(7 * dt, 0, 1))
+		local rot = CFrame.Angles(f.pitch * (isPlane and 1 or 0.45), f.yaw, f.bank)
+		local look = isPlane and rot.LookVector or CFrame.Angles(0, f.yaw, 0).LookVector
 		local vel = look * cfg.Speed * forward + Vector3.new(0, vertical * cfg.Speed * 0.8, 0)
 		f.lvel.VectorVelocity = Util.lerp(f.lvel.VectorVelocity, vel, math.clamp(6 * dt, 0, 1))
-		-- наклон корпуса в сторону движения
-		local lean = CFrame.Angles(math.rad(-forward * 8), 0, math.rad(turn * 14))
-		f.align.CFrame = (CFrame.Angles(0, f.yaw, 0) * lean) - Vector3.new()
-		-- камера от третьего лица со сглаживанием
+		f.align.CFrame = rot - Vector3.new()
+		-- камера
 		local target = f.primary.Position
-		local back = math.clamp(f.primary.Size.Magnitude * 3 + 16, 18, 46)
-		local behind = (CFrame.Angles(0, f.yaw, 0) * CFrame.new(0, 8, back)).Position
-		camPos = camPos and Util.lerp(camPos, target + behind, math.clamp(8 * dt, 0, 1)) or (target + behind)
 		local shakeOff = Vector3.new((math.random() - 0.5), (math.random() - 0.5), (math.random() - 0.5)) * shakePower
-		camera.CFrame = CFrame.lookAt(camPos + shakeOff, target + shakeOff)
+		if f.view == "fpv" then
+			-- от 1-го лица: камера в носу аппарата (перед корпусом, чтобы не внутри деталей)
+			local size = f.model:GetExtentsSize()
+			local nose = target + rot.LookVector * math.clamp(size.Z * 0.5 + 0.5, 1.5, 12)
+			camera.CFrame = CFrame.new(nose + shakeOff) * rot
+			camera.FieldOfView = 72 + math.clamp(f.lvel.VectorVelocity.Magnitude * 0.045, 0, 12)
+		else
+			-- от 3-го лица со сглаживанием
+			local back = math.clamp(f.primary.Size.Magnitude * 3 + 16, 18, 46)
+			local behind = (CFrame.Angles(0, f.yaw, 0) * CFrame.new(0, 8, back)).Position
+			camPos = camPos and Util.lerp(camPos, target + behind, math.clamp(8 * dt, 0, 1)) or (target + behind)
+			camera.CFrame = CFrame.lookAt(camPos + shakeOff, target + shakeOff)
+			camera.FieldOfView = 70
+		end
 	else
-		-- ===== ТИП B: мышь. Влево = влево. Камера сзади-сверху, не в сопле. =====
-		UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
-		UserInputService.MouseIconEnabled = false
-		local delta = UserInputService:GetMouseDelta()
-		local sens = 0.0036
-		if loiterOn then
+		-- ===== ТИП B: FPV-дроны. =====
+		-- «Ланцет» — свободный курсор (оператор кликает по цели),
+		-- остальные — мышь в центре, дрон доворачивает дельтой.
+		local isLancet = cfg.Id == "lancet"
+		if isLancet then
+			UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+			UserInputService.MouseIconEnabled = true
+		else
+			UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+			UserInputService.MouseIconEnabled = false
+		end
+		if isLancet and f.attackPos then
+			-- АВТОЗАХОД НА ЦЕЛЬ: «Ланцет» сам летит в квадратик
+			local to = f.attackPos - f.primary.Position
+			local dist = to.Magnitude
+			if dist < 9 then
+				f.attackPos = nil
+				clearLancetMark()
+				detonateEv:FireServer()
+			else
+				local u = to / dist
+				local wantYaw = math.atan2(-u.X, -u.Z)
+				local dy = (wantYaw - f.yaw + math.pi) % (math.pi * 2) - math.pi
+				local maxYawStep = math.rad(cfg.Turn) * 1.15 * dt
+				f.yaw = f.yaw + math.clamp(dy, -maxYawStep, maxYawStep)
+				local horiz = math.sqrt(u.X * u.X + u.Z * u.Z)
+				-- цель ниже → тангаж отрицательный (нос вниз); знак как у ручного управления
+				local wantPitch = math.atan2(u.Y, horiz)
+				local dp = wantPitch - f.pitch
+				local maxPStep = math.rad(cfg.Turn) * 0.9 * dt
+				f.pitch = math.clamp(f.pitch + math.clamp(dp, -maxPStep, maxPStep), math.rad(-80), math.rad(60))
+				f.bank = math.clamp(-dy * 1.1, -0.5, 0.5)
+				f.throttle = 1.5
+			end
+		elseif loiterOn then
 			f.yaw = f.yaw + math.rad(40) * dt
 			f.bank = (f.bank or 0) * 0.9
+		elseif isLancet then
+			-- ручное пилотирование «Ланцета»: дрон доворачивает в сторону курсора
+			local mpos = UserInputService:GetMouseLocation()
+			local vp = camera.ViewportSize
+			local center = Vector2.new(vp.X / 2, vp.Y / 2 + GuiServiceInset.Y / 2)
+			local off = (mpos - center) / math.max(vp.Y, 1)
+			local maxYaw = math.rad(cfg.Turn)
+			f.yaw = f.yaw + math.clamp(off.X * 5, -1, 1) * maxYaw * dt
+			f.pitch = math.clamp(f.pitch + math.clamp(-off.Y * 5, -1, 1) * maxYaw * 0.8 * dt, math.rad(-75), math.rad(55))
+			f.bank = math.clamp(-off.X * 0.9, -0.4, 0.4)
 		else
+			local delta = UserInputService:GetMouseDelta()
+			local sens = 0.0036
 			-- положительный yaw крутит влево, поэтому знак мыши обратный старому
 			f.yaw = f.yaw - delta.X * sens
 			f.pitch = math.clamp(f.pitch - delta.Y * sens, math.rad(-70), math.rad(50))
@@ -6263,28 +6722,52 @@ RunService.RenderStepped:Connect(function(dt)
 		end
 		local rot = CFrame.Angles(f.pitch, f.yaw, f.bank or 0)
 		f.align.CFrame = rot - Vector3.new()
-		f.lvel.VectorVelocity = rot.LookVector * speed
+		-- инерция: скорость подтягивается к целевой, а не телепортируется
+		f.lvel.VectorVelocity = Util.lerp(f.lvel.VectorVelocity, rot.LookVector * speed, math.clamp(9 * dt, 0, 1))
+		-- гул мотора меняется от газа
+		if f.engineSound then
+			f.engineSound.PlaybackSpeed = f.enginePitch * (0.65 + f.throttle * 0.45)
+		end
 		local size = f.model:GetExtentsSize()
-		local back = math.clamp(size.Z * 0.4 + 9, 11, 26)
-		local height = math.clamp(size.Y + 4.5, 5, 12)
-		local desired = f.primary.Position - rot.LookVector * back + Vector3.new(0, height, 0)
-		camPos = camPos and Util.lerp(camPos, desired, math.clamp(12 * dt, 0, 1)) or desired
-		local aim = f.primary.Position + rot.LookVector * 28
 		local shakeOff = Vector3.new((math.random() - 0.5), (math.random() - 0.5), (math.random() - 0.5)) * shakePower
-		camera.CFrame = CFrame.lookAt(camPos + shakeOff, aim)
-		local look = camera.CFrame.LookVector
-		for _, part in ipairs(f.model:GetDescendants()) do
-			if part:IsA("BasePart") then
-				local rel = part.Position - camera.CFrame.Position
-				local along = rel:Dot(look)
-				local side = (rel - look * along).Magnitude
-				if rel.Magnitude < part.Size.Magnitude * 0.55 + 2 or (along > -1 and along < 7 and side < part.Size.Magnitude * 0.6 + 0.8) then
-					part.LocalTransparencyModifier = 1
-				else
-					part.LocalTransparencyModifier = 0
+		if f.view == "fpv" then
+			-- от 1-го лица: камера в носу, лёгкая вибрация, динамический FOV
+			local nose = f.primary.Position + rot.LookVector * math.clamp(size.Z * 0.5 + 0.5, 1.5, 10)
+			local noise = Vector3.new((math.random() - 0.5), (math.random() - 0.5), (math.random() - 0.5)) * (0.08 + shakePower * 0.3)
+			camera.CFrame = CFrame.new(nose + noise) * rot
+			camera.FieldOfView = 72 + math.clamp(speed * 0.06, 0, 16)
+			for _, part in ipairs(f.model:GetDescendants()) do
+				if part:IsA("BasePart") then part.LocalTransparencyModifier = 0 end
+			end
+		else
+			-- от 3-го лица (как было)
+			local back = math.clamp(size.Z * 0.4 + 9, 11, 26)
+			local height = math.clamp(size.Y + 4.5, 5, 12)
+			local desired = f.primary.Position - rot.LookVector * back + Vector3.new(0, height, 0)
+			camPos = camPos and Util.lerp(camPos, desired, math.clamp(12 * dt, 0, 1)) or desired
+			local aim = f.primary.Position + rot.LookVector * 28
+			camera.CFrame = CFrame.lookAt(camPos + shakeOff, aim)
+			camera.FieldOfView = 70
+			local look = camera.CFrame.LookVector
+			for _, part in ipairs(f.model:GetDescendants()) do
+				if part:IsA("BasePart") then
+					local rel = part.Position - camera.CFrame.Position
+					local along = rel:Dot(look)
+					local side = (rel - look * along).Magnitude
+					if rel.Magnitude < part.Size.Magnitude * 0.55 + 2 or (along > -1 and along < 7 and side < part.Size.Magnitude * 0.6 + 0.8) then
+						part.LocalTransparencyModifier = 1
+					else
+						part.LocalTransparencyModifier = 0
+					end
 				end
 			end
 		end
+	end
+
+	-- дальность до цели «Ланцета» на маркере
+	if flying and flying.cfg.Id == "lancet" and lancetMark and flying.attackPos then
+		local d = (flying.attackPos - flying.primary.Position).Magnitude
+		lancetMark.lbl.Text = string.format("ЦЕЛЬ ЗАХВАЧЕНА · %d м", math.floor(d))
 	end
 
 	-- режим подвесной камеры «Орлана»
@@ -6334,6 +6817,28 @@ task.spawn(function()
 				fpvGui.telR.Text = string.format("X: %d  Z: %d\n%s\nБОЕПРИПАСЫ: %d", math.floor(pos.X), math.floor(pos.Z), mode and ("РЕЖИМ: " .. mode:upper()) or "", ammo)
 				fpvGui.compass.Text = heading .. string.rep("  ·", 6) .. "  " .. heading
 				fpvGui.hpBar.Size = UDim2.new(math.max(hp / maxhp, 0) - 0.006, 0, 1, -4)
+				-- REC + время в воздухе
+				local t = math.floor(os.clock() - (f.startedAt or os.clock()))
+				local blink = math.floor(os.clock() * 1.5) % 2 == 0
+				if fpvGui.rec then
+					fpvGui.rec.Text = string.format("%s REC  %02d:%02d", blink and "●" or "○", math.floor(t / 60), t % 60)
+					fpvGui.rec.TextColor3 = blink and Color3.fromRGB(255, 70, 60) or Color3.fromRGB(160, 50, 45)
+				end
+				-- батарея (по топливу)
+				if fpvGui.battBar then
+					local frac = 1
+					if f.fuelMax and f.fuelMax > 0 then
+						frac = math.clamp((fuel >= 0 and fuel or 0) / f.fuelMax, 0, 1)
+					end
+					fpvGui.battBar.Size = UDim2.new(math.max(frac - 0.01, 0), 0, 1, -4)
+					fpvGui.battBar.BackgroundColor3 = frac > 0.3 and Color3.fromRGB(255, 210, 80) or Color3.fromRGB(255, 90, 60)
+				end
+				-- сигнал связи (по HP)
+				if fpvGui.sig then
+					local bars = math.ceil(math.clamp(hp / maxhp, 0, 1) * 5)
+					fpvGui.sig.Text = "СИГНАЛ: " .. string.rep("▮", bars) .. string.rep("▯", 5 - bars)
+					fpvGui.sig.TextColor3 = bars >= 3 and Color3.fromRGB(120, 255, 140) or Color3.fromRGB(255, 120, 90)
+				end
 				-- помехи при повреждении
 				if hp / maxhp < 0.5 then
 					fpvGui.gui.Enabled = math.random() > 0.06
@@ -6412,7 +6917,7 @@ operFXEv.OnClientEvent:Connect(function(payload)
 		end
 	elseif payload.type == "landed" then
 		stopFlying()
-		toast("Дрон сел на базу. Возврат 50% стоимости", Color3.fromRGB(120, 255, 140))
+		toast("Дрон вернулся на базу. Запускай снова — бесплатно!", Color3.fromRGB(120, 255, 140))
 		if isOperator() then shopGui.gui.Enabled = true end
 	elseif payload.type == "msg" then
 		toast(payload.text or "")
@@ -6449,6 +6954,14 @@ fpvGui = buildFpvHud()
 wasdGui = buildWasdHud()
 staticGui = buildStatic()
 shopGui = buildShop()
+
+-- сервер прислал список дронов, купленных навсегда
+unlockEv.OnClientEvent:Connect(function(list)
+	if type(list) == "table" then
+		unlockedSet = list
+		if shopGui and shopGui.refresh then shopGui.refresh() end
+	end
+end)
 
 local shopBtnGui = mk("ScreenGui", { Name = "ShopButton", ResetOnSpawn = false, DisplayOrder = 20 }, player:WaitForChild("PlayerGui"))
 local shopBtn = mk("TextButton", {
